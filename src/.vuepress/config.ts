@@ -5,6 +5,11 @@ import theme from "./theme.js";
 export default defineUserConfig({
   base: "/",
 
+  head: [
+    // 第一个参数是标签名，第二个是属性对象
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+  ],
+
   locales: {
     "/": {
       lang: "en-US",

@@ -19,7 +19,7 @@ export default hopeTheme({
   docsDir: "src",
 
   blog: {
-    avatar: "/.vuepress/figure/head.PNG",
+    avatar: "/.vuepress/public/head.PNG",
     medias: {
       BiliBili: "https://space.bilibili.com/34529907",
       // Email: "2022201384@ruc.edu.cn",
