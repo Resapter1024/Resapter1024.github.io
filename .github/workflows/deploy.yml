@@ -3,13 +3,10 @@
 name: Deploy GitHub Pages
 
 on:
-  # 当推送到 main 分支时触发部署
   push:
     branches: [main]
-  # 允许你手动在 Actions 页签中触发部署
   workflow_dispatch:
 
-# 设置 GITHUB_TOKEN 的权限，以便部署到 GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -29,12 +26,18 @@ jobs:
         with:
           node-version: 20
           cache: "npm"
-
+      
       - name: Install dependencies
-        run: npm install # 使用 npm install
+        run: npm ci
 
       - name: Build VuePress site
-        run: npm run docs:build # 运行你的构建命令
+        run: npm run docs:build
+      
+      # 新增一个步骤，将构建产物移动到一个更干净的目录，避免路径问题
+      - name: Prepare artifact
+        run: |
+          mkdir -p artifact
+          mv src/.vuepress/dist/* artifact/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -42,8 +45,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 从构建输出目录上传
-          path: src/.vuepress/dist
+          # 从我们准备好的干净目录上传
+          path: ./artifact
 
   deploy:
     needs: build
