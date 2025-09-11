@@ -96,37 +96,74 @@ export default hopeTheme({
 
   // These features are enabled for demo, only preserve features you need here
   markdown: {
-    align: true,
-    attrs: true,
-    codeTabs: true,
-    component: true,
-    demo: true,
-    figure: true,
+    // 启用 GFM 风格的 Markdown (表格、删除线等)
     gfm: true,
+    // 允许在图片上添加标题和说明
+    figure: true,
+    // 开启图片懒加载
     imgLazyload: true,
+    // 允许指定图片大小
     imgSize: true,
+    // 允许在 Markdown 中导入其他 Markdown 文件
     include: true,
+    // 启用高亮标记
     mark: true,
-    plantuml: true,
-    spoiler: true,
-    stylize: [
-      {
-        matcher: "Recommended",
-        replacer: ({ tag }) => {
-          if (tag === "em")
-            return {
-              tag: "Badge",
-              attrs: { type: "tip" },
-              content: "Recommended",
-            };
-        },
-      },
-    ],
+    // 启用脚注
+    footnote: true,
+    // 启用任务列表
+    tasklist: true,
+    // 启用上下角标
     sub: true,
     sup: true,
+    // 启用自定义对齐
+    align: true,
+    // 启用属性支持 (给标题等添加 class 或 id)
+    attrs: true,
+    // 启用代码块分组和代码块选项卡
+    codeTabs: true,
+    // 启用常规选项卡
     tabs: true,
-    tasklist: true,
-    vPre: true,
+    // 启用自定义容器 (tip, warning, danger, details)
+    // 这个默认就是开的，但我们明确写出来
+    // container: true, // (旧版写法，新版已集成)
+
+    // --- 以下是需要额外安装依赖的功能 ---
+
+    // 启用数学公式支持 (使用 KaTeX)
+    math: true,
+    // 启用图表支持 (Mermaid.js)
+    
+    // align: true,
+    // attrs: true,
+    // codeTabs: true,
+    // component: true,
+    // demo: true,
+    // figure: true,
+    // gfm: true,
+    // imgLazyload: true,
+    // imgSize: true,
+    // include: true,
+    // mark: true,
+    // plantuml: true,
+    // spoiler: true,
+    // stylize: [
+    //   {
+    //     matcher: "Recommended",
+    //     replacer: ({ tag }) => {
+    //       if (tag === "em")
+    //         return {
+    //           tag: "Badge",
+    //           attrs: { type: "tip" },
+    //           content: "Recommended",
+    //         };
+    //     },
+    //   },
+    // ],
+    // sub: true,
+    // sup: true,
+    // tabs: true,
+    // tasklist: true,
+    // vPre: true,
 
     // uncomment these if you need TeX support
     // math: {
