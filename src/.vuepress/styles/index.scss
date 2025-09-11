@@ -1,1 +1,17 @@
 // place your custom styles here
+// .vuepress/styles/index.scss
+
+// 根据真实的 HTML 结构编写的精确选择器
+.vp-blog-hero .vp-blog-hero-image {
+  // 1. 将图片强制变为圆形
+  border-radius: 50% !important;
+
+  // 2. 添加 5px 宽的白色实线边框
+  border: 5px solid white !important;
+
+  // 3. (可选, 但推荐) 移除主题可能自带的阴影效果
+  box-shadow: none !important;
+
+  // 4. (可选, 推荐) 确保边框被计算在图片尺寸之内
+  box-sizing: border-box !important;
+}

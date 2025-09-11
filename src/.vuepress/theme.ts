@@ -12,6 +12,11 @@ export default hopeTheme({
     // url: "https://mister-hope.com",
   },
 
+  darkmode: "switch",
+  fullscreen: true,
+
+  themeColor: true,
+
   logo: "/logo.PNG",
 
   repo: "Resapter1024/Resapter1024.github.io",
