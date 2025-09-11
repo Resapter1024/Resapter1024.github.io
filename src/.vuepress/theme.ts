@@ -14,12 +14,12 @@ export default hopeTheme({
 
   logo: "/logo.PNG",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "Resapter1024/Resapter1024.github.io",
 
   docsDir: "src",
 
   blog: {
-    avatar: "/.vuepress/public/head.PNG",
+    avatar: "/logo.PNG",
     medias: {
       BiliBili: "https://space.bilibili.com/34529907",
       // Email: "2022201384@ruc.edu.cn",
@@ -30,36 +30,13 @@ export default hopeTheme({
 
   locales: {
     "/": {
-      // navbar
-      navbar: enNavbar,
 
-      // sidebar
-      sidebar: enSidebar,
-
-      footer: "Default footer",
-
-      displayFooter: true,
-
-      blog: {
-        description: "A FrontEnd programmer",
-        intro: "/intro.html",
-      },
-
-      metaLocales: {
-        editLink: "Edit this page on GitHub",
-      },
-    },
-
-    /**
-     * Chinese locale config
-     */
-    "/zh/": {
       // navbar
       navbar: [
-        { text: "Resa的自习室", link: "/zh/", icon: "home" },
+        { text: "Resa的自习室", link: "/", icon: "home" },
         {
           text: "博文",
-          link: "/zh/article/",
+          link: "article/",
           icon: "pen-to-square"
         },
       ],
@@ -73,12 +50,37 @@ export default hopeTheme({
 
       blog: {
         description: "Per aspera ad astra.",
-        intro: "/zh/intro.html",
+        intro: "/intro.html",
       },
 
       // page meta
       metaLocales: {
         editLink: "在 GitHub 上编辑此页",
+      },
+    },
+
+    /**
+     * English locale config
+     */
+    "/en/": {
+      
+      // navbar
+      navbar: enNavbar,
+
+      // sidebar
+      sidebar: enSidebar,
+
+      footer: "Default footer",
+
+      displayFooter: true,
+
+      blog: {
+        description: "A FrontEnd programmer",
+        intro: "/en/intro.html",
+      },
+
+      metaLocales: {
+        editLink: "Edit this page on GitHub",
       },
     },
   },
