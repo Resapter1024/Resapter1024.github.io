@@ -5,7 +5,7 @@ import { enSidebar, zhSidebar } from "./sidebar/index.js";
 
 export default hopeTheme({
 
-  hostname: "https://mister-hope.github.io",
+  hostname: "https://Resapter1024.github.io",
 
   author: {
     name: "Resapter",
@@ -36,7 +36,7 @@ export default hopeTheme({
         { text: "Resa的自习室", link: "/", icon: "home" },
         {
           text: "博文",
-          link: "article/",
+          link: "/article/",
           icon: "pen-to-square"
         },
       ],
@@ -132,7 +132,7 @@ export default hopeTheme({
     // 启用数学公式支持 (使用 KaTeX)
     math: true,
     // 启用图表支持 (Mermaid.js)
-    
+
     // align: true,
     // attrs: true,
     // codeTabs: true,
