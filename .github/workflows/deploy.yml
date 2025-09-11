@@ -12,6 +12,11 @@ permissions:
   pages: write
   id-token: write
 
+# 只保留一个并发的部署，自动取消旧的运行
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,12 +37,15 @@ jobs:
 
       - name: Build VuePress site
         run: npm run docs:build
-      
-      # 新增一个步骤，将构建产物移动到一个更干净的目录，避免路径问题
-      - name: Prepare artifact
+
+      - name: Verify build output
         run: |
-          mkdir -p artifact
-          mv src/.vuepress/dist/* artifact/
+          echo "Listing contents of src/.vuepress/dist:"
+          ls -R src/.vuepress/dist
+          if [ ! -f "src/.vuepress/dist/index.html" ]; then
+            echo "Error: index.html not found in build output!"
+            exit 1
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -45,8 +53,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 从我们准备好的干净目录上传
-          path: ./artifact
+          path: src/.vuepress/dist
 
   deploy:
     needs: build
