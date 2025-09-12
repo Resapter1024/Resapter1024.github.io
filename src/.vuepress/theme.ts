@@ -15,8 +15,6 @@ export default hopeTheme({
   darkmode: "switch",
   fullscreen: true,
 
-  themeColor: true,
-
   logo: "/logo.PNG",
 
   repo: "Resapter1024/Resapter1024.github.io",
@@ -39,11 +37,31 @@ export default hopeTheme({
       // navbar
       navbar: [
         { text: "Resa的自习室", link: "/", icon: "home" },
-        {
+          {
+          // ↓↓↓↓↓↓ 这是修改后的“博文”下拉菜单 ↓↓↓↓↓
           text: "博文",
-          link: "/article/",
-          icon: "pen-to-square"
+          icon: "pen-to-square",
+          prefix: "/", // 可选：为下面的所有链接添加一个路径前缀
+          children: [
+            // 这是一个分组
+            {
+              text: "索引",
+              children: [
+                { text: "分类", link: "/category/" },
+                { text: "标签", link: "/tag/" },
+              ]
+            },
+            // 这是另一个分组
+            {
+              text: "列表",
+              children: [
+                { text: "文章列表", link: "/notes/" },
+                { text: "时间轴", link: "/timeline/" },
+              ]
+            }
+          ],
         },
+      // ↑↑↑↑↑↑ 修改结束 ↑↑↑↑↑↑
       ],
 
       // sidebar
@@ -136,7 +154,7 @@ export default hopeTheme({
 
     // 启用数学公式支持 (使用 KaTeX)
     math: true,
-    // 启用图表支持 (Mermaid.js)
+    // 启用图表支持 (Mermaid.js),
 
     // align: true,
     // attrs: true,
