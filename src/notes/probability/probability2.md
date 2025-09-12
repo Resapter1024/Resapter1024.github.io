@@ -9,6 +9,7 @@ date: 2025-09-12
 order: 2
 # 禁止显示页脚
 footer: false
+encrypt: true
 ---
 
 ## 古典概型

@@ -110,7 +110,7 @@ export default hopeTheme({
 
   encrypt: {
     config: {
-      // empty
+      "/notes/probability/probability2.html": "resa4201",// empty
     }
   },
 
