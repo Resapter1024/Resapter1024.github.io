@@ -245,9 +245,9 @@ $$
 
 (1) $\Omega\in\mathcal{F}\Rightarrow \varnothing=\overline{\Omega}\in\mathcal{F}$.
 
-(2) 令 $A_{n+k}=\varnothing\in\mathcal{F},k=1,2,\ldots$，则 $\displaystyle\bigcup_{i=1}^n A_i\in\mathcal{F}=\bigcup_{i=1}^\infty A_i\in\mathcal{F}\in\mathcal{F}$.
+(2) 令 $A_{n+k}=\varnothing\in\mathcal{F},k=1,2,\ldots$，则 $\displaystyle\bigcup_{i=1}^n A_i=\bigcup_{i=1}^\infty A_i\in\mathcal{F}$.
 
-(3) 由 De Morgan 律，$\displaystyle\bigcap_{n=1}^\infty A_n=\displaystyle\bigcup_{n=1}^\infty \overline{A_n}\in\mathcal{F}$
+(3) 由 De Morgan 律，$\displaystyle\bigcap_{n=1}^\infty A_n=\displaystyle\overline{\bigcup_{n=1}^\infty \overline{A_n}}\in\mathcal{F}$
 
 :::
 
