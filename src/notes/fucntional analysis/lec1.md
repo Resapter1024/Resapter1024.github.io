@@ -10,7 +10,7 @@ order: 1
 footer: false
 ---
 
-（本文为英文版笔记借助AI翻译得到，点击[这里](/src/en/notes/fucntional%20analysis/lecture1.md)查阅英文笔记）
+（本文为英文版笔记借助AI翻译得到，点击[这里](/en/notes/fucntional%20analysis/lecture1.md)查阅英文笔记）
 
 ## 线性空间
 

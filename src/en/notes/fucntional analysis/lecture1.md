@@ -9,6 +9,9 @@ date: 2025-09-13
 order: 1
 footer: false
 ---
+
+[Read this article in Chinese](/notes/fucntional%20analysis/lec1.md)
+
 ## Linear Space
 
 ### Definition
