@@ -15,3 +15,17 @@
   // 4. (可选, 推荐) 确保边框被计算在图片尺寸之内
   box-sizing: border-box !important;
 }
+
+
+:lang(en) {
+  // 1. 为整个英文页面的 body 设置 Palatino 字体
+  body, html {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", Times, serif;
+  }
+
+  // 2. 全局性地微调 KaTeX 公式的字号，让它与 Palatino 文本更协调
+  .katex {
+    // 这个值可以微调，0.92em 通常是一个比较好的起点
+    font-size: 0.95em !important;
+  }
+}

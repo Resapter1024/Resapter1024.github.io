@@ -88,17 +88,42 @@ export default hopeTheme({
     "/en/": {
       
       // navbar
-      navbar: enNavbar,
+      navbar: [
+        { text: "Resa's Self-Study Room", link: "/en/", icon: "home" },
+          {
+          // ↓↓↓↓↓↓ 这是修改后的“博文”下拉菜单 ↓↓↓↓↓
+          text: "Blog",
+          icon: "pen-to-square",
+          prefix: "/en/", 
+          children: [
+            {
+              text: "Index",
+              children: [
+                { text: "Category", link: "category/" },
+                { text: "Tag", link: "tag/" },
+              ]
+            },
+            {
+              text: "List",
+              children: [
+                { text: "Artical List", link: "notes/" },
+                { text: "Timeline", link: "timeline/" },
+              ]
+            }
+          ],
+        },
+      ],
+
 
       // sidebar
-      sidebar: enSidebar,
+      sidebar: "structure",
 
       footer: "Default footer",
 
       displayFooter: true,
 
       blog: {
-        description: "A FrontEnd programmer",
+        description: "Per aspera ad astra.",
         intro: "/en/intro.html",
       },
 
