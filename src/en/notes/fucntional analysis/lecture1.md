@@ -1,5 +1,5 @@
 ---
-title: Lec. 1 Linear Space: definition, examples and linear span
+title: "Lec. 1 Linear Space: definition, examples and linear span"
 category:
   - Functional Analysis
 tag:
