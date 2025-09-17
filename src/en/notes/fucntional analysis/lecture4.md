@@ -238,10 +238,10 @@ Finally, we get a Banach space $\overline{X}=Z/Y$ as a completion of $X$. But wh
 
 It is well-known that the space of rational numbers, $\mathbb{Q}$, is not complete. Let Z_Q be the set of all Cauchy sequences in \mathbb{Q}, and Y_Q be the set of all sequences in \mathbb{Q} that converge to 0. From Theorem 2, $\overline{\mathbb{Q}}=Z_\mathbb{Q}/Y_\mathbb{Q}$ is the completion of $\mathbb{Q}$.
 
-Each element [\mathbf{x}]\in \bar{\mathbb{Q}}$ falls into one of two cases:
+Each element $[\mathbf{x}]\in \overline{\mathbb{Q}}$ falls into one of two cases:
 
-1. The equivalence class [\mathbf{x}] contains a constant sequence $\{y,y,\ldots\}$ for some $y \in \mathbb{Q}$. This class corresponds to the rational number $y$ itself. We identify $[\{y,y,\ldots\}]$ with $y$.
-2. The equivalence class [\mathbf{x}] does not contain any constant sequence. This class defines a new, irrational number. For example, the number $\sqrt{2}$ is defined as the equivalence class containing the sequence $\{1, 1.4, 1.414, \ldots\}$.
+1. The equivalence class $[\mathbf{x}]$ contains a constant sequence $\{y,y,\ldots\}$ for some $y \in \mathbb{Q}$. This class corresponds to the rational number $y$ itself. We identify $[\{y,y,\ldots\}]$ with $y$.
+2. The equivalence class $[\mathbf{x}]$ does not contain any constant sequence. This class defines a new, irrational number. For example, the number $\sqrt{2}$ is defined as the equivalence class containing the sequence $\{1, 1.4, 1.414, \ldots\}$.
 
 This newly constructed complete space, $Z_\mathbb{Q}/Y_\mathbb{Q}$, is precisely what we call the set of real numbers, $\mathbb{R}$.
 :::

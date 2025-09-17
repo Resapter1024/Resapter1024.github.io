@@ -228,7 +228,7 @@ $$
 
 众所周知，有理数空间 $\mathbb{Q}$ 是不完备的。设 $Z_\mathbb{Q}$ 为 $\mathbb{Q}$ 中所有 Cauchy 序列的集合，$Y_\mathbb{Q}$ 为 $\mathbb{Q}$ 中所有收敛到 0 的序列的集合。根据定理 2，$\overline{\mathbb{Q}}=Z_\mathbb{Q}/Y_\mathbb{Q}$ 是 $\mathbb{Q}$ 的完备化。
 
-$\bar{\mathbb{Q}}$ 中的每个元素 $[\mathbf{x}]$ 可分为以下两种情况：
+$\overline{\mathbb{Q}}$ 中的每个元素 $[\mathbf{x}]$ 可分为以下两种情况：
 
 1. 等价类 $[\mathbf{x}]$ 包含一个由某个 $y \in \mathbb{Q}$ 构成的常数序列 $\{y,y,\ldots\}$。这个类对应于有理数 $y$ 本身。我们将 $[\{y,y,\ldots\}]$ 等同于 $y$。
 2. 等价类 $[\mathbf{x}]$ 不包含任何常数序列。这个类定义了一个新的、无理的数。例如，数 $\sqrt{2}$ 被定义为包含序列 $\{1, 1.4, 1.414, \ldots\}$ 的等价类。
