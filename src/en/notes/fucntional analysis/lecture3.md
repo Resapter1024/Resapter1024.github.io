@@ -212,10 +212,11 @@ Notice that the zero element of $X/Y$ is $[0]=Y$, because $z\in [0]\Leftrightarr
 3. $\forall x,y\in X, \|[x]+[y]\|=\|[x+y]\|=\inf\{\|z\|:z\in[x+y]\}$. For $z\in [x+y]=[x]+[y], \exist z_x\in[x],z_y\in[y]$ s.t. $z=z_x+z_y$. So $\|z\|\le \|z_x\|+\|z_y\|$. This implies $\inf\{\|z\|:z\in[x+y]\}\le \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$. And $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}=\|[x]\|+\|[y]\|$. So we neet to prove $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}\ge \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$. With the property of infimum, $\forall \varepsilon>0, \exist w_1\in[x],w_2\in[y]$ s.t. 
 
 $$
-\begin{matrix}
-  \inf \{\|z_x\|: z_x\in[x]\}\le \|w_1\|\le \inf \{\|z_x\|: z_x\in[x]\}+\dfrac{\varepsilon}{2} \\
-  \inf \{\|z_y\|: z_y\in[y]\}\le \|w_2\|\le \inf \{\|z_y\|: z_y\in[y]\}+\dfrac{\varepsilon}{2}
-\end{matrix}
+\inf \{\|z_x\|: z_x\in[x]\}\le \|w_1\|\le \inf \{\|z_x\|: z_x\in[x]\}+\dfrac{\varepsilon}{2}
+$$
+
+$$
+\inf \{\|z_y\|: z_y\in[y]\}\le \|w_2\|\le \inf \{\|z_y\|: z_y\in[y]\}+\dfrac{\varepsilon}{2}
 $$
 
 This implies that 

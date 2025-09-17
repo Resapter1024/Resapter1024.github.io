@@ -9,7 +9,6 @@ date: 2025-09-15
 order: 3
 footer: false
 ---
-
 （本文为英文版笔记借助AI翻译得到，点击[这里](/en/notes/fucntional%20analysis/lecture3.md)查阅英文笔记）
 
 ## 范数、距离与收敛
@@ -146,9 +145,11 @@ $$
 
 1. 如果 $X$ 是一个赋范线性空间，$Y\subset X$ 是一个线性子空间，那么 $Y$ 也是一个赋范线性空间，其范数继承自 $X$。
 2. 如果 $X_1$ 是赋有范数 $\|\cdot\|_1$ 的赋范线性空间，$X_2$ 是赋有范数 $\|\cdot\|_2$ 的赋范线性空间，那么积空间 $X_1\times X_2=\{(x_1,x_2):x_1\in X_1,x_2\in X_2\}$ 也是一个赋范线性空间。其范数可以通过以下三种方式之一来定义。
+
    1. $\|(x_1,x_2)\|_a=\|x_1\|_1+\|x_2\|_2$。
    2. $\|(x_1,x_2)\|_b=\max(\|x_1\|_1,\|x_2\|_2)$。
    3. $\|(x_1,x_2)\|_c=\sqrt{\|x_1\|_1^2+\|x_2\|_2^2}$。
+
    - 这些范数是等价的。
 3. 如果 $X$ 是赋有范数 $\|\cdot\|$ 的赋范线性空间，$Y\subset X$ 是一个线性子空间，其闭包为 $\overline{Y}=\{x\in X: \exist\{y_n\}\subset Y\ \text{s.t.}\ y_n\to x(n\to\infty)\}$。则 $\overline{Y}$ 也是一个赋有范数 $\|\cdot\|$ 的线性子空间。
 4. 假设 $X$ 是一个赋范线性空间，$Y$ 是 $X$ 的一个闭线性子空间，$X/Y$ 是 $X$ 模 $Y$ 的商空间。我们可以在其上定义一个范数
@@ -209,7 +210,7 @@ $$
 
 1. $\forall z\in [x], \|z\|\ge 0$，所以 $\|[x]\|\ge 0$。且 $\|[x]\|=0\Leftrightarrow \inf \{\|z\|: z\in [x]\}=0$，这意味着 $\exist \{z_j\}_{j\ge 1}\subset [x]$ s.t. $\|z_j\|\to 0$。所以 $z_j\to 0 (j\to \infty)$。同时，$z_j-x\in Y$，由于 $Y$ 是闭集，所以 $z_j-x\to 0-x=-x\in Y$。这表明 $x\in Y$，所以 $[x]\subset [0]$。一方面，设 $z\in [x]\Leftarrow z-x\in Y\Leftarrow z=z-x+x\in Y\Leftarrow z\in[0]$。另一方面，设 $z\in [0]=Y$，则 $z-x\in Y$，所以 $z\in[x]$。综上，$[x]=[0]$。
 2. $\forall \alpha\in \mathbb{K}, \|\alpha[x]\|=\|[\alpha x]\|=\inf \{\|y\|:y\in [\alpha x]\}$。如果 $\alpha=0$，$\|\alpha[x]\|=\inf \{\|y\|:y\in [0]\}=0=0\|[x]\|$。否则，我们有 $y\in [\alpha x]\Leftrightarrow \exist z\in [x]$ s.t. $y=\alpha z$。即 $\|[\alpha x]\|=\inf \{\|y\|:y\in [\alpha x]\}=\inf \{\|\alpha z\|:z\in [x]\}=|\alpha|\inf \{\|z\|:z\in [x]\}=|\alpha|\|[x]\|$。
-3. $\forall x,y\in X, \|[x]+[y]\|=\|[x+y]\|=\inf\{\|z\|:z\in[x+y]\}$。对于 $z\in [x+y]=[x]+[y], \exist z_x\in[x],z_y\in[y]$ s.t. $z=z_x+z_y$。所以 $\|z\|\le \|z_x\|+\|z_y\|$。这意味着 $\inf\{\|z\|:z\in[x+y]\}\le \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$。而 $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}=\|[x]\|+\|[y]\|$。所以我们需要证明 $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}\ge \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$。根据下确界的性质，$\forall \varepsilon>0, \exist w_1\in[x],w_2\in[y]$ s.t. 
+3. $\forall x,y\in X, \|[x]+[y]\|=\|[x+y]\|=\inf\{\|z\|:z\in[x+y]\}$。对于 $z\in [x+y]=[x]+[y], \exist z_x\in[x],z_y\in[y]$ s.t. $z=z_x+z_y$。所以 $\|z\|\le \|z_x\|+\|z_y\|$。这意味着 $\inf\{\|z\|:z\in[x+y]\}\le \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$。而 $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}=\|[x]\|+\|[y]\|$。所以我们需要证明 $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}\ge \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$。根据下确界的性质，$\forall \varepsilon>0, \exist w_1\in[x],w_2\in[y]$ s.t.
 
 $$
 \begin{matrix}
@@ -235,21 +236,21 @@ $$
 
 ## Banach 空间
 
-在介绍 Banach 空间之前，我们需要定义基于Cauchy序列的完备性概念。
+在介绍 Banach 空间之前，我们需要定义基于 Cauchy 序列的完备性概念。
 
 ::: info 定义 5 (完备空间)
 
-$X$ 是一个**完备空间**，当且仅当 $X$ 中的每个柯西序列都收敛到一个也在 $X$ 中的极限，这意味着 $\forall \{x_k\}\subset X$ 是一个柯西序列，$\exist x\in X$ s.t. $x_k\to x(k\to\infty)$。
+$X$ 是一个**完备空间**，当且仅当 $X$ 中的每个柯西序列都收敛到一个也在 $X$ 中的极限，这意味着 $\forall \{x_k\}\subset X$ 是一个 Cauchy 序列，$\exist x\in X$ s.t. $x_k\to x(k\to\infty)$。
 
 ::: info 定义 6 (Cauchy 序列)
 
-设 $X$ 是一个赋范线性空间，$\{x_k\}_{k\ge 1}\subset X$ 是其中的一个序列。称 $\{x_k\}$ 是一个**Cauchy序列**，当且仅当 $\|x_m-x_n\|\to 0 (m,n\to \infty)$，即 $\forall \varepsilon>0,\exist K>0$ s.t. $\forall m,n>K, \|x_m-x_n\|<\varepsilon$。
+设 $X$ 是一个赋范线性空间，$\{x_k\}_{k\ge 1}\subset X$ 是其中的一个序列。称 $\{x_k\}$ 是一个 **Cauchy 序列**，当且仅当 $\|x_m-x_n\|\to 0 (m,n\to \infty)$，即 $\forall \varepsilon>0,\exist K>0$ s.t. $\forall m,n>K, \|x_m-x_n\|<\varepsilon$。
 
 :::
 
 最后，我们可以定义在泛函分析中至关重要的 Banach 空间。
 
-::: info 定义 7 ( Banach 空间)
+::: info 定义 7 (Banach 空间)
 
 $X$ 是一个 **Banach 空间**，如果 $X$ 是一个完备的赋范线性空间。
 

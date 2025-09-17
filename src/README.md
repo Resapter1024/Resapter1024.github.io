@@ -4,7 +4,6 @@ layout: Blog
 icon: house
 title: Resa 的自习室
 heroImage: 
-bgImage: /assets/images/back2.jpeg
 heroText: Resa 的自习室
 heroFullScreen: true
 tagline: Per aspera ad astra.
