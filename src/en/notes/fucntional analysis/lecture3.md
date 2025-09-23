@@ -55,8 +55,6 @@ Intuitively, the norm in a linear space is similar to "the absolute value" or "t
 1. $\forall x,y\in X$,$|\|x\|-\|y\||\le \|x-y\|$.
 2. $\forall x\in X, \|-x\|=\|x\|$.
 
-:::
-
 ::: details Proof of Observations
 
 1. With property 3, $\|x\|=\|x-y+y\|\le \|x-y\|+\|y\|$, that is $\|x\|-\|y\|\le \|x-y\|$. By swapping $x$ and $y$, we get $\|y\|-\|x\|\le \|x-y\|$. That implies $|\|x\|-\|y\||\le \|x-y\|$.
@@ -87,8 +85,6 @@ d(x,y)=\|x-y\|
 $$
 
 which is the distance on $X$.
-
-:::
 
 ::: details Proof of Theorem 1
 
@@ -130,8 +126,6 @@ Let $\|\cdot\|_1$ and $\|\cdot\|_2$ be equivalent in the linear space $X$. Then 
 
 The theorem shows that the equivalent norms will give rise to the same topology structures, therefore to the same open and closed sets.
 
-:::
-
 ::: details Proof of Theorem 2
 
 We have $\|x_n-x\|_1\to 0, n\to\infty$, that is $\forall \varepsilon>0, \exist N>0$ s.t. $\forall n>N, \|x_n-x\|_1<c\varepsilon$.
@@ -151,84 +145,73 @@ There is some examples of normed linear space as follows.
    3. $\|(x_1,x_2)\|_c=\sqrt{\|x_1\|_1^2+\|x_2\|_2^2}$.
    - These norms are equivalent.
 3. If $X$ is a normed linear space with the norm $\|\cdot\|$ and $Y\subset X$ is a linear subspace, the closure $\overline{Y}=\{x\in X: \exist\{y_n\}\subset Y\ \text{s.t.}\ y_n\to x(n\to\infty)\}$. Then $\overline{Y}$ is also a linear subspace with the norm $\|\cdot\|$.
-4. Suppose $X$ is a normed linear space and $Y$ is a  linear subspace of $X$, which is a closed set, $X/Y$ is the quotient space of $X$ modulo $Y$. We can define a norm on it as
-
-$$
-\|[x]\|=\inf\{\|z\|,z\in [x]\}
-$$
-
-So $X/Y$ is a normed linear space.
-
-:::
 
 ::: details Proof of the Equivalence of 3 Norms in Example 2
 
 1. Let $c_1 = \dfrac{1}{2}$, then
-
-$$
-\begin{align*}
-  c_1\max(\|x_1\|_1,\|x_2\|_2) & \le \max(\|x_1\|_1,\|x_2\|_2) \\
-  & \le \|x_1\|_1+\|x_2\|_2 \\ 
-  & \le 2 \max(\|x_1\|_1,\|x_2\|_2) \\
-  &=\dfrac{1}{c_1}\max(\|x_1\|_1,\|x_2\|_2)
-\end{align*}
-$$
-
-this implies $\|(x_1,x_2)\|_a$ is equivalent with $\|(x_1,x_2)\|_b$.
-
+    $$
+    \begin{align*}
+      c_1\max(\|x_1\|_1,\|x_2\|_2) & \le \max(\|x_1\|_1,\|x_2\|_2) \\
+      & \le \|x_1\|_1+\|x_2\|_2 \\ 
+      & \le 2 \max(\|x_1\|_1,\|x_2\|_2) \\
+      &=\dfrac{1}{c_1}\max(\|x_1\|_1,\|x_2\|_2)
+    \end{align*}
+    $$
+    this implies $\|(x_1,x_2)\|_a$ is equivalent with $\|(x_1,x_2)\|_b$.
 2. Let $c_2 = \dfrac{1}{\sqrt{2}}$, then
-
-$$
-\begin{align*}
-  c_2 (\|x_1\|_1+\|x_2\|_2) & = \sqrt{2} \frac{\|x_1\|_1+\|x_2\|_2}{2} \\
-  & \le \sqrt{\|x_1\|_1^2+\|x_2\|_2^2} \\
-  & \le \|x_1\|_1+\|x_2\|_2 \\
-  & \le \dfrac{1}{c_2} (\|x_1\|_1+\|x_2\|_2)
-\end{align*}
-$$
-
-this implies $\|(x_1,x_2)\|_c$ is equivalent with $\|(x_1,x_2)\|_a$.
-
+    $$
+    \begin{align*}
+      c_2 (\|x_1\|_1+\|x_2\|_2) & = \sqrt{2} \frac{\|x_1\|_1+\|x_2\|_2}{2} \\
+      & \le \sqrt{\|x_1\|_1^2+\|x_2\|_2^2} \\
+      & \le \|x_1\|_1+\|x_2\|_2 \\
+      & \le \dfrac{1}{c_2} (\|x_1\|_1+\|x_2\|_2)
+    \end{align*}
+    $$
+    this implies $\|(x_1,x_2)\|_c$ is equivalent with $\|(x_1,x_2)\|_a$.
 3. Let $c_3 = \dfrac{1}{\sqrt{2}}$, then
+    $$
+    \begin{align*}
+      c_3 \max(\|x_1\|_1,\|x_2\|_2) & \le \max(\|x_1\|_1,\|x_2\|_2) \\
+      & \le \sqrt{\|x_1\|_1^2+\|x_2\|_2^2} \\
+      & \le \sqrt{2} \max(\|x_1\|_1,\|x_2\|_2) \\
+      & = \dfrac{1}{c_3} \max(\|x_1\|_1,\|x_2\|_2)
+    \end{align*}
+    $$
+    this implies $\|(x_1,x_2)\|_b$ is equivalent with $\|(x_1,x_2)\|_c$.
 
-$$
-\begin{align*}
-  c_3 \max(\|x_1\|_1,\|x_2\|_2) & \le \max(\|x_1\|_1,\|x_2\|_2) \\
-  & \le \sqrt{\|x_1\|_1^2+\|x_2\|_2^2} \\
-  & \le \sqrt{2} \max(\|x_1\|_1,\|x_2\|_2) \\
-  & = \dfrac{1}{c_3} \max(\|x_1\|_1,\|x_2\|_2)
-\end{align*}
-$$
-
-this implies $\|(x_1,x_2)\|_b$ is equivalent with $\|(x_1,x_2)\|_c$.
 :::
 
-::: details Proof of the Norm of the Quotient Space
+Specifically, quotient space can always be normed. Theorem 3 ensures it.
+
+::: info Theorem 3 (the Norm of the Quotient Space)
+
+Suppose $X$ is a normed linear space and $Y$ is a linear subspace of $X$, which is a closed set, $X/Y$ is the quotient space of $X$ modulo $Y$. We can define a norm on it as
+    $$
+    \|[x]\|=\inf\{\|z\|,z\in [x]\}
+    $$
+    So $X/Y$ is a normed linear space.
+
+::: details Proof of Theorem 3
 
 Notice that the zero element of $X/Y$ is $[0]=Y$, because $z\in [0]\Leftrightarrow z-0=z\in Y$. Then we need to verify three properties of the norm.
 
 1. $\forall z\in [x], \|z\|\ge 0$, So $\|[x]\|\ge 0$. And $\|[x]\|=0\Leftrightarrow \inf \{\|z\|: z\in [x]\}=0$, which means $\exist \{z_j\}_{j\ge 1}\subset [x]$ s.t. $\|z_j\|\to 0$. So $z_j\to 0 (j\to \infty)$. Meanwhile, $z_j-x\in Y$, that is $z_j-x\to 0-x=-x\in Y$ because $Y$ is a closed set. This implies $x\in Y$, so $[x]\subset [0]$. On the one hand, let $z\in [x]\Leftarrow z-x\in Y\Leftarrow z=z-x+x\in Y\Leftarrow z\in[0]$. On the other hand, let $z\in [0]=Y$, $z-x\in Y$, so $z\in[x]$. In conclusion, $[x]=[0]$.
 2. $\forall \alpha\in \mathbb{K}, \|\alpha[x]\|=\|[\alpha x]\|=\inf \{\|y\|:y\in [\alpha x]\}$. If $\alpha=0$, $\|\alpha[x]\|=\inf \{\|y\|:y\in [0]\}=0=0\|[x]\|$. Otherwise, we have $y\in [\alpha x]\Leftrightarrow \exist z\in [x]$ s.t. $y=\alpha z$. That is $\|[\alpha x]\|=\inf \{\|y\|:y\in [\alpha x]\}=\inf \{\|\alpha z\|:z\in [x]\}=|\alpha|\inf \{\|z\|:z\in [x]\}=|\alpha|\|[x]\|$.
-3. $\forall x,y\in X, \|[x]+[y]\|=\|[x+y]\|=\inf\{\|z\|:z\in[x+y]\}$. For $z\in [x+y]=[x]+[y], \exist z_x\in[x],z_y\in[y]$ s.t. $z=z_x+z_y$. So $\|z\|\le \|z_x\|+\|z_y\|$. This implies $\inf\{\|z\|:z\in[x+y]\}\le \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$. And $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}=\|[x]\|+\|[y]\|$. So we neet to prove $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}\ge \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$. With the property of infimum, $\forall \varepsilon>0, \exist w_1\in[x],w_2\in[y]$ s.t. 
-
-$$
-\inf \{\|z_x\|: z_x\in[x]\}\le \|w_1\|\le \inf \{\|z_x\|: z_x\in[x]\}+\dfrac{\varepsilon}{2}
-$$
-
-$$
-\inf \{\|z_y\|: z_y\in[y]\}\le \|w_2\|\le \inf \{\|z_y\|: z_y\in[y]\}+\dfrac{\varepsilon}{2}
-$$
-
-This implies that 
-
-$$
-\begin{align*}
-  \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\} &\le \|w_1\|+\|w_2\| \\
-  &\le \inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|: z_y\in[y]\}+\varepsilon
-\end{align*}
-$$
-
-Let $\varepsilon\to 0$, we have $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}\ge \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$. So the triangle inequality is proven.
+3. $\forall x,y\in X, \|[x]+[y]\|=\|[x+y]\|=\inf\{\|z\|:z\in[x+y]\}$. For $z\in [x+y]=[x]+[y], \exist z_x\in[x],z_y\in[y]$ s.t. $z=z_x+z_y$. So $\|z\|\le \|z_x\|+\|z_y\|$. This implies $\inf\{\|z\|:z\in[x+y]\}\le \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$. And $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}=\|[x]\|+\|[y]\|$. So we neet to prove $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}\ge \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$. With the property of infimum, $\forall \varepsilon>0, \exist w_1\in[x],w_2\in[y]$ s.t.
+    $$
+    \inf \{\|z_x\|: z_x\in[x]\}\le \|w_1\|\le \inf \{\|z_x\|: z_x\in[x]\}+\dfrac{\varepsilon}{2}
+    $$
+    $$
+    \inf \{\|z_y\|: z_y\in[y]\}\le \|w_2\|\le \inf \{\|z_y\|: z_y\in[y]\}+\dfrac{\varepsilon}{2}
+    $$
+    This implies that
+    $$
+    \begin{align*}
+      \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\} &\le \|w_1\|+\|w_2\| \\
+      &\le \inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|: z_y\in[y]\}+\varepsilon
+    \end{align*}
+    $$
+    Let $\varepsilon\to 0$, we have $\inf \{\|z_x\|: z_x\in[x]\}+\inf \{\|z_y\|:z_y\in[y]\}\ge \inf \{\|z_x\|+\|z_y\|: z_x\in[x],z_y\in[y]\}$. So the triangle inequality is proven.
 
 In conclusion, $\|[x]\|$ is a norm.
 

@@ -42,8 +42,6 @@ There are some basic properties of a Linear Space.
 1. For $0\in \mathbb{K}$, which is the neutral element of $\mathbb{K}$'s $+$, and $x\in X$, we have $0 x=0\in X$.
 2. $\forall x\in X$, we have $(-1)x=-x$, which is the additive inverse of $x$.
 
-:::
-
 ::: details Proof of the properties
 
 1. $0x=(0+0)x=0x+0x\Rightarrow 0x=0\in X$.
@@ -91,27 +89,20 @@ $$
 
 is also a linear subspace.
 
-:::
-
 ::: details Proof of the properties
 
 1. $\forall \alpha\in\mathbb{K}, \alpha 0+0=0\in Y$.
 2. $\forall x_1,x_2\in Y,\exist y_{11},y_{21}\in Y_1, y_{12},y_{22}\in Y_2$ s.t. $x_1=y_{11}+y_{12},x_2=y_{21}+y_{22}$.
 So $\forall \alpha\in\mathbb{K}$, we have $\alpha y_{11}+y_{21}\in Y_1,\alpha y_{12}+y_{22}\in Y_2$, this implies that
-
-$$
-\alpha x_1+x_2=\alpha (y_{11}+y_{12})+ (y_{21}+y_{22})=(\alpha y_{11}+y_{21})+(\alpha y_{12}+y_{22})\in Y_1+Y_2
-$$
-
+    $$
+    \alpha x_1+x_2=\alpha (y_{11}+y_{12})+ (y_{21}+y_{22})=(\alpha y_{11}+y_{21})+(\alpha y_{12}+y_{22})\in Y_1+Y_2
+    $$
 3. $\forall x,y\in Y$, we have $\forall \theta\in I, x,y\in Y_\theta$. Because $Y_\theta$ is a linear subspace, $\forall \alpha\in\mathbb{K}$,
-
-$$
-\alpha x+y\in Y_\theta, \forall \theta\in I
-$$
-
-which means $\alpha x+y\in \displaystyle\bigcap_{\theta\in I}Y_\theta=Y$. This implies that $Y$ is also a linear subspace.
-
-- Notice: this proof doesn't have to assume that $I$ is a countable set.
+    $$
+    \alpha x+y\in Y_\theta, \forall \theta\in I
+    $$
+    which means $\alpha x+y\in \displaystyle\bigcap_{\theta\in I}Y_\theta=Y$. This implies that $Y$ is also a linear subspace.
+    - Notice: this proof doesn't have to assume that $I$ is a countable set.
 
 :::
 
@@ -125,15 +116,13 @@ A family of set $\{Y_\theta:\theta\in I\}$ is **totally ordered** if $\forall \t
 
 ::: tip Properties of linear subspace
 
-4. If a family of linear subspace $\{Y_\theta: \theta\in I\}$ is totally ordered, we have 
+1. If a family of linear subspace $\{Y_\theta: \theta\in I\}$ is totally ordered, we have 
 
 $$
 Y=\bigcup_{\theta\in I}Y_\theta
 $$
 
 is also a linear subspace of $X$.
-
-:::
 
 ::: details Proof of the properties
 
@@ -159,7 +148,6 @@ The following properties of linear span will give different descriptions of $\ma
 
 ::: tip Property 1 of linear span
 The linear span of $S$ is the smallest linear subspace which contains $S$.
-:::
 
 ::: details Proof of Property 1
 On the one hand, $\mathrm{LS}(S)$ is a linear subspace, because it is an intersection of linear subspaces.
@@ -177,8 +165,6 @@ $$
 $$
 
 This means $\mathrm{LS}(S)$ is formed by all linear combinations of elements of $S$.
-
-:::
 
 ::: details Proof of Property 2
 

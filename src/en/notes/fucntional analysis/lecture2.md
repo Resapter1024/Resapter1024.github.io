@@ -48,24 +48,17 @@ We call the quotient space as a "space", so we define a special addition and sca
 1. For $[x], [y]\in X|Y$, take arbitrary representatives $x_1\in [x],y_1\in [y]$. we define addition as $[x]+[y]=[x_1+y_1]$.
 2. For $[x]\in X|Y$ and $\alpha\in\mathbb{K}$, take an arbitrary $x_1\in [x]$, we define scalar multiplication as $\alpha\cdot[x]=[\alpha x_1]$
 
-:::
-
 ::: details Proof of well-definedness
 
 1. Obviously that $[x],[y]$ is not empty set. We must check that this definition of addition is independent of the choice of representatives. Consider $x_1,x_2\in[x], y_1,y_2\in[y]$, we have
-
-$$
-x-x_1,x_2-x, y-y_1,y_2-y\in Y
-$$
-
-because $Y$ is a linear subspace, we have
-
-$$
-x_2-x_1, y_2-y_1\in Y \Rightarrow (x_2+y_2)-(x_1+y_1)\in Y
-$$
-
-which means $x_1+y_1\sim x_2+y_2$. $\forall z\in [x_1+y_1]$, we have $z\sim x_1+y_1\Rightarrow z\sim [x_2+y_2]\Rightarrow z\in [x_2+y_2]$. That is $[x_1+y_1]\subset [x_2+y_2]$. Similarly, we have $[x_1+y_1]\supset [x_2+y_2]$. This implies $[x_1+y_1]=[x_2+y_2]$, so the uniqueness is proven.
-
+    $$
+    x-x_1,x_2-x, y-y_1,y_2-y\in Y
+    $$
+    because $Y$ is a linear subspace, we have
+    $$
+    x_2-x_1, y_2-y_1\in Y \Rightarrow (x_2+y_2)-(x_1+y_1)\in Y
+    $$
+    which means $x_1+y_1\sim x_2+y_2$. $\forall z\in [x_1+y_1]$, we have $z\sim x_1+y_1\Rightarrow z\sim [x_2+y_2]\Rightarrow z\in [x_2+y_2]$. That is $[x_1+y_1]\subset [x_2+y_2]$. Similarly, we have $[x_1+y_1]\supset [x_2+y_2]$. This implies $[x_1+y_1]=[x_2+y_2]$, so the uniqueness is proven.
 2. With the same argument, we can prove the scalar multiplication is well-defined.
 
 :::
@@ -105,8 +98,6 @@ Linear map has two great properties as follows.
 1. Let $Y$ be a linear subspace of $X$ and $T$ is a linear map from $X$ to $X^*$. Then $T(Y)={T(y):y\in Y}$ is also a linear subspace of $X^*$.
 2. Let $Y^*$ is the linear subspace of $X^*$. We have the inverse image of $Y^*$, which is denoted as $T^{-1}(Y^*)=\{x\in X:T(x)\in Y^*\}$, is also a linear subspace of $X$.
 
-:::
-
 ::: details Proof of the properties
 
 1. $\forall z_1,z_2\in T(Y),\exist y_1,y_2$ s.t. $T(y_1)=z_1,T(y_2)=z_2$. So $\forall\alpha\in\mathbb{K}, \alpha z_1+z_2=\alpha T(y_1)+T(y_2)=T(\alpha y_1+y_2)\in T(Y)$, that proves $T(Y)$ is a linear subspace.
@@ -137,10 +128,6 @@ $$
 
 This sum's called a **convex combination** of $x_1, \dots, x_n$.
 
-:::
-
-</div>
-
 ::: details Proof of Theorem 1
 
 When $n=1,2$, the conclusion is obvious.
@@ -159,6 +146,8 @@ By the inductive hypothesis, we have $\displaystyle\left(\sum_{i=1}^k \frac{\alp
 By Mathematical Induction, Theorem 1 is proven.
 :::
 
+</div>
+
 Convex sets have many great properties as follows.
 
 ::: tip Properties of convex sets
@@ -166,52 +155,37 @@ Convex sets have many great properties as follows.
 1. If $Y$ is a linear subspace, $Y$ is convex.
 2. Let $Y_1,Y_2$ are convex, then $Y_1+Y_2$ is convex.
 3. Let $\{V_\theta:\theta\in I\}$ is a family of convex sets, then
-
-$$
-V=\bigcap_{\theta\in I}V_\theta
-$$
-
-is also convex.
-
+    $$
+    V=\bigcap_{\theta\in I}V_\theta
+    $$
+    is also convex.
 4. Let $\{V_\theta:\theta\in I\}$ is a totally ordered family of convex sets, then
+    $$
+    V=\bigcup_{\theta\in I}V_\theta
+    $$
+    is also convex.
 
-$$
-V=\bigcup_{\theta\in I}V_\theta
-$$
-
-is also convex.
-
-:::
-
-::: details Proof of properties
+::: details Proof of property 1-4
 
 1. It's obvious that $\forall x_1,x_2\in Y,\alpha\in[0,1],\alpha x_1+(1-\alpha)x_2\in Y$.
 2. Suppose $z_1=y_{11}+y_{12},z_2=y_{21}+y_{22}\in Y_1+Y_2$ with $y_{11},y_{21}\in Y_1,y_{12},y_{22}\in Y_2$. $\forall \alpha\in[0,1]$, we have
-
-$$
-\begin{align*}
-    \alpha z_1+(1-\alpha)z_2 &=\alpha (y_{11}+y_{12})+(1-\alpha)(y_{21}+y_{22})\\
-    &=(\alpha y_{11}+(1-\alpha)y_{21})+(\alpha y_{12}+(1-\alpha)y_{22})\in Y_1+Y_2
-\end{align*}
-$$
-
-So $Y_1+Y_2$ is convex.
-
+    $$
+    \begin{align*}
+        \alpha z_1+(1-\alpha)z_2 &=\alpha (y_{11}+y_{12})+(1-\alpha)(y_{21}+y_{22})\\
+        &=(\alpha y_{11}+(1-\alpha)y_{21})+(\alpha y_{12}+(1-\alpha)y_{22})\in Y_1+Y_2
+    \end{align*}
+    $$
+    So $Y_1+Y_2$ is convex.
 3. $\forall \alpha\in[0,1]$ and $x,y\in V$, we have $\forall \theta\in I, x,y\in V_\theta$. With the definition of convex, we have
-
-$$
-\alpha x+(1-\alpha)y\in V_\theta, \forall \theta\in I
-$$
-
-So $\alpha x+(1-\alpha)y\in V$, which means $V$ is convex.
-
+    $$
+    \alpha x+(1-\alpha)y\in V_\theta, \forall \theta\in I
+    $$
+    So $\alpha x+(1-\alpha)y\in V$, which means $V$ is convex.
 4. $\forall \alpha\in[0,1]$ and $x,y\in V$, there exist $\theta_x,\theta_y$ s.t. $x\in V_{\theta_x}, Y\in V_{\theta_y}$. Because the family is totally ordered, we assume without loss of generality that $V_{\theta_x}\subset V_{\theta_y}$. So $x,y\in V_{\theta_y}$. This implies
-
-$$
-\alpha x+(1-\alpha)y\in V_{\theta_y}\subset V
-$$
-
-which means $V$ is convex.
+    $$
+    \alpha x+(1-\alpha)y\in V_{\theta_y}\subset V
+    $$
+    which means $V$ is convex.
 
 :::
 
@@ -223,12 +197,10 @@ The properties of convex sets and their proofs above show that convex sets are s
    - The property means the linear maps send convex sets to convex sets.
 6. Let $V\subset Y$ is convex and $T:X\to Y$ is a linear map. Then $T^{-1}(V)$ is also convex.
 
-:::
-
 ::: details Proof of Property 5-6
 
-1. $\forall \alpha\in[0,1]$ and $z_x,z_y\in T(V)$, $\exist x,y\in V$ s.t. $z_x=T(x),z_y=T(y)$. So $\alpha z_x+(1-\alpha) z_y=\alpha T(x)+(1-\alpha) T(y)=T(\alpha x+(1-\alpha)y)\in T(V)$, which means $T(V)$ is convex.
-2. $\forall \alpha\in[0,1]$ and $x,y\in T^{-1}(V)$, $\exist z_x, z_y\in V$ s.t. $z_x=T(x),z_y=T(y)$. So $\alpha z_x+(1-\alpha)z_y=\alpha T(x)+(1-\alpha)T(y)=T(\alpha x+(1-\alpha)y)\in V$, which means $\alpha x+(1-\alpha)y\in T^{-1}(V)$
+5. $\forall \alpha\in[0,1]$ and $z_x,z_y\in T(V)$, $\exist x,y\in V$ s.t. $z_x=T(x),z_y=T(y)$. So $\alpha z_x+(1-\alpha) z_y=\alpha T(x)+(1-\alpha) T(y)=T(\alpha x+(1-\alpha)y)\in T(V)$, which means $T(V)$ is convex.
+6. $\forall \alpha\in[0,1]$ and $x,y\in T^{-1}(V)$, $\exist z_x, z_y\in V$ s.t. $z_x=T(x),z_y=T(y)$. So $\alpha z_x+(1-\alpha)z_y=\alpha T(x)+(1-\alpha)T(y)=T(\alpha x+(1-\alpha)y)\in V$, which means $\alpha x+(1-\alpha)y\in T^{-1}(V)$
 
 :::
 
@@ -254,8 +226,6 @@ Obviously, $\mathrm{CV}(S)$ is a convex set, because it's an intersection of con
 
 1. $\mathrm{CV}(S)$ is the smallest convex set which contains $S$.
 
-:::
-
 ::: details Proof of Property 1
 On the one hand, $\mathrm{CV}(S)$ is a convex set.
 
@@ -272,8 +242,6 @@ $$
 $$
 
 This means $\mathrm{CV}(S)$ is the set of all convex combinations of elements of $S$.
-
-:::
 
 ::: details Proof of Property 2
 

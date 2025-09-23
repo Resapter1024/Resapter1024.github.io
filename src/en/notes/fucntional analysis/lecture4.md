@@ -91,8 +91,6 @@ $$
 
 as a norm of the space.
 
-:::
-
 ::: details Proof of Theorem 1
 
 First of all, we need to prove that the limit exists.
@@ -126,8 +124,6 @@ Actually, we introduce the space $Z/Y$ is because we hope $\|[\mathbf{x}]\|=\dis
 ::: tip Theorem 2
 
 $\overline{X}$ is a complete normed linear space.
-
-:::
 
 ::: details Proof of Theorem 2
 
@@ -236,7 +232,7 @@ Finally, we get a Banach space $\overline{X}=Z/Y$ as a completion of $X$. But wh
 
 ::: tip Completion of $\mathbb{Q}$
 
-It is well-known that the space of rational numbers, $\mathbb{Q}$, is not complete. Let Z_Q be the set of all Cauchy sequences in \mathbb{Q}, and Y_Q be the set of all sequences in \mathbb{Q} that converge to 0. From Theorem 2, $\overline{\mathbb{Q}}=Z_\mathbb{Q}/Y_\mathbb{Q}$ is the completion of $\mathbb{Q}$.
+It is well-known that the space of rational numbers, $\mathbb{Q}$, is not complete. Let $Z_Q$ be the set of all Cauchy sequences in \mathbb{Q}, and $Y_Q$ be the set of all sequences in \mathbb{Q} that converge to $0$. From Theorem 2, $\overline{\mathbb{Q}}=Z_\mathbb{Q}/Y_\mathbb{Q}$ is the completion of $\mathbb{Q}$.
 
 Each element $[\mathbf{x}]\in \overline{\mathbb{Q}}$ falls into one of two cases:
 

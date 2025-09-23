@@ -48,24 +48,17 @@ $X$ 模 $Y$ 的**商空间**是 $\{[x]: x\in X\}$，记作 $X/Y$。
 1. 对于 $[x], [y]\in X/Y$，任取代表元 $x_1\in [x],y_1\in [y]$。我们定义加法为 $[x]+[y]=[x_1+y_1]$。
 2. 对于 $[x]\in X/Y$ 和 $\alpha\in\mathbb{K}$，任取代表元 $x_1\in [x]$，我们定义数乘为 $\alpha\cdot[x]=[\alpha x_1]$。
 
-:::
-
 ::: details 良定义性（well-definedness）的证明
 
 1. 首先，$[x]$ 和 $[y]$ 显然不是空集。我们必须检验该加法定义不依赖于代表元的选取。考虑 $x_1,x_2\in[x], y_1,y_2\in[y]$，我们有
-
-$$
-x_1-x,x_2-x, y_1-y,y_2-y\in Y
-$$
-
-因为 $Y$ 是一个线性子空间，我们有
-
-$$
-x_2-x_1, y_2-y_1\in Y \Rightarrow (x_2+y_2)-(x_1+y_1)\in Y
-$$
-
-这意味着 $x_1+y_1\sim x_2+y_2$。对于任意 $z\in [x_1+y_1]$，我们有 $z\sim x_1+y_1$，由传递性可得 $z\sim x_2+y_2$，从而 $z\in [x_2+y_2]$。这表明 $[x_1+y_1]\subset [x_2+y_2]$。同理可得 $[x_1+y_1]\supset [x_2+y_2]$。因此 $[x_1+y_1]=[x_2+y_2]$，唯一性得证。
-
+    $$
+    x_1-x,x_2-x, y_1-y,y_2-y\in Y
+    $$
+    因为 $Y$ 是一个线性子空间，我们有
+    $$
+    x_2-x_1, y_2-y_1\in Y \Rightarrow (x_2+y_2)-(x_1+y_1)\in Y
+    $$
+    这意味着 $x_1+y_1\sim x_2+y_2$。对于任意 $z\in [x_1+y_1]$，我们有 $z\sim x_1+y_1$，由传递性可得 $z\sim x_2+y_2$，从而 $z\in [x_2+y_2]$。这表明 $[x_1+y_1]\subset [x_2+y_2]$。同理可得 $[x_1+y_1]\supset [x_2+y_2]$。因此 $[x_1+y_1]=[x_2+y_2]$，唯一性得证。
 2. 通过同样的论证，我们可以证明数乘运算也是良定义的。
 
 :::
@@ -86,6 +79,7 @@ $$
 ::: info 定义 4 (线性映射)
 
 对于同一数域 $\mathbb{K}$ 上的两个线性空间 $X$ 和 $X^*$，$T:X\to X^*$ 是一个**线性映射**，如果
+
 1. $T(x+y)=T(x)+T(y)$;
 2. $T(\alpha x)=\alpha T(x)$。
 
@@ -103,8 +97,6 @@ $$
 
 1. 设 $Y$ 是 $X$ 的一个线性子空间，$T$ 是一个从 $X$ 到 $X^*$ 的线性映射。则 $T(Y)={T(y):y\in Y}$ 也是 $X^*$ 的一个线性子空间。
 2. 设 $Y^*$ 是 $X^*$ 的一个线性子空间。$Y^*$ 的原像，记作 $T^{-1}(Y^*)=\{x\in X:T(x)\in Y^*\}$，也是 $X$ 的一个线性子空间。
-
-:::
 
 ::: details 性质的证明
 
@@ -136,27 +128,23 @@ $$
 
 该和式称为 $x_1, \dots, x_n$ 的一个**凸组合**。
 
-:::
-
-</div>
-
 ::: details 定理 1 的证明
 
 当 $n=1,2$ 时，结论是显然的。
 
 假设当 $n=k$ 时，$\displaystyle\sum_{i=1}^k \alpha_ix_i\in V$ 成立。我们来考虑 $n=k+1$ 的情况。如果 $\alpha_{k+1}=1$，则该凸组合就是 $x_{k+1}\in V$。否则，我们有 $\alpha_1+\ldots+\alpha_k\neq 0$。这意味着
-
 $$
 \begin{align*}
     \sum_{i=1}^{k+1} \alpha_ix_i &=\sum_{i=1}^k \alpha_i x_i+\alpha_{k+1}x_{k+1}\\
     &= (\alpha_1+\ldots+\alpha_k)\left(\sum_{i=1}^k \frac{\alpha_i}{\alpha_1+\ldots+\alpha_k} x_i\right)+\alpha_{k+1}x_{k+1}
 \end{align*}
 $$
-
 根据归纳假设，我们有 $\displaystyle\left(\sum_{i=1}^k \frac{\alpha_i}{\alpha_1+\ldots+\alpha_k} x_i\right)\in V$。并且 $(\alpha_1+\ldots+\alpha_k)+\alpha_{k+1}=1$。因此，根据凸集的定义，$\displaystyle\sum_{i=1}^{k+1} \alpha_ix_i\in V$。
 
 根据数学归纳法，定理 1 得证。
 :::
+
+</div>
 
 凸集有许多优良的性质。
 
@@ -165,52 +153,37 @@ $$
 1. 如果 $Y$ 是一个线性子空间，那么 $Y$ 是凸的。
 2. 设 $Y_1,Y_2$ 是凸集，则 $Y_1+Y_2$ 也是凸的。
 3. 设 $\{V_\theta:\theta\in I\}$ 是一族凸集，则
-
-$$
-V=\bigcap_{\theta\in I}V_\theta
-$$
-
-也是凸的。
-
+    $$
+    V=\bigcap_{\theta\in I}V_\theta
+    $$
+    也是凸的。
 4. 设 $\{V_\theta:\theta\in I\}$ 是一族全序的凸集，则
+    $$
+    V=\bigcup_{\theta\in I}V_\theta
+    $$
+    也是凸的。
 
-$$
-V=\bigcup_{\theta\in I}V_\theta
-$$
-
-也是凸的。
-
-:::
-
-::: details 性质的证明
+::: details 性质 1-4 的证明
 
 1. 这是显然的，因为 $\forall x_1,x_2\in Y,\alpha\in[0,1],\alpha x_1+(1-\alpha)x_2\in Y$。
 2. 假设 $z_1=y_{11}+y_{12},z_2=y_{21}+y_{22}\in Y_1+Y_2$，其中 $y_{11},y_{21}\in Y_1,y_{12},y_{22}\in Y_2$。$\forall \alpha\in[0,1]$，我们有
-
-$$
-\begin{align*}
-    \alpha z_1+(1-\alpha)z_2 &=\alpha (y_{11}+y_{12})+(1-\alpha)(y_{21}+y_{22})\\
-    &=(\alpha y_{11}+(1-\alpha)y_{21})+(\alpha y_{12}+(1-\alpha)y_{22})\in Y_1+Y_2
-\end{align*}
-$$
-
-所以 $Y_1+Y_2$ 是凸的。
-
+    $$
+    \begin{align*}
+        \alpha z_1+(1-\alpha)z_2 &=\alpha (y_{11}+y_{12})+(1-\alpha)(y_{21}+y_{22})\\
+        &=(\alpha y_{11}+(1-\alpha)y_{21})+(\alpha y_{12}+(1-\alpha)y_{22})\in Y_1+Y_2
+    \end{align*}
+    $$
+    所以 $Y_1+Y_2$ 是凸的。
 3. $\forall \alpha\in[0,1]$ 和 $x,y\in V$，我们有 $\forall \theta\in I, x,y\in V_\theta$。根据凸集的定义，
-
-$$
-\alpha x+(1-\alpha)y\in V_\theta, \forall \theta\in I
-$$
-
-所以 $\alpha x+(1-\alpha)y\in V$，这意味着 $V$ 是凸的。
-
+    $$
+    \alpha x+(1-\alpha)y\in V_\theta, \forall \theta\in I
+    $$
+    所以 $\alpha x+(1-\alpha)y\in V$，这意味着 $V$ 是凸的。
 4. $\forall \alpha\in[0,1]$ 和 $x,y\in V$，存在 $\theta_x,\theta_y$ 使得 $x\in V_{\theta_x}, y\in V_{\theta_y}$。因为该集族是全序的，我们不失一般性地假设 $V_{\theta_x}\subset V_{\theta_y}$。所以 $x,y\in V_{\theta_y}$。这表明
-
-$$
-\alpha x+(1-\alpha)y\in V_{\theta_y}\subset V
-$$
-
-这意味着 $V$ 是凸的。
+    $$
+    \alpha x+(1-\alpha)y\in V_{\theta_y}\subset V
+    $$
+    这意味着 $V$ 是凸的。
 
 :::
 
@@ -221,8 +194,6 @@ $$
 5. 设 $V\subset X$ 是凸集，$T:X\to Y$ 是一个线性映射。则 $T(V)$ 也是凸的。
    - 该性质意味着线性映射将凸集映为凸集。
 6. 设 $V\subset Y$ 是凸集，$T:X\to Y$ 是一个线性映射。则 $T^{-1}(V)$ 也是凸的。
-
-:::
 
 ::: details 性质 5-6 的证明
 
@@ -236,11 +207,9 @@ $$
 ::: info 定义 7 (凸包)
 
 设 $S\subset X$，并设 $\{V_\theta:\theta\in I\}$ 是包含 $S$ 的所有凸集构成的集族。我们称
-
 $$
 \mathrm{CV}(S)=\bigcap_{\theta\in I}V_\theta
 $$
-
 是 S 的**凸包**。
 
 :::
@@ -249,17 +218,17 @@ $$
 
 显然，$\mathrm{CV}(S)$ 是一个凸集，因为它是凸集的交集。
 
-::: tip 凸包的性质
+::: tip 凸包的性质 1
 
-1. $\mathrm{CV}(S)$ 是包含 $S$ 的最小凸集。
-
-:::
+$\mathrm{CV}(S)$ 是包含 $S$ 的最小凸集。
 
 ::: details 性质 1 的证明
+
 一方面，$\mathrm{CV}(S)$ 是一个凸集。
 
 另一方面，对于任何包含 $S$ 的凸集 $V$，我们有 $V\in \{V_\theta: \theta\in I\}$。
 所以 $\displaystyle\mathrm{CV}(S)=\bigcap_{\theta\in I}V_\theta\subset V$，这即是 $\mathrm{CV}(S)$ 的最小性。
+
 :::
 
 第二个性质描述了 $\mathrm{CV}(S)$ 的元素构成。
@@ -271,8 +240,6 @@ $$
 $$
 
 这意味着 $\mathrm{CV}(S)$ 是由 $S$ 中元素的所有凸组合构成的集合。
-
-:::
 
 ::: details 性质 2 的证明
 

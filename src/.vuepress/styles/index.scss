@@ -16,6 +16,22 @@
   box-sizing: border-box !important;
 }
 
+// body, html {
+//   font-family:
+//     // 1. 首选的西文字体 (英文字母、数字、标点会优先使用这些)
+//     "Times New Roman", "Palatino Linotype", "Book Antiqua", Palatino, Times, serif,
+    
+//     // 2. 中文字体的备用列表 (中文字符会在这里找到归宿)
+//     //    这些是高质量、跨平台的开源中文字体
+//     "PingFang SC", "Hiragino Sans GB", "Source Han Sans SC", "Noto Sans CJK SC",
+    
+//     // 3. 系统默认的中文字体
+//     "Microsoft YaHei", "微软雅黑",
+    
+//     // 4. 最后的保障
+//     sans-serif;
+// }
+
 
 :lang(en) {
   // 1. 为整个英文页面的 body 设置 Palatino 字体
