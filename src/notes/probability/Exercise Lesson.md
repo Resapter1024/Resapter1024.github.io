@@ -24,7 +24,7 @@ footer: false
 
 (1) 有放回场合下，每一次抽球抽到 $1$ 号球的概率均为 $\dfrac{1}{N}$，因此首次摸到 $1$ 号球的概率为
 $$
-P_k=\frac{1}{N}\cdot\left(\frac{N-1}{N}\right)^{k-1}=\frac{(N-1)^{K-1}}{N^k}
+P_k=\frac{1}{N}\cdot\left(\frac{N-1}{N}\right)^{k-1}=\frac{(N-1)^{k-1}}{N^k}
 $$
 事实上这就是参数 $p=\dfrac{1}{N}$ 的**几何分布**的分布列.
 
@@ -237,7 +237,11 @@ $$
 $$
 因此所求图形的面积为
 $$
-S_3=S_1-S=0.68-\frac{3\sqrt{11}}{25} - \frac{1}{2}\ln\left(\frac{6+\sqrt{11}}{5}\right)=\dfrac{17 - 3\sqrt{11}}{25} + \dfrac{1}{2}\ln\left(\dfrac{6+\sqrt{11}}{5}\right)
+\begin{align*}
+  S_3 & = S_1-S \\
+  & =0.68-\frac{3\sqrt{11}}{25} - \frac{1}{2}\ln\left(\frac{6+\sqrt{11}}{5}\right) \\
+  &=\dfrac{17 - 3\sqrt{11}}{25} + \dfrac{1}{2}\ln\left(\dfrac{6+\sqrt{11}}{5}\right)
+\end{align*}
 $$
 从而所求概率为
 $$
