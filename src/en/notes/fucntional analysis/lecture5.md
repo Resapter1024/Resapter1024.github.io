@@ -83,10 +83,32 @@ By symmetry, we also have $\mathbf{BA} = \mathbf{I}_n$. That implies $n\le \math
 
 The observation tell us that the number of elements of the maximal linearly independent system of a space is determined by the space itself.
 
-::: info Definition 3 (Dimention)
+::: info Definition 3 (Dimension)
 
-The **dimention** of a linear space $X$ is the number of elements of the maximal linearly independent system, denoted as $\mathrm{Dim}(X)$.
+The **dimension** of a linear space $X$ is the number of elements of the maximal linearly independent system, denoted as $\mathrm{Dim}(X)$.
 
-We say $X$ have infinite dimention if $\forall k\ge 1$, there exists a set of linearly independent elements with $z_1,\ldots,z_k$, denoted as $\mathrm{Dim}(X)=+\infty$.
+We say $X$ have infinite dimension if $\forall k\ge 1$, there exists a set of linearly independent elements with $z_1,\ldots,z_k$, denoted as $\mathrm{Dim}(X)=+\infty$.
+
+:::
+
+## Properties of Finite Dimension NLS
+
+::: info Theorem 1
+
+Consider a normed linear space $X$, which satisfy $\mathrm{Dim}(X)=n<+\infty$, and one of its maximal linearly independent system is $\{z_1,\ldots,z_n\}$. $\forall x\in X, \exist a_1(x),\ldots,a_n(x)\in\mathbb{K}$, s.t. $x=\sum_{j=1}^n \alpha_j(x) z_j$. We have $\exist c_0<\infty$, s.t.
+
+$$
+\sum_{j=1}^n |\alpha_j|\le c_0\|x\|
+$$
+
+::: details Proof of Theorem 1
+
+We use contradiction to prove the theorem. Suppose $\forall p>0, \exist x_p\in X$ s.t. $\sum_{j=1}^n |\alpha_j(x_p)|>p\|x_p\|$.
+
+Let $y_p=\dfrac{x_p}{\displaystyle\sum_{j=1}^n |\alpha_j(x_p)|}$, then $\alpha_j(y_p)=\dfrac{\alpha_j(x_p)}{\displaystyle\sum_{k=1}^n |\alpha_k(x_p)|}$. So
+$$
+\sum_{j=1}^n|\alpha_j(y_p)|=\sum_{j=1}^n\dfrac{|\alpha_j(x_p)|}{\displaystyle\sum_{k=1}^n |\alpha_k(x_p)|}=1
+$$
+which implies that $\forall j$
 
 :::

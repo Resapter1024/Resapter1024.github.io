@@ -317,7 +317,7 @@ P(AB)-P(A)P(B)\le P(B)-P(B)^2\le \dfrac{1}{4}
 $$
 这就证明了结论.
 
-可以看出，上面不等式的等号当且仅当 $P(A)=P(B)=\dfrac{1}{2}$ 时成立.
+可以看出，上面不等式当且仅当 $P(A)=P(B)=\dfrac{1}{2}$，且 $A=B$ 或 $A=\bar{B}$ 几乎处处成立时等号成立.
 
 （法二）考虑事件 $A,B$ 的示性 $I_A,I_B$, 事件的概率即期望的示性，从而
 $$
@@ -325,6 +325,236 @@ $$
 $$
 考虑 Cauchy-Schwarz 不等式，得到 $|\mathrm{Cov}(I_A,I_B)|\le \sqrt{\mathrm{Var}(I_A)\mathrm{Var}(I_B)}$.
 
-又 $\mathrm{Var}(I_A)=E(I_A^2)-E(I_A)^2=E(I_A)-E(I_A)^2=P(A)(1-P(A))\le\dfrac{1}{4}$，同理 $\mathrm{Var}(I_B)\le\dfrac{1}{4}$.
+又 $\mathrm{Var}(I_A)=E(I_A^2)-E(I_A)^2=E(I_A)-E(I_A)^2=P(A)(1-P(A))\le\dfrac{1}{4}$，同理 $\mathrm{Var}(I_B)\le\dfrac{1}{4}$. 这两个不等式的取等条件为 $P(A)=P(B)=\dfrac{1}{2}$.
 
-这就得到了 $|P(AB)-P(A)P(B)|\le \sqrt{\dfrac{1}{4}\cdot \dfrac{1}{4}}=\dfrac{1}{4}$.
+这就得到了 $|P(AB)-P(A)P(B)|\le \sqrt{\dfrac{1}{4}\cdot \dfrac{1}{4}}=\dfrac{1}{4}$. 
+
+Cauchy-Schwarz 不等式取等的条件为 $I_B=aI_A+b$ 几乎处处成立，即两个随机变量几乎处处成线性关系. 由于示性函数只能取 $0,1$，从而 $b$ 一定是 $0$ 或 $1$. 若 $b=0$，则一定有 $a=1$，此时表明 $A=B$ 几乎处处成立；若 $b=1$，则一定有 $a=-1$，这表明 $A=\bar{B}$ 几乎处处成立. 因此原不等式的取等条件为 $P(A)=P(B)=\dfrac{1}{2}$，且 $A=B$ 或 $A=\bar{B}$ 几乎处处成立.
+
+
+::: info 有限可加性和上连续性可推出可列可加性
+
+在概率空间 $(\Omega,\mathcal{F},P)$ 中，若概率 $P$ 满足：
+
+1. **有限可加性**：对有限个事件 $A_1,\ldots,A_n\in\mathcal{F}$，有
+    $$
+    P\left(\bigcup_{i=1}^n A_i\right)=\sigma_{i=1}^n P(A_i)
+    $$
+2. **上连续性**：对事件列 $\{C_n\}\subset\mathcal{F}$ 满足 $C_n\supset C_{n+1}$，有
+    $$
+    P\left(\bigcap_{n=1}^\infty C_n\right)=\lim_{n\to\infty} P(C_n)
+    $$
+
+则 $P$ 满足**可列可加性**，即对事件列 $\{A_n\}\subset\mathcal{F}$
+$$
+P\left(\bigcup_{n=1}^\infty A_n\right)=\sigma_{n=1}^\infty P(A_n)
+$$
+
+:::
+
+【解】
+
+由有限可加性，可以得到
+$$
+\lim_{n\to\infty} P\left(\bigcup_{i=1}^n A_i\right)=\lim_{n\to\infty} \sigma_{i=1}^n P(A_i)=\sigma_{n=1}^\infty P(A_n)
+$$
+所以只需要证明 $\displaystyle\lim_{n\to\infty} P\left(\bigcup_{i=1}^n A_i\right)=P\left(\bigcup_{n=1}^\infty A_n\right)$，这就涉及到使用概率函数连续性的性质.
+
+为了使用上连续性，我们需要构造一个单调不增的集列. 这里考虑一个经典的构造：令 $B_n=\displaystyle\bigcup_{i=1}^n A_i, B=\displaystyle\bigcup_{n=1}^\infty A_n$，从而
+$$
+C_n=B\setminus B_n=B=\bigcup_{i=n+1}^\infty A_n
+$$
+是一个单调不增的集列，从而可以对它使用上连续性：
+$$
+\lim_{n\to\infty} P(C_n)=P\left(\bigcap_{n=1}^\infty C_n\right)=P(\varnothing)=0
+$$
+而由于 $B_n\subset B$，我们有 $P(C_n)=P(B)-P(B_n)$，因此
+$$
+\lim_{n\to\infty} P(B_n)=P(B)
+$$
+即
+$$
+\lim_{n\to\infty} P\left(\bigcup_{i=1}^n A_i\right)=P\left(\bigcup_{n=1}^\infty A_n\right)
+$$
+这就证明了可列可加性.
+
+### 第三周作业
+
+::: info （课本 2.1）
+
+口袋中有 $a$ 个白球、$b$ 个黑球和 $n$ 个红球，先从中逐个不放回地取球，试证白球比黑球出现得早的概率为 $\dfrac{a}{a+b}$，与 $n$ 无关.
+
+:::
+
+【解】
+
+对于一个对任意 $n$ 总成立的问题，可以考虑使用数学归纳法.
+
+若 $n=0$，白球比黑球出现得早的概率显然为第一次就取出白球的概率，即 $\dfrac{a}{a+b}$.
+
+若 $n=k$ 的场合中，白球比黑球出现得早的概率为 $\dfrac{a}{a+b}$. 考虑 $n=k+1$. 此时记事件 $A$ 为白球比黑球出现得早，事件 $B_1,B_2,B_3$ 分别为**第一次**摸出白、黑、红球. 容易看出 $B_1,B_2,B_3$ 是完备事件组，此时使用全概率公式.
+$$
+\begin{align*}
+  P(A)&=P(A|B_1)P(B_1)+P(A|B_2)P(B_2)+P(A|B_3)P(B_3)\\
+  &=1\times\frac{a}{a+b+n}+0\times\frac{b}{a+b+n}+\dfrac{a}{a+b}\times\frac{n}{a+b+n}\\
+  &=\frac{a}{a+b}
+\end{align*}
+$$
+
+由数学归纳法即证.
+
+::: info （课本 2.2）
+
+甲、乙两袋中都有一个白球和一个黑球，从两个袋中各取一个球相互交换并放入另一个袋中，这样进行了若干次. $p_n,q_n,r_n$ 分别表示在第 $n$ 次交换后甲袋中有两个白球、一个白球和一个黑球、两个黑球的概率. 试写出 $p_{n+1},q_{n+1},r_{n+1}$ 用 $p_n,q_n,r_n$ 表示的表达式，并讨论 $n\to\infty$ 的情况.
+
+:::
+
+【解】
+
+容易看出甲袋中有两个白球、一个白球和一个黑球、两个黑球这三种情况构成一个完备事件组，因此可以应用全概率公式.
+$$
+\begin{matrix}
+  p_{n+1}=p_n\times 0+q_n\times \frac{1}{4}+r_n\times 0=\frac{1}{4}q_n \\
+  q_{n+1}=p_n\times 1+q_n\times \frac{1}{2}+r_n\times 1=p_n+\frac{1}{2}q_n+r_n \\
+  r_{n+1}=p_n\times 0+q_n\times \frac{1}{4}+r_n\times 0=\frac{1}{4}q_n
+\end{matrix}
+$$
+
+注意到 $\forall n\in\mathbb{N}^*$，有 $p_n+q_n+r_n=1$，从而 $q_{n+1}=p_n+\frac{1}{2}q_n+r_n=1-\frac{1}{2}q_n$. 有
+$$
+q_{n+1}-\frac{2}{3}=-\frac{1}{2}\left(q_n-\frac{2}{3}\right)\Rightarrow q_n=(-\frac{1}{2})^n\times\frac{1}{3}+\frac{2}{3}
+$$
+这就得到了
+$$
+\lim_{n\to\infty}q_n=\frac{2}{3}
+$$
+进而
+$$
+\lim_{n\to\infty}p_n=\lim_{n\to\infty}r_n=\frac{1}{4}\lim_{n\to\infty}q_n=\frac{1}{6}
+$$
+
+【注】本题的背景实际上是求马尔科夫链的转移概率矩阵及其平稳分布，是随机过程的重要内容.
+
+::: info （课本 2.3）
+
+若 $0<P(B)<1$，试证：
+
+1. $P(A|B)=P(A|\bar{B})$
+2. $P(A|B)+P(\bar{A}|\bar{B})=1$
+
+均是 $A$ 与 $B$ 相互独立的充要条件.
+
+:::
+
+【解】
+
+先证明1，2等价. 有 
+$$
+P(A|B)+P(\bar{A}|\bar{B})=1\Leftrightarrow P(A|B)=1-P(\bar{A}|\bar{B})=P(A|\bar{B})
+$$
+因此下面只需要证明条件1和 $A,B$ 独立等价.
+
+若 $A,B$ 独立，则 $P(AB)=P(A)P(B)$，即
+$$
+P(A|B)=P(A)
+$$
+同时 $A,\bar{B}$ 也独立，从而
+$$
+P(A\bar{B})=P(A)P(\bar{B})
+$$
+即 $P(A|\bar{B})=P(A)$，这正是 $P(A|B)=P(A|\bar{B})$.
+
+反过来，若 $P(A|B)=P(A|\bar{B})$. 由全概率公式得
+$$
+P(A)=P(B)P(A|B)+P(\bar{B})P(A|\bar{B})=P(A|B)(P(B)+P(\bar{B}))=P(A|B)
+$$
+立刻可以得到 $P(AB)=P(A)P(B)$，即 $A,B$ 独立. 这就完成了证明.
+
+::: info （李贤平 2.4）
+
+设一个家庭中有 $n$ 个小孩的概率为
+$$
+p_n=\left\{\begin{array}{l}
+\alpha p^n & n\ge 1 \\
+1-\dfrac{\alpha p}{1-p} & n=0  
+\end{array}\right.
+$$
+
+这里 $0<p<1,0<\alpha<\dfrac{1-p}{p}$，若认为生一个小孩为男孩或女孩是等可能的，求证这个家庭有 $k(k\ge 1)$ 个男孩的概率为 $2\alpha p^k/(2-p)^{k+1}$.
+
+:::
+
+【解】
+
+记事件“家中有 $n$ 个小孩”为 $A_n$，“家中有 $k$ 个男孩”为 $B_k$. 从而 $P(B_k|A_n)=\displaystyle\binom{n}{k}\left(\frac{1}{2}\right)^n$. 进而由全概率公式得
+$$
+\begin{align*}
+  P(B_k) & = \sum_{n=k}^\infty P(B_k|A_n)P(A_n) \\
+  & = \sum_{n=k}^\infty \alpha p^n \binom{n}{k}\left(\dfrac{1}{2}\right)^n \\
+  & = \alpha \sum_{n=k}^\infty \binom{n}{k}\left(\dfrac{p}{2}\right)^{n}
+\end{align*}
+$$
+
+这里遇到一个级数 $\displaystyle\sum_{n=k}^\infty \binom{n}{k}\left(\dfrac{p}{2}\right)^{n}=\sum_{n=k}^\infty \dfrac{n!}{k!(n-k)!}\left(\dfrac{p}{2}\right)^{n}$. 我们考虑逐项积分来计算这个级数，即先计算幂级数
+$$
+f(x)=\sum_{n=k}^\infty \dfrac{n!}{k!(n-k)!}x^{n-k}
+$$
+其中为了使用逐项积分，我们分离了 $x^k$ 以降低次数，即原式应为 $\left(\dfrac{p}{2}\right)^k f\left(\dfrac{p}{2}\right)$. 积分 $k+1$ 次可以得到
+$$
+\int\ldots\int f(x)\mathrm{d}x\ldots\mathrm{d}x=\frac{1}{k!} \sum_{n=0}^\infty x^n +C= \frac{1}{k!}\cdot\frac{1}{1-x}+C
+$$
+这里特意写成这种形式是为了方便求和. 可以验证低于 $k$ 次的项在之后的求导都会消掉.
+
+对上式再求导 $k+1$ 次，得到
+$$
+f(x)=\frac{1}{(1-x)^{k+1}}
+$$
+因此我们所求的级数为 $\displaystyle\sum_{n=k}^\infty \dfrac{n!}{k!(n-k)!}\left(\dfrac{p}{2}\right)^{n}=\left(\dfrac{p}{2}\right)^{k}\frac{1}{(1-(p/2))^{k+1}}$，进而
+$$
+\begin{align*}
+  P(B_k) & = \alpha \sum_{n=k}^\infty \binom{n}{k}\left(\dfrac{p}{2}\right)^{n} \\
+  & = \alpha \left(\dfrac{p}{2}\right)^{k}\frac{1}{(1-(p/2))^{k+1}} \\
+  & = \frac{2\alpha p^k}{(2-p)^{k+1}}
+\end{align*}
+$$
+
+这正是所求的结论.
+
+::: info （李贤平 2.7）
+
+炮战中，若在距目标 $250$ 米，$200$ 米，$150$ 米处射击的概率分别为 $0.1,0.7,0.2$，而在各该处射击时命中目标的概率分别为 $0.05,0.1,0.2$，现在已知目标被击毁，求击毁目标的炮弹是由距目标 $250$ 米处射出的概率.
+
+:::
+
+【解】
+
+分别使用 $A,B,C$ 表示事件“在距目标 $250$ 米，$200$ 米，$150$ 米处射击”，用 $N$ 表示事件“目标被击毁”. 从而由 Bayes 公式得
+$$
+\begin{align*}
+  P(A|N)&=\frac{P(N|A)P(A)}{P(N)}\\
+  &=\frac{0.1\times 0.05}{0.1\times 0.05+0.7\times 0.1+0.2\times 0.2}\\
+  &=\frac{1}{23}
+\end{align*}
+$$
+
+::: info （李贤平 2.8）
+
+飞机坠落在 A,B,C 三个区域之一，营救部门判断其概率分别为 $0.7,0.2,0.1$；用直升机搜索这些区域，若有残骸，被发现的概率分别为 $0.3,0.4,0.5$，若已用直升机搜索过 A 区域和 B 区域，没有发现残骸，在这种情况下，试计算飞机坠落在 C 区域的概率.
+
+:::
+
+【解】
+
+分别使用 $A,B,C$ 表示事件“飞机坠落在 A,B,C 区域”，用 $N$ 表示事件“搜索过 A 区域和 B 区域，没有发现残骸”. 可以由全概率公式得到
+$$
+\begin{align*}
+  P(N)&=P(N|A)P(A)+P(N|B)P(B)+P(N|C)P(C)\\
+  &=0.7\times(1-0.3)+0.2\times(1-0.4)+0.1\\
+  &=0.71
+\end{align*}
+$$
+
+从而由 Bayes 公式得
+$$
+P(C|N)=\frac{P(N|C)P(C)}{P(N)}=\frac{1\times 0.1}{0.71}=\frac{10}{71}
+$$
