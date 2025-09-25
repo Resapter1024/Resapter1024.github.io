@@ -35,9 +35,7 @@ $$
 1. 非负性：$P(A|B)\ge 0$.
 2. 规范性：$P(\Omega|B)=1$.
 3. 可列可加性：$P\left(\displaystyle\sum_{n=1}^\infty A_n|B\right)=\sum_{n=1}^\infty P\left(A_n|B\right)$.
-
 在此基础上可以推导出其他的关于条件概率的性质.
-
 4. $P(\varnothing|B)=0$.
 5. $P(A|B)=1-P(\bar{A}|B)$.
 6. 加法公式：$P(A_1\cup A_2|B)=P(A_1|B)+P(A_2|B)-P(A_1\cap A_2|B)=$.

@@ -139,7 +139,7 @@ $$
 $$
 \forall m,n\ge n_k, \lim_{j\to\infty} \|x_j^m-x_j^n\|<\dfrac{1}{2^{k}}
 $$
-令 $n=n_k, m=n_{k+1}$。则 $\displaystyle\lim_{j\to\infty} \|x_j^{n_{k+1}}-x_j^{n_k}\|<\dfrac{1}{2^{k}}$。这意味着 $\exist j_k>0$ s.t. 
+令 $n=n_k, m=n_{k+1}$。则 $\displaystyle\lim_{j\to\infty} \|x_j^{n_{k+1}}-x_j^{n_k}\|<\dfrac{1}{2^{k}}$。这意味着 $\exist j_k>0$ s.t.
 $$
 \forall j\ge S_k, \|x_{j}^{n_{k+1}} - x_{j}^{n_k}\| < \frac{1}{2^k}
 $$

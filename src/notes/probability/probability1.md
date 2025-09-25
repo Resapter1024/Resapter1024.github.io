@@ -132,11 +132,9 @@ $$
 ::: info 定义 5（单调事件列及其极限）
 
 1. 对事件列 $\{A_n\}$，若满足 $A_1\subset A_2\subset \ldots\subset A_n\subset \ldots$，则称 $\{A_n\}$ 为**递增事件列**，并记其极限为
-
-$$
-\displaystyle\lim_{n\to\infty}A_n=\bigcup_{n=1}^\infty A_n
-$$
-
+   $$
+   \displaystyle\lim_{n\to\infty}A_n=\bigcup_{n=1}^\infty A_n
+   $$
 2. 对事件列 $\{B_n\}$，若满足 $B_1\supset B_2\supset \ldots\supset B_n\supset \ldots$，则称 $\{A_n\}$ 为**递减事件列**，并记其极限为
 
 $$
@@ -276,21 +274,18 @@ $$
 
 1. 不可能事件的概率为 $0$：$P(\varnothing)=0$.
 2. 有限可加性：若 $A_i\in\mathcal{F},i=1,2,\ldots,n$ 两两不相容，则
-
-$$
-P(\sum_{i=1}^n A_i)=\sum_{i=1}^n P(A_i)
-$$
-
+   $$
+   P(\sum_{i=1}^n A_i)=\sum_{i=1}^n P(A_i)
+   $$
 3. 补的概率：$P(\overline{A})=1-P(A)$.
 4. 单调性：若 $A\subset B$，则 $P(A)\le P(B)$.
    - 若 $A\subset B$，则 $P(B-A)=P(B)-P(A)$.
 5. 容斥原理：$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.
    1. 可以得知 $P(A)+P(B)-1\le P(A\cup B)\le P(A)+P(B)$
    2. 可以推广为**一般加法公式**：
-
-$$
-P(A_1\cup\ldots\cup A_n)=\sum_i P(A_i)-\sum_{i<j}P(A_i\cap A_j)+\ldots+(-1)^{n-1}P(A_1\cap\ldots\cap A_n)
-$$
+      $$
+      P(A_1\cup\ldots\cup A_n)=\sum_i P(A_i)-\sum_{i<j}P(A_i\cap A_j)+\ldots+(-1)^{n-1}P(A_1\cap\ldots\cap A_n)
+      $$
 
 :::
 

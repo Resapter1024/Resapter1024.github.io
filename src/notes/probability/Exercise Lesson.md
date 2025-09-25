@@ -197,7 +197,7 @@ $$
 
 这是一个经典的几何概型问题. 由于是从 $(0,1)$ 中随机地取两个数，记两个数分别为 $x,y$，则样本空间为平面直角坐标系上的一个单位正方形.
 
-(1) 需要 $x+y< 1.2$，即求单位正方形在直线 $x+y=1.2$ 下方的面积. 
+(1) 需要 $x+y< 1.2$，即求单位正方形在直线 $x+y=1.2$ 下方的面积.
 
 ![两数之和小于 $1.2$](/assets/images/exercise%20lesson/geo-prob1.svg#center)
 
@@ -210,7 +210,7 @@ $$
 P_1=\frac{S_1}{S_\Omega}=\frac{0.68}{1}=0.68
 $$
 
-(2) 需要 $xy<\dfrac{1}{4}$，即求单位正方形在双曲线 $xy=\dfrac{1}{4}(x>0)$ 下方的面积. 联立 $xy=\dfrac{1}{4}$ 和 $y=1$ 得到 $(x,y)=\left(\dfrac{1}{4},1\right)$. 
+(2) 需要 $xy<\dfrac{1}{4}$，即求单位正方形在双曲线 $xy=\dfrac{1}{4}(x>0)$ 下方的面积. 联立 $xy=\dfrac{1}{4}$ 和 $y=1$ 得到 $(x,y)=\left(\dfrac{1}{4},1\right)$.
 
 ![两数之积小于 $\dfrac{1}{4}$](/assets/images/exercise%20lesson/geo-prob2.svg#center)
 
@@ -327,10 +327,9 @@ $$
 
 又 $\mathrm{Var}(I_A)=E(I_A^2)-E(I_A)^2=E(I_A)-E(I_A)^2=P(A)(1-P(A))\le\dfrac{1}{4}$，同理 $\mathrm{Var}(I_B)\le\dfrac{1}{4}$. 这两个不等式的取等条件为 $P(A)=P(B)=\dfrac{1}{2}$.
 
-这就得到了 $|P(AB)-P(A)P(B)|\le \sqrt{\dfrac{1}{4}\cdot \dfrac{1}{4}}=\dfrac{1}{4}$. 
+这就得到了 $|P(AB)-P(A)P(B)|\le \sqrt{\dfrac{1}{4}\cdot \dfrac{1}{4}}=\dfrac{1}{4}$.
 
 Cauchy-Schwarz 不等式取等的条件为 $I_B=aI_A+b$ 几乎处处成立，即两个随机变量几乎处处成线性关系. 由于示性函数只能取 $0,1$，从而 $b$ 一定是 $0$ 或 $1$. 若 $b=0$，则一定有 $a=1$，此时表明 $A=B$ 几乎处处成立；若 $b=1$，则一定有 $a=-1$，这表明 $A=\bar{B}$ 几乎处处成立. 因此原不等式的取等条件为 $P(A)=P(B)=\dfrac{1}{2}$，且 $A=B$ 或 $A=\bar{B}$ 几乎处处成立.
-
 
 ::: info 有限可加性和上连续性可推出可列可加性
 
@@ -448,7 +447,7 @@ $$
 
 【解】
 
-先证明1，2等价. 有 
+先证明1，2等价. 有
 $$
 P(A|B)+P(\bar{A}|\bar{B})=1\Leftrightarrow P(A|B)=1-P(\bar{A}|\bar{B})=P(A|\bar{B})
 $$
