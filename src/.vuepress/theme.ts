@@ -135,7 +135,8 @@ export default hopeTheme({
 
   encrypt: {
     config: {
-      "/notes/probability/probability2.html": "resa4201",// empty
+      "/notes/probability/probability2.html": "resa4201",
+      "/en/notes/functional%20analysis/lecture5.html": "resa4201",
     }
   },
 

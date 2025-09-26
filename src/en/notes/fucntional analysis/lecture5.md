@@ -8,6 +8,7 @@ tag:
 date: 2025-09-18
 order: 5
 footer: false
+encrypt: true
 ---
 
 ## Linearly Independent

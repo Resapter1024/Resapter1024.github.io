@@ -5,14 +5,14 @@ category:
 tag:
   - 学习
   - 数学
-date: today
+date: 2025-10-12
 # 禁止显示页脚
 footer: false
 ---
 
 ## 习题解答
 
-### 第二周作业
+### 9.15
 
 ::: info （李贤平 1.12）
 
@@ -146,6 +146,8 @@ P_2=\frac{4!\cdot \displaystyle\binom{13}{7}\binom{13}{3}\binom{13}{2}\binom{13}
 $$
 
 【思考】(3) 求牌型分布为 $5$-$3$-$3$-$2$ 的概率.
+
+### 9.19
 
 ::: info （李贤平 1.20）
 
@@ -325,7 +327,11 @@ $$
 $$
 考虑 Cauchy-Schwarz 不等式，得到 $|\mathrm{Cov}(I_A,I_B)|\le \sqrt{\mathrm{Var}(I_A)\mathrm{Var}(I_B)}$.
 
-又 $\mathrm{Var}(I_A)=E(I_A^2)-E(I_A)^2=E(I_A)-E(I_A)^2=P(A)(1-P(A))\le\dfrac{1}{4}$，同理 $\mathrm{Var}(I_B)\le\dfrac{1}{4}$. 这两个不等式的取等条件为 $P(A)=P(B)=\dfrac{1}{2}$.
+又
+$$
+\mathrm{Var}(I_A)=E(I_A^2)-E(I_A)^2=E(I_A)-E(I_A)^2=P(A)(1-P(A))\le\dfrac{1}{4}
+$$
+同理 $\mathrm{Var}(I_B)\le\dfrac{1}{4}$. 这两个不等式的取等条件为 $P(A)=P(B)=\dfrac{1}{2}$.
 
 这就得到了 $|P(AB)-P(A)P(B)|\le \sqrt{\dfrac{1}{4}\cdot \dfrac{1}{4}}=\dfrac{1}{4}$.
 
@@ -355,7 +361,7 @@ $$
 
 由有限可加性，可以得到
 $$
-\lim_{n\to\infty} P\left(\bigcup_{i=1}^n A_i\right)=\lim_{n\to\infty} \sigma_{i=1}^n P(A_i)=\sigma_{n=1}^\infty P(A_n)
+\lim_{n\to\infty} P\left(\bigcup_{i=1}^n A_i\right)=\lim_{n\to\infty} \Sigma_{i=1}^n P(A_i)=\Sigma_{n=1}^\infty P(A_n)
 $$
 所以只需要证明 $\displaystyle\lim_{n\to\infty} P\left(\bigcup_{i=1}^n A_i\right)=P\left(\bigcup_{n=1}^\infty A_n\right)$，这就涉及到使用概率函数连续性的性质.
 
@@ -377,7 +383,7 @@ $$
 $$
 这就证明了可列可加性.
 
-### 第三周作业
+### 9.22
 
 ::: info （课本 2.1）
 
@@ -413,9 +419,9 @@ $$
 容易看出甲袋中有两个白球、一个白球和一个黑球、两个黑球这三种情况构成一个完备事件组，因此可以应用全概率公式.
 $$
 \begin{matrix}
-  p_{n+1}=p_n\times 0+q_n\times \frac{1}{4}+r_n\times 0=\frac{1}{4}q_n \\
-  q_{n+1}=p_n\times 1+q_n\times \frac{1}{2}+r_n\times 1=p_n+\frac{1}{2}q_n+r_n \\
-  r_{n+1}=p_n\times 0+q_n\times \frac{1}{4}+r_n\times 0=\frac{1}{4}q_n
+  \displaystyle p_{n+1}=p_n\times 0+q_n\times \frac{1}{4}+r_n\times 0=\frac{1}{4}q_n \\
+  \displaystyle q_{n+1}=p_n\times 1+q_n\times \frac{1}{2}+r_n\times 1=p_n+\frac{1}{2}q_n+r_n \\
+  \displaystyle r_{n+1}=p_n\times 0+q_n\times \frac{1}{4}+r_n\times 0=\frac{1}{4}q_n
 \end{matrix}
 $$
 
@@ -557,3 +563,223 @@ $$
 $$
 P(C|N)=\frac{P(N|C)P(C)}{P(N)}=\frac{1\times 0.1}{0.71}=\frac{10}{71}
 $$
+
+### 9.26
+
+::: info （课本 2.9）
+
+某大学中有 $52\%$ 的学生是女生，$5\%$ 的学生是计算机科学专业，$2\%$ 的学生是计算机科学专业的女生. 如果随机抽取一名学生，求下列条件概率：
+
+1. 给定一名学生主修计算机的条件下，这名学生为女生的概率.
+2. 给定一名学生是女生的条件下，这名学生主修计算机的概率.
+
+:::
+
+【解】
+
+设这名学生主修计算机为事件 $A$，是女生为事件 $B$. 从而
+$$
+P(B|A)=\dfrac{P(AB)}{P(A)}=\dfrac{2\%}{5\%}=\dfrac{2}{5}
+$$
+$$
+P(A|B)=\dfrac{P(AB)}{P(B)}=\dfrac{2\%}{52\%}=\dfrac{1}{26}
+$$
+
+::: info （课本 2.13）
+
+考虑一个有 $m$ 个家庭的社区，其中，家里有 $i$ 个孩子的家庭个数记作 $n_i,i=1,2,\ldots,k$，$\displaystyle\sum_{i=1}^k n_i=m$. 考虑下列两种抽取一个孩子的方法：
+
+1. 随机从 $m$ 个家庭中抽取一个家庭，再从这个家庭中随机抽取一个孩子.
+2. 随机从所有 $\displaystyle\sum_{i=1}^k in_i$ 个孩子中抽取一个孩子.
+
+证明：第一种方法相比于第二种方法，更容易使得选中的孩子是长子.
+
+:::
+
+【解】
+
+设第一、二种方法抽中长子的概率分别为 $p_1,p_2$.
+
+对于第一种方法，可以使用全概率公式求解. 其中设抽到有 $i$ 个孩子的家庭为事件 $A_i$，抽到长子为事件 $B$. 从而
+$$
+p_1=P(B)=\sum_{i=1}^k P(B|A_i)P(A_i)=\sum_{i=1}^k \frac{1}{i}\cdot\frac{n_i}{m}
+$$
+
+对于第二种方法，我们知道共有 $m$ 个家庭，因此有 $m$ 个长子，从而
+$$
+p_2=\dfrac{m}{\displaystyle\sum_{i=1}^k in_i}
+$$
+
+考虑两者之比
+$$
+\begin{align*}
+  \dfrac{p_1}{p_2} & = \frac{1}{m^2} \left(\sum_{i=1}^k \frac{n_i}{i}\right)\left(\sum_{i=1}^k in_i\right) & \\
+  & \ge \frac{1}{m^2}\left(\sum_{i=1}^k \sqrt{\frac{n_i}{i}}\cdot \sqrt{in_i}\right)^2 & \text{(Cauchy-Schwarz)} \\
+  & = \frac{m^2}{m^2} = 1
+\end{align*}
+$$
+这就说明了 $p_1\ge p_2$，即第一种方法更容易选中长子.
+
+::: info （李贤平 2.12）
+
+飞机有三个不同的部分遭到射击，在第一部分被击中一弹或第二部分被击中两弹，或第三部分被击中三弹时，飞机才能被击落，其命中率与每一部分的面积成正比. 设三个部分的面积的百分比为 $0.1,0.2,0.7$. 若已击中两弹，求击落飞机的概率.
+
+:::
+
+【解】
+
+这题存在一定的误解，我们需要认为这两弹是同时击中飞机的，这样才能得到正确的答案. 此时共有如下几种情况：此时记击落飞机为事件 $M$.
+
+1. 有一颗子弹击中了第一部分，此时无论另一弹击中哪里，均将击落飞机，概率为 $0.1$.
+2. 有一颗子弹击中了第二部分，此时另一弹只有击中第一、二部分，才能击落飞机，概率为 $0.2\times 0.3=0.06$.
+3. 有一颗子弹击中了第三部分，此时另一弹只有击中第一部分才能击落飞机，概率为 $0.7\times 0.1=0.07$.
+
+综上有 $P(M)=0.1+0.06+0.07=0.23$.
+
+然而，题目也可以理解为两枚子弹先后击中飞机，即若第一弹击中第一部分，就不可能有第二弹，因此也可以有 $P(M)=0.13$. 作业中两种理解均算正确.
+
+::: info （李贤平 2.13）
+
+证明：对于事件 $A,B$，关系式
+$$
+P^2(AB)+P^2(\overline{A}B)+P^2(A\overline{B})+P^2(\overline{AB})=\frac{1}{4}
+$$
+成立的充要条件为
+$$
+P(A)=P(B)=\frac{1}{2}, P(AB)=\frac{1}{4}
+$$
+
+:::
+
+【解】
+
+这是一个平方和的形式，考虑配成 Cauchy-Schwarz 不等式的形式.
+$$
+\begin{matrix}
+  [P^2(AB)+P^2(\overline{A}B)+P^2(A\overline{B})+P^2(\overline{AB})] (1^2+1^2+1^2+1^2)\\ \ge [P(AB)+P(\overline{A}B)+P(A\overline{B})+P(\overline{AB})]^2
+\end{matrix}
+$$
+又注意到 $P(AB)+P(\overline{A}B)+P(A\overline{B})+P(\overline{AB})=1$，从而有
+$$
+P^2(AB)+P^2(\overline{A}B)+P^2(A\overline{B})+P^2(\overline{AB})\ge \dfrac{1}{4}
+$$
+题设中上述不等式取等号，而 Cauchy-Schwarz 不等式取等的充要条件为 $P(AB)=P(\overline{A}B)=P(A\overline{B})=P(\overline{AB})=\dfrac{1}{4}$.于是有
+$$
+P(A)=P(B)=\frac{1}{2}
+$$
+这正是我们要证的.
+
+::: info （李贤平 2.17）
+
+事件 $A,B,C$ 两两独立，$ABC=\varnothing,P(A)=P(B)=P(C)$，且已知 $P(A\cup B\cup C)=\dfrac{9}{16}$，试求 $P(A)$.
+
+:::
+
+【解】
+
+由一般加法公式，有
+$$
+\begin{align*}
+  P(A\cup B\cup C) & = P(A)+P(B)+P(C) \\
+  & \quad -P(AB)-P(BC)-P(AC)+P(ABC) \\
+  & = 3P(A)-3P(A)^2 =\frac{9}{16}.
+\end{align*}
+$$
+解得 $P(A)=\dfrac{1}{4}$ 或 $\dfrac{3}{4}$. 然而，由于 $ABC=\varnothing$，若 $P(A)=\dfrac{3}{4}$，有 $P(BC)=\dfrac{9}{16}$，从而
+$$
+P(ABC)\ge P(A)+P(BC)-1=\dfrac{5}{16}>0
+$$
+矛盾！因此一定有 $P(A)=\dfrac{1}{4}$.
+
+## 补充拓展
+
+::: info 拓展 1 （简化 Chung-Erdős 界）
+
+对任意两个事件 $A_1,A_2$，证明：
+$$
+P(A_1\cup A_2)\ge \frac{[P(A_1)+P(A_2)]^2}{P(A_1)+P(A_2)+2P(A_1\cap A_2)}
+$$
+
+:::
+
+【解】
+
+注意到 $P(A_1\cup A_2)=P(A_1)+P(A_2)-P(A_1\cap A_2)$. 因此只要证
+$$
+[P(A_1)+P(A_2)-P(A_1\cap A_2)][P(A_1)+P(A_2)+2P(A_1\cap A_2)]\ge [P(A_1)+P(A_2)]^2
+$$
+即
+$$
+P(A_1\cap A_2) [P(A_1)+P(A_2)]-2 [P(A_1\cap A_2))]^2\ge 0
+$$
+
+若 $P(A_1\cap A_2)=0$，上式自然成立. 否则 $P(A_1\cap A_2)>0$，此时上式等价于
+$$
+P(A_1)+P(A_2)-2 [P(A_1\cap A_2)]\ge 0
+$$
+而事实上，$A_1\supset A_1\cap A_2, A_2\supset A_1\cap A_2$，从而
+$$
+P(A_1)\ge P(A_1\cap A_2), P(A_2)\ge P(P(A_1\cap A_2))
+$$
+故上式成立，即原不等式成立.
+
+【推广】可以将上述的界推广到 $n$ 个事件的情况. 即
+$$
+P\left(\bigcup_{i=1}^n A_i\right)\ge\frac{\displaystyle\left(\sum_{i=1}^n P(A_i)\right)^2}{\displaystyle\sum_{i=1}^n P(A_i)+2\sum_{1\le i<j\le n}P(A_i\cap A_j)}
+$$
+
+::: info 拓展 2 （可列个事件的相互独立）
+
+对事件列 $\{A_n\}_{n=1}^\infty$，称该事件列中所有事件相互独立，当且仅当对任一**有限**的指标集 $I=\{i_1,\ldots,i_k\}\subset\{1,2,\ldots,n,\ldots\}$，总有
+$$
+P\left(\bigcap_{i\in I}A_i\right)=\prod_{i\in I}P(A_i)
+$$
+
+:::
+
+::: info 拓展 3 （Borel-Cantelli 引理）
+
+对事件列$\{A_n\}$，记 $A=\displaystyle\overline{\lim_{n\to\infty}}A_n=\bigcap_{n=1}^\infty\bigcup_{k=n}^\infty A_k$ 为 $\{A_n\}$ 的上极限，下面两个结论成立
+
+1. 若 $\{A_n\}$ 满足 $\displaystyle\sum_{n=1}^\infty P(A_n)<\infty$，则 $P(A)=0$.
+2. 若 $\{A_n\}$ 相互**独立**，且满足 $\displaystyle\sum_{n=1}^\infty P(A_n)=\infty$，则 $P(A)=1$.
+
+:::
+
+【解】
+
+先证结论 1. 有 $A=\displaystyle\bigcap_{n=1}^\infty\bigcup_{k=n}^\infty A_k\subset \bigcup_{k=n}^\infty A_k$，从而由概率的次可加性，
+$$
+P(A)\le P\left(\bigcup_{k=n}^\infty A_k\right)\le \sum_{k=n}^\infty P(A_k), \forall n\in\mathbb{N}^*
+$$
+由于级数收敛，我们有级数的余和收敛至 $0$，即 $\displaystyle\lim_{n\to\infty}\sum_{k=n}^\infty P(A_k)=0$.
+
+进而由 $n$ 的任意性我们得到 $P(A)=0$.
+
+再证结论 2. 要证 $P(A)=1$，只要证 $P(\overline{A})=\displaystyle P\left(\bigcup_{n=1}^\infty\bigcap_{k=n}^\infty \overline{A_k}\right)=0$. 由概率的次可加性得到
+$$
+P\left(\bigcup_{n=1}^\infty\bigcap_{k=n}^\infty \overline{A_k}\right)\le \sum_{n=1}^\infty P\left(\bigcap_{k=n}^\infty \overline{A_k}\right)
+$$
+由于这可列个事件是独立的，对固定的 $n$，考虑 $M>n$，从而
+$$
+\begin{align*}
+  P\left(\displaystyle\bigcap_{k=n}^M \overline{A_k}\right)&=\displaystyle\prod_{k=n}^M [1-P(A_k)] \\
+  & \le \displaystyle\prod_{k=n}^M \exp(-P(A_k)) \\
+  & = \exp\left(-\displaystyle\sum_{k=n}^M P(A_k)\right)
+\end{align*}
+$$
+令不等式两端 $M\to\infty$，由 $P$ 的连续性得到
+$$
+P\left(\displaystyle\bigcap_{k=n}^\infty \overline{A_k}\right)=\lim_{M\to\infty} P\left(\displaystyle\bigcap_{k=n}^M \overline{A_k}\right)\le \lim_{M\to\infty}\exp\left(-\displaystyle\sum_{k=n}^M P(A_k)\right)=\exp\left(-\displaystyle\sum_{k=n}^\infty P(A_k)\right)
+$$
+由于级数发散，所以级数的余和同样发散，即 $\displaystyle\sum_{k=n}^\infty P(A_k)=\infty$. 这就是说
+$$
+0\le P\left(\displaystyle\bigcap_{k=n}^\infty \overline{A_k}\right)\le \exp\left(-\displaystyle\sum_{k=n}^\infty P(A_k)\right)=0
+$$
+因此 $P\left(\displaystyle\bigcap_{k=n}^\infty \overline{A_k}\right)=0$，从而
+$$
+P(\overline{A})=P\left(\bigcup_{n=1}^\infty\bigcap_{k=n}^\infty \overline{A_k}\right)\le \sum_{n=1}^\infty P\left(\bigcap_{k=n}^\infty \overline{A_k}\right)=0
+$$
+这就证明了 $P(A)=1$.
+
+【注】这个结论将在第五章讨论随机变量列收敛的时候再被提及.
