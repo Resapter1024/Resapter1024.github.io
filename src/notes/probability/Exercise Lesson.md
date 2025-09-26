@@ -343,7 +343,7 @@ Cauchy-Schwarz 不等式取等的条件为 $I_B=aI_A+b$ 几乎处处成立，即
 
 1. **有限可加性**：对有限个事件 $A_1,\ldots,A_n\in\mathcal{F}$，有
     $$
-    P\left(\bigcup_{i=1}^n A_i\right)=\sigma_{i=1}^n P(A_i)
+    P\left(\bigcup_{i=1}^n A_i\right)=\sum_{i=1}^n P(A_i)
     $$
 2. **上连续性**：对事件列 $\{C_n\}\subset\mathcal{F}$ 满足 $C_n\supset C_{n+1}$，有
     $$
@@ -352,7 +352,7 @@ Cauchy-Schwarz 不等式取等的条件为 $I_B=aI_A+b$ 几乎处处成立，即
 
 则 $P$ 满足**可列可加性**，即对事件列 $\{A_n\}\subset\mathcal{F}$
 $$
-P\left(\bigcup_{n=1}^\infty A_n\right)=\sigma_{n=1}^\infty P(A_n)
+P\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty P(A_n)
 $$
 
 :::
@@ -361,13 +361,13 @@ $$
 
 由有限可加性，可以得到
 $$
-\lim_{n\to\infty} P\left(\bigcup_{i=1}^n A_i\right)=\lim_{n\to\infty} \Sigma_{i=1}^n P(A_i)=\Sigma_{n=1}^\infty P(A_n)
+\lim_{n\to\infty} P\left(\bigcup_{i=1}^n A_i\right)=\lim_{n\to\infty} \sum_{i=1}^n P(A_i)=\sum_{n=1}^\infty P(A_n)
 $$
 所以只需要证明 $\displaystyle\lim_{n\to\infty} P\left(\bigcup_{i=1}^n A_i\right)=P\left(\bigcup_{n=1}^\infty A_n\right)$，这就涉及到使用概率函数连续性的性质.
 
 为了使用上连续性，我们需要构造一个单调不增的集列. 这里考虑一个经典的构造：令 $B_n=\displaystyle\bigcup_{i=1}^n A_i, B=\displaystyle\bigcup_{n=1}^\infty A_n$，从而
 $$
-C_n=B\setminus B_n=B=\bigcup_{i=n+1}^\infty A_n
+C_n=B\setminus B_n=\bigcup_{i=n+1}^\infty A_n
 $$
 是一个单调不增的集列，从而可以对它使用上连续性：
 $$
