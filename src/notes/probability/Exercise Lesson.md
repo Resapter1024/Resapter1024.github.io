@@ -341,7 +341,7 @@ Cauchy-Schwarz 不等式取等的条件为 $I_B=aI_A+b$ 几乎处处成立，即
 
 在概率空间 $(\Omega,\mathcal{F},P)$ 中，若概率 $P$ 满足：
 
-1. **有限可加性**：对有限个事件 $A_1,\ldots,A_n\in\mathcal{F}$，有
+1. **有限可加性**：对有限个不交事件 $A_1,\ldots,A_n\in\mathcal{F}$，有
     $$
     P\left(\bigcup_{i=1}^n A_i\right)=\sum_{i=1}^n P(A_i)
     $$
@@ -504,13 +504,13 @@ $$
 $$
 f(x)=\sum_{n=k}^\infty \dfrac{n!}{k!(n-k)!}x^{n-k}
 $$
-其中为了使用逐项积分，我们分离了 $x^k$ 以降低次数，即原式应为 $\left(\dfrac{p}{2}\right)^k f\left(\dfrac{p}{2}\right)$. 积分 $k+1$ 次可以得到
+其中为了使用逐项积分，我们分离了 $x^k$ 以降低次数，即原式应为 $\left(\dfrac{p}{2}\right)^k f\left(\dfrac{p}{2}\right)$. 积分 $k$ 次可以得到
 $$
 \int\ldots\int f(x)\mathrm{d}x\ldots\mathrm{d}x=\frac{1}{k!} \sum_{n=0}^\infty x^n +C= \frac{1}{k!}\cdot\frac{1}{1-x}+C
 $$
 这里特意写成这种形式是为了方便求和. 可以验证低于 $k$ 次的项在之后的求导都会消掉.
 
-对上式再求导 $k+1$ 次，得到
+对上式再求导 $k$ 次，得到
 $$
 f(x)=\frac{1}{(1-x)^{k+1}}
 $$
@@ -712,7 +712,11 @@ $$
 
 注意到 $P(A_1\cup A_2)=P(A_1)+P(A_2)-P(A_1\cap A_2)$. 因此只要证
 $$
-[P(A_1)+P(A_2)-P(A_1\cap A_2)][P(A_1)+P(A_2)+2P(A_1\cap A_2)]\ge [P(A_1)+P(A_2)]^2
+\begin{align*}
+  [P(A_1)+P(A_2)-P(A_1\cap A_2)][P(A_1)+P(A_2)&+2P(A_1\cap A_2)] \\
+  & \ge [P(A_1)+P(A_2)]^2
+\end{align*}
+
 $$
 即
 $$
@@ -776,7 +780,10 @@ $$
 $$
 令不等式两端 $M\to\infty$，由 $P$ 的连续性得到
 $$
-P\left(\displaystyle\bigcap_{k=n}^\infty \overline{A_k}\right)=\lim_{M\to\infty} P\left(\displaystyle\bigcap_{k=n}^M \overline{A_k}\right)\le \lim_{M\to\infty}\exp\left(-\displaystyle\sum_{k=n}^M P(A_k)\right)=\exp\left(-\displaystyle\sum_{k=n}^\infty P(A_k)\right)
+\begin{align*}
+  P\left(\displaystyle\bigcap_{k=n}^\infty \overline{A_k}\right)&=\lim_{M\to\infty} P\left(\displaystyle\bigcap_{k=n}^M \overline{A_k}\right)\le \lim_{M\to\infty}\exp\left(-\displaystyle\sum_{k=n}^M P(A_k)\right) \\
+  &=\exp\left(-\displaystyle\sum_{k=n}^\infty P(A_k)\right)
+\end{align*}
 $$
 由于级数发散，所以级数的余和同样发散，即 $\displaystyle\sum_{k=n}^\infty P(A_k)=\infty$. 这就是说
 $$
