@@ -332,22 +332,33 @@ $$
 $$
 \begin{align*}
     I(a) & = 2\int_{0}^{+\infty}u\exp\left\{-au^2\right\}\mathrm{d}u \\
-    & = \int_{0}^{+\infty} \exp\left\{-au^2\right\}\mathrm{d}u \\
+    & = \int_{0}^{+\infty} \exp\left\{-au^2\right\}\mathrm{d}u^2 \\
     & = \left. \left(-\dfrac{1}{a}\exp\left\{-au^2\right\}\right)\right|_0^{+\infty} \\
     & = \dfrac{1}{a}
 \end{align*}
 $$
 从而
 $$
-q(u,v)=\dfrac{1}{2\pi}\dfrac{1}{v^2}I\left(\frac{1}{2}\left(1+\dfrac{1}{v^2}\right)\right)=\dfrac{1}{2\pi v^2}\frac{2v^2}{1+v^2}=\frac{1}{\pi\left(1+v^2\right)}
+q(v)=\dfrac{1}{2\pi}\dfrac{1}{v^2}I\left(\frac{1}{2}\left(1+\dfrac{1}{v^2}\right)\right)=\dfrac{1}{2\pi v^2}\frac{2v^2}{1+v^2}=\frac{1}{\pi\left(1+v^2\right)}
 $$
 这表明 $V$ 服从标准柯西分布.
 
-【注】笔者相信本题如此设置变量替换是希望大家应用「随机变量商的分布」公式求解. 然而该公式的解题实用价值极低. 在本题的常规推导中，通常使用以下变量替换
+【注】想要推出两独立标准正态分布随机变量的商服从柯西分布，也可以应用「随机变量商的分布」公式求解，具体而言，记标准正态分布的密度为 $\varphi(x)$，则 $V$ 的密度为
+$$
+\begin{align*}
+    q(v) & = \int_{-\infty}^{+\infty}|z|p(zx,z)\mathrm{d}z \\
+    & = \int_{-\infty}^{+\infty}|z|\varphi(zx)\varphi(z)\mathrm{d}z \\
+    & = \int_{-\infty}^{+\infty}|z|\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{z^2x^2}{2}\right)\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{z^2}{2}\right)\mathrm{d}z \\
+    & = 2\cdot\frac{1}{2\pi}\int_{-\infty}^{+\infty}z\exp\left(-\frac{z^2(x^2+1)}{2}\right)\mathrm{d}z \\
+    & = \frac{1}{\pi}\left. \left(-\frac{1}{x^2+1}\exp\left(-\frac{z^2(x^2+1)}{2}\right)\right)\right|_0^{+\infty} \\
+    & = \frac{1}{\pi(1+x^2)}
+\end{align*}
+$$
+然而该公式的解题实用价值极低. 在本题的常规推导中，通常使用以下变量替换
 $$
 S=Y,\qquad T=\frac{X}{Y}
 $$
-这个替换将大大简化计算量，请读者自行验证.
+这个变量替换的计算更不易出错，请读者自行验证.
 
 ::: info （李贤平 3.17）
 
