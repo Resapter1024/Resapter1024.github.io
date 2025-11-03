@@ -67,7 +67,7 @@ footer: false
 
 ## 离散型随机变量
 
-### 定义
+### 离散型随机变量的定义
 
 离散型随机变量只有至多可数个取值，因此其分布列可以写成 $P(X=x_i)=p_i, i\in I$ 的形式，其中 $I$ 为至多可数的指标集.
 
@@ -92,7 +92,7 @@ $$
 
 :::
 
-### 一些典型分布
+### 典型的离散分布
 
 ::: info I. 单点分布
 
@@ -228,3 +228,160 @@ Poisson 分布在随机过程中是一个很重要的分布，它正是由 Poiss
 :::
 
 ## 连续型随机变量
+
+### 连续型随机变量的定义
+
+::: info 定义 5
+
+随机变量 $X$ 的取值为某区间 $[c,d]$ 或 $(-\infty,+\infty)$ 时，分布函数 $F(x)$ 为一<u>绝对连续函数</u>，即存在非负可积函数 $p(x)$ 使得
+$$
+F(x)=\int_{-\infty}^x p(y)\mathrm{d}y
+$$
+称 $X$ 为连续型随机变量，并称 $p(x)$ 为 $X$ 的**概率密度函数**.
+
+:::
+
+概率密度函数**不是概率**. 它和分布函数具有下面的性质
+
+::: tip 性质
+
+1. （密度函数和分布函数的关系）$p(x)=F'(x)$.
+2. （非负性与规范性）$p(x)\ge 0,\int_{-\infty}^{+\infty} p(x)\mathrm{d}x=1$.
+3. （正测集的概率）$P(a< X\le b)=F(b)-F(a)=\int_a^b p(x)\mathrm{d}x$.
+   进一步地，对任意 Borel 集 $B$，有 $P(X\in B)=\int_B p(x)\mathrm{d}x$.
+4. （零测集的概率）$\forall c\in\mathbb{R},P(X=c)=0$.
+
+:::
+
+### 典型的连续分布
+
+::: info I. 均匀分布
+
+设 $a,b\in\mathbb{R},a<b$，则由下列密度函数定义的分布称为 $[a,b]$ 上的均匀分布.
+$$
+p(x)=\left{\begin{matrix}
+    \dfrac{1}{b-a}, & a\le x\le b \\
+    0, & \text{otherwise}
+\end{matrix}\right.
+$$
+对应的分布函数为
+$$
+F(x)=\left{\begin{matrix}
+    0, & x<a \\
+    \dfrac{x-a}{b-a}, & a\le x<b \\
+    1, & x\ge b
+\end{matrix}\right.
+$$
+记作 $X\sim U[a,b]$.
+
+:::
+
+::: tip 给定区间下均匀分布的条件分布
+
+设 $X\sim U(a,b),(c,d)\subset(a,b)$，则给定 $X\in(c,d)$ 时，$X$ 的条件分布为 $U(c,d)$.
+
+::: details
+
+$$
+P(X\le u\mid X\in(c,d))=\frac{P(X\le u, c<X<d)}{P(c<X<d)}=\dfrac{c<X\le u}{P(c<X<d)}=\frac{u-c}{d-c}
+$$
+而 $u\le c$ 时 $P(X\le u\mid X\in(c,d))=0$；$u>d$ 时 $P(X\le u\mid X\in(c,d))=1$. 即证
+
+:::
+
+均匀分布在数理统计中具有重要的地位，这是由如下的定理导出的.
+
+::: tip 定理 1
+
+对任意的连续型随机变量 $X$，记 $F(x)$ 为其分布函数，若 $F$ 严格单调递增，则 $F(X)\sim U(0,1)$.
+
+::: details 证明
+
+由于 $F$ 严格单调递增，其存在唯一严格单调递增的反函数 $F^{-1}$，从而
+$$
+P(F(x)\le u)=P(X\le F^{-1}(u))=F(F^{-1}(u))=u, 0\le u\le 1
+$$
+这就说明了 $F(X)\sim U(0,1)$.
+
+:::
+
+::: info II. 正态分布
+
+若连续型随机变量 $Z$ 的密度函数为
+$$
+p(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right),x\in\mathbb{R}
+$$
+其中 $\sigma>0,\mu\in\mathbb{R}$ 为常数，则称 $Z$ 服从正态分布，记作 $Z\sim N(\mu,sigma^2)$. 并称 $\mu$ 为该正态分布的均值，$\sigma^2$ 为方差.
+
+若 $\mu=0,\sigma^2=1$，则称其为标准正态分布，记作 $N(0,1)$. 并记标准正态分布的密度函数为 $\varphi(x)$，分布函数为 $\Phi(x)$.
+
+:::
+
+正态分布具有如下的性质.
+
+::: tip 正态分布的性质
+
+1. $\varphi(x)=\varphi(-x)$.
+2. $\Phi(z)=1-\Phi(-z)$.
+3. $Z\sim N(0,1)\Rightarrow -Z\sim N(0,1)$.
+4. 若 $Z\sim N(\mu,sigma^2)$，则 $\dfrac{Z-\mu}{\sigma}\sim N(0,1)$.
+
+:::
+
+正态分布在概率论与数理统计中具有极高的地位，几乎任何讨论随机变量渐进性质的定理都绕不开正态分布.
+
+::: tip De Moive-Laplae 中心极限定理
+
+设 $S_n$ 为 $n$ 重 Bernoulli 试验的成功次数，每次试验成功的概率为 $p$，则
+$$
+P\left(a<\frac{S_n-np}{\sqrt{np(1-p)}}\le b\right)\to \Phi(b)-\Phi(a), n\to \infty
+$$
+
+:::
+
+::: info III. 指数分布
+
+若随机变量 $X$ 的概率密度函数为
+$$
+p(x)=\left\{\begin{matrix}
+    \lambda\mathrm{e}^{-\lambda x}, & x\ge 0 \\
+    0, & x<0
+\end{matrix}\right.
+$$
+则称 $X$ 服从指数分布，记作 $X\sim \mathrm{Exp}(\lambda)$. 其累积分布函数为
+$$
+F(x)=\left\{\begin{matrix}
+    1-\mathrm{e}^{-\lambda x}, & x\ge 0 \\
+    0, & x<0
+\end{matrix}\right.
+$$
+
+:::
+
+由累积分布函数可以直接导出 $P(X>x)=\mathrm{e}^{-\lambda x}$.
+
+下面的定理证明，在所有的连续分布中，指数分布是唯一具有无记忆性的分布.
+
+::: tip 定理 2
+
+$X\sim\mathrm{Exp}(\lambda)$，当且仅当 $\forall s>0,t>0$，有
+$$
+P(X> s+t\mid X> s)=P(X>t)
+$$
+
+::: details 证明
+
+先证必要性. 若 $X\sim\mathrm{Exp}(\lambda)$，则
+$$
+P(X> s+t\mid X> s)=\frac{P(X>s+t,X>s)}{P(X>s)}=\frac{P(X>s+t)}{P(X>s)}=\frac{\mathrm{e}^{-\lambda(s+t)}}{\mathrm{e}^{-\lambda s}}=\mathrm{e}^{-\lambda t}P(X>t)
+$$
+
+再证充分性. 设 $G(s)=P(X>s)$，则由于 $\dfrac{P(X>s+t)}{P(X>s)}=P(X> s+t\mid X> s)=P(X>t)$，有
+$$
+G(s+t)=G(s)G(t)
+$$
+这是一个积性 Cauchy 方程，知道其连续时一定有 $G(x)=a^x$. 由 $G(x)\in(0,1)$，一定有 $\exist \lambda>0$ 使得 $G(x)=^{\mathrm{e}-\lambda x}$，即 $X\sim\mathrm{Exp}(\lambda)$.
+
+:::
+
+## 随机变量的函数
