@@ -93,7 +93,7 @@ $$
 
 ::: info （李贤平 3.13）
 
-若 $f_1(x),f_2(y)$ 是分布函数，求为使 $f(x,y)=f_1(x)\times f_2(y)+h(x,y)$ 称为密度函数，$h(x,y)$ 必须而且只须满足什么条件.
+若 $f_1(x),f_2(y)$ 是分布密度，求为使 $f(x,y)=f_1(x)\times f_2(y)+h(x,y)$ 称为密度函数，$h(x,y)$ 必须而且只须满足什么条件.
 
 :::
 
@@ -346,7 +346,7 @@ $$
 【注】想要推出两独立标准正态分布随机变量的商服从柯西分布，也可以应用「随机变量商的分布」公式求解，具体而言，记标准正态分布的密度为 $\varphi(x)$，则 $V$ 的密度为
 $$
 \begin{align*}
-    q(v) & = \int_{-\infty}^{+\infty}|z|p(zx,z)\mathrm{d}z \\
+    q_V(x) & = \int_{-\infty}^{+\infty}|z|p(zx,z)\mathrm{d}z \\
     & = \int_{-\infty}^{+\infty}|z|\varphi(zx)\varphi(z)\mathrm{d}z \\
     & = \int_{-\infty}^{+\infty}|z|\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{z^2x^2}{2}\right)\frac{1}{\sqrt{2\pi}}\exp\left(-\frac{z^2}{2}\right)\mathrm{d}z \\
     & = 2\cdot\frac{1}{2\pi}\int_{-\infty}^{+\infty}z\exp\left(-\frac{z^2(x^2+1)}{2}\right)\mathrm{d}z \\
@@ -668,7 +668,10 @@ $$
 
 已经知道 $\xi,\eta$ 相互独立且地位相等，下面只需验证 $\xi$ 与 $\zeta$ 独立. 有 $P(\zeta=1)=P(\xi=1,\eta=1)+P(\xi=-1,\eta=-1)=\dfrac{1}{2}$，$P(\zeta=-1)=\dfrac{1}{2}$. 因此考虑任意的 $a,b\in\{-1,1\}$，从而 $\dfrac{a}{b}\in\{-1,1\}$，这就导出
 $$
-P(\zeta=a,\xi=b)=P\left(\eta=\dfrac{a}{b},\xi=b\right)=P\left(\eta=\dfrac{a}{b}\right)P(\xi=b)=\frac{1}{2}\cdot\frac{1}{2}=P(\zeta=a)\cdot P(\xi=b)
+\begin{align*}
+    P(\zeta=a,\xi=b) & = P\left(\eta=\dfrac{a}{b},\xi=b\right)=P\left(\eta=\dfrac{a}{b}\right)P(\xi=b) \\
+    & =\frac{1}{2}\cdot\frac{1}{2}=P(\zeta=a)\cdot P(\xi=b)
+\end{align*}
 $$
 这就说明了 $\xi$ 与 $\zeta$ 独立，从而 $\eta$ 与 $\zeta$ 独立.
 
@@ -871,9 +874,9 @@ $$
 $$
 这里 $C_n=\displaystyle\frac{1}{(2\pi)^{n/2}}\int_0^\pi\ldots\int_0^\pi\int_0^{2\pi}F(\boldsymbol{\theta})\mathrm{d}\theta_1\ldots\mathrm{d}\theta_{n-1}$.
 
-作变换 $t=\sqrt{x}$，得到
+作变换 $r=\sqrt{t}$，得到
 $$
-F_\eta(x)=C_n \frac{1}{2}
+F_\eta(x)=C_n \cdot \frac{1}{2} \int_0^{x} t^{\frac{n}{2}-1}\mathrm{e}^{-\frac{t}{2}}\mathrm{d}t
 $$
 令 $x\to \infty$，得到
 $$
@@ -1239,7 +1242,8 @@ $$
 \begin{align*}
     p_k(x) & = \lim_{\Delta x\to 0}\frac{F_k(x+\Delta x)-F_k(x)}{\Delta x} \\
     & = \lim_{\Delta x\to 0}\frac{P(x\le X_{(k)}<x+\Delta x)}{\Delta x} \\
-    & = \frac{n!}{(k-1)!\cdot 1!\cdot (n-k)!}[F(x)]^{k-1}\cdot \lim_{\Delta x\to 0}\frac{F(x+\Delta x)-F(x)}{\Delta x}\cdot \lim_{\Delta x\to 0} [1-F(x+\Delta x)]^{n-k} \\
+    & = \frac{n!}{(k-1)!\cdot 1!\cdot (n-k)!}[F(x)]^{k-1}\cdot \lim_{\Delta x\to 0}\frac{F(x+\Delta x)-F(x)}{\Delta x} \\
+    & \cdot \lim_{\Delta x\to 0} [1-F(x+\Delta x)]^{n-k} \\
     & = \frac{n!}{(k-1)!\cdot 1!\cdot (n-k)!}[F(x)]^{k-1}[1-F(x)]^{n-k}p(x)
 \end{align*}
 $$
@@ -1247,7 +1251,10 @@ $$
 
 更进一步地，我们可以求得任意两个次序统计量的联合分布.
 $$
-p_{i,j}(x_i,x_j)=\frac{n!}{(i-1)!(j-i-1)!(n-j)!}[F(x_i)]^{i-1}[F(x_j)-F(x_i)]^{j-i-1}[1-F(x_j)]^{n-j}p(x_i)p(x_j)
+\begin{align*}
+    p_{i,j}(x_i,x_j) & = \frac{n!}{(i-1)!(j-i-1)!(n-j)!} \\
+    & \cdot [F(x_i)]^{i-1}[F(x_j)-F(x_i)]^{j-i-1}[1-F(x_j)]^{n-j}p(x_i)p(x_j)
+\end{align*}
 $$
 同样利用概率元求解，这里留给读者推导. 这个式子说明任意两个次序统计量都是不独立的.
 
