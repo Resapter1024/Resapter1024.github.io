@@ -476,7 +476,7 @@ $$
 $$
 p(x)=
 \left\{\begin{matrix}
-    \displaystyle\binom{n}{k}p^{[x]}(1-p)^{n-[x]}, & 0\le x < n+1 \\
+    \displaystyle\binom{n}{[x]}p^{[x]}(1-p)^{n-[x]}, & 0\le x < n+1 \\
     0, & \text{otherwise}
 \end{matrix}\right.
 $$
@@ -504,7 +504,7 @@ $$
 $$
 \begin{align*}
     P(X<Y) & = \int_0^{+\infty}\int_0^y \lambda_1\mathrm{e}^{-\lambda_1 x}\cdot\lambda_2\mathrm{e}^{-\lambda_2 y}\mathrm{d}x\mathrm{d}y \\
-    & = \int_0^{+\infty} \lambda_2\mathrm{e}^{-\lambda_2 y}\left[\mathrm{e}^{-\lambda_1 x}\right]\mid_{0}^y\mathrm{d}y \\
+    & = \int_0^{+\infty} \left. \lambda_2\mathrm{e}^{-\lambda_2 y}\left[\mathrm{e}^{-\lambda_1 x}\right]\right|_{0}^y\mathrm{d}y \\
     & = \int_0^{+\infty} \lambda_2\mathrm{e}^{-\lambda_2 y}(1-\mathrm{e}^{-\lambda_1 y})\mathrm{d}y \\
     & = \int_0^{+\infty} \lambda_2\mathrm{e}^{-\lambda_2 y}\mathrm{d}y - \int_0^{+\infty} \lambda_2\mathrm{e}^{-(\lambda_1+\lambda_2) y}\mathrm{d}y \\
     & = 1 - \frac{\lambda_2}{\lambda_1+\lambda_2}\\
@@ -515,7 +515,10 @@ $$
 
 :::
 
-容易知道吕布和曾贤的地位完全对称，不妨假设吕布先办完事情. 由指数分布的无记忆性，张伟开始服务时，曾贤办完事情的剩余时间仍然服从参数为 $\lambda$ 的指数分布. 设从此时开始，张伟办完事情的时间为 $X$，曾贤办完事情的时间为 $Y$，因此张伟最后一个办完事情的概率即为 $P(X>Y)=\dfrac{\lambda}{\lambda+\lambda}=\dfrac{1}{2}$.
+容易知道吕布和曾贤的地位完全对称，不妨假设吕布先办完事情. 由指数分布的无记忆性，张伟开始服务时，曾贤办完事情的剩余时间仍然服从参数为 $\lambda$ 的指数分布. 设从此时开始，张伟办完事情的时间为 $X$，曾贤办完事情的时间为 $Y$，因此张伟最后一个办完事情的概率即为 $P(X>Y)=\dfrac{\lambda}{\lambda+\lambda}=\dfrac{1}{2}$.（事实上由于此时两个队列服从相同的指数分布，从而张伟先办完事和后办完事完全对称，概率都应为 $\dfrac
+{1}{2}$）
+
+可以进一步思考，如果两个窗口的服务时间服从参数分别为 $\lambda_1,\lambda_2$ 的指数分布，那么张伟最后一个办完事情的概率应如何计算？
 
 【注】这个结论揭示了指数分布中的参数被称为「速率」的原因.
 
@@ -768,15 +771,15 @@ $$
 p_1(y)=p(x)\left|\frac{\mathrm{d}x}{\mathrm{d}y}\right|=\frac{1}{y^2}p\left(\frac{1}{y}\right)
 $$
 
-(2) 反变换为 $\xi=\arctan \eta$，从而
+(2) 反变换为 $\xi=\arctan \eta+n\pi,n\in\mathbb{Z}$，这是由于经过该变换，每个 $[n\pi-\dfrac{\pi}{2},n\pi+\dfrac{\pi}{2})$ 都会映射到 $\mathbb{R}$ 上，从而在最终结果中，需要把每个区间的密度都累加起来，即
 $$
-p_2(y)=p(x)\left|\frac{\mathrm{d}x}{\mathrm{d}y}\right|=\frac{1}{y^2+1}p\left(\arctan \eta\right)
+p_2(y)=\sum_{n\in\mathbb{Z}}p(\arctan y+n\pi)\left|\frac{\mathrm{d}x}{\mathrm{d}y}\right|=\frac{1}{y^2+1}\sum_{n\in\mathbb{Z}}p(\arctan y+n\pi)
 $$
 
 (3) 该变换不是单调变换，有
 $$
 x=\left\{\begin{matrix}
-    y, & x\ge 0
+    y, & x\ge 0 \\
     -y, & x<0
 \end{matrix}\right.
 $$
@@ -884,11 +887,11 @@ $$
 $$
 这就得到了 $C_n=\dfrac{1}{\displaystyle 2^{\frac{n}{2}-1}\Gamma(\frac{n}{2})}$. 因此
 $$
-F(x)=\dfrac{1}{\displaystyle 2^{\frac{n}{2}}\Gamma(\frac{n}{2})} \int_0^x t^{\frac{n}{2}-1}\mathrm{e}^{-\frac{t}{2}}\mathrm{d}t, x>0
+F(x)=\dfrac{1}{\displaystyle 2^{\frac{n}{2}}\Gamma(n/2)} \int_0^x t^{\frac{n}{2}-1}\mathrm{e}^{-\frac{t}{2}}\mathrm{d}t, x>0
 $$
 两端求导得到密度函数
 $$
-p(x)=\dfrac{1}{\displaystyle 2^{\frac{n}{2}}\Gamma(\frac{n}{2})} e^{-\frac{x}{2}}x^{\frac{n}{2}-1}, x>0
+p(x)=\dfrac{1}{\displaystyle 2^{\frac{n}{2}}\Gamma(n/2)} e^{-\frac{x}{2}}x^{\frac{n}{2}-1}, x>0
 $$
 这正是 $\chi^2$ 分布的密度.
 
