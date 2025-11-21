@@ -408,7 +408,7 @@ $$
 
 设二维随机变量 $(\xi,\eta)$ 的联合密度为
 $$
-p(x,y)=\frac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}(y-x)^{k_2-1}e^{y}
+p(x,y)=\frac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}(y-x)^{k_2-1}e^{-y}
 $$
 $k_1>0,k_2>0,0<x\le y<\infty$. 试求 $\xi$ 与 $\eta$ 的边际分布密度.
 
@@ -419,27 +419,27 @@ $k_1>0,k_2>0,0<x\le y<\infty$. 试求 $\xi$ 与 $\eta$ 的边际分布密度.
 先求 $\xi$ 的边际密度，只需对 $y$ 积分
 $$
 \begin{align*}
-    p_\xi(x)&=\dfrac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}\int_{x}^\infty (y-x)^{k_2-1}e^{y}\mathrm{d}y \\
-    &=\dfrac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}\int_0^\infty t^{k_2-1}e^{t+x}\mathrm{d}(t+x) \\
-    &=\dfrac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}e^{x}\int_0^\infty t^{k_2-1}e^{t}\mathrm{d}t \\
-    &=\dfrac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}e^{x}\cdot\Gamma(k_2) \\
-    &=\dfrac{x^{k_1-1}}{\Gamma(k_1)}e^{x}, x>0
+    p_\xi(x)&=\dfrac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}\int_{x}^\infty (y-x)^{k_2-1}e^{-y}\mathrm{d}y \\
+    &=\dfrac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}\int_0^\infty t^{k_2-1}e^{-(t+x)}\mathrm{d}(t+x) \\
+    &=\dfrac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}e^{-x}\int_0^\infty t^{k_2-1}e^{t}\mathrm{d}t \\
+    &=\dfrac{1}{\Gamma(k_1)\Gamma(k_2)}x^{k_1-1}e^{-x}\cdot\Gamma(k_2) \\
+    &=\dfrac{x^{k_1-1}}{\Gamma(k_1)}e^{-x}, x>0
 \end{align*}
 $$
 
 对于 $\eta$ 的密度，我们使用以下技巧. 注意到
 $$
-p(x,y)=\frac{\Gamma(k_1+k_2)}{\Gamma(k_1)\Gamma(k_2)}\left(\frac{x}{y}\right)^{k_1-1}\left(1-\frac{x}{y}\right)^{k_2-1}\cdot\dfrac{y^{k_1+k_2-2}}{\Gamma(k_1+k_2)}e^{y}
+p(x,y)=\frac{\Gamma(k_1+k_2)}{\Gamma(k_1)\Gamma(k_2)}\left(\frac{x}{y}\right)^{k_1-1}\left(1-\frac{x}{y}\right)^{k_2-1}\cdot\dfrac{y^{k_1+k_2-2}}{\Gamma(k_1+k_2)}e^{-y}
 $$
 此时对 $x$ 积分，有
 $$
 \begin{align*}
-    p_{\eta}(y)&=\dfrac{y^{k_1+k_2-2}}{\Gamma(k_1+k_2)}e^{y}\int_{0}^y\frac{\Gamma(k_1+k_2)}{\Gamma(k_1)\Gamma(k_2)}\left(\frac{x}{y}\right)^{k_1-1}\left(1-\frac{x}{y}\right)^{k_2-1}\mathrm{d}x \\
-    &=\dfrac{y^{k_1+k_2-2}}{\Gamma(k_1+k_2)}e^{y}\cdot y\int_{0}^y\frac{\Gamma(k_1+k_2)}{\Gamma(k_1)\Gamma(k_2)}\left(\frac{x}{y}\right)^{k_1-1}\left(1-\frac{x}{y}\right)^{k_2-1}\mathrm{d}\frac{x}{y} \\
-    &=\dfrac{y^{k_1+k_2-1}}{\Gamma(k_1+k_2)}e^{y}\cdot \int_{0}^1\frac{\Gamma(k_1+k_2)}{\Gamma(k_1)\Gamma(k_2)}t^{k_1-1}\left(1-t\right)^{k_2-1}\mathrm{d}t
+    p_{\eta}(y)&=\dfrac{y^{k_1+k_2-2}}{\Gamma(k_1+k_2)}e^{-y}\int_{0}^y\frac{\Gamma(k_1+k_2)}{\Gamma(k_1)\Gamma(k_2)}\left(\frac{x}{y}\right)^{k_1-1}\left(1-\frac{x}{y}\right)^{k_2-1}\mathrm{d}x \\
+    &=\dfrac{y^{k_1+k_2-2}}{\Gamma(k_1+k_2)}e^{-y}\cdot y\int_{0}^y\frac{\Gamma(k_1+k_2)}{\Gamma(k_1)\Gamma(k_2)}\left(\frac{x}{y}\right)^{k_1-1}\left(1-\frac{x}{y}\right)^{k_2-1}\mathrm{d}\frac{x}{y} \\
+    &=\dfrac{y^{k_1+k_2-1}}{\Gamma(k_1+k_2)}e^{-y}\cdot \int_{0}^1\frac{\Gamma(k_1+k_2)}{\Gamma(k_1)\Gamma(k_2)}t^{k_1-1}\left(1-t\right)^{k_2-1}\mathrm{d}t
 \end{align*}
 $$
-由 $\mathrm{Beta}$ 函数的定义，立刻得到上式最后的积分值为 $1$，因此 $p_{\eta}(y)=\dfrac{y^{k_1+k_2-1}}{\Gamma(k_1+k_2)}e^{y}, y>0$.
+由 $\mathrm{Beta}$ 函数的定义，立刻得到上式最后的积分值为 $1$，因此 $p_{\eta}(y)=\dfrac{y^{k_1+k_2-1}}{\Gamma(k_1+k_2)}e^{-y}, y>0$.
 
 【注】求解 $\eta$ 的密度过程中，通过提出 $y^{k_1+k_2+2}$，将积分区间转换至 $[0,1]$，且得到 $\mathrm{Beta}$ 函数形式，这一技巧将在《数理统计》课程中多次见到，将和 $\mathrm{Beta}$ 分布有着深刻的联系.
 
@@ -680,7 +680,7 @@ $$
 
 然而，我们有
 $$
-P(\zeta=1,\xi=1,\eta=1)=1\neq P(\zeta=1)P(\xi=1)P(\eta=1)
+P(\zeta=1,\xi=1,\eta=1)=\frac{1}{4}\neq P(\zeta=1)P(\xi=1)P(\eta=1)
 $$
 这说明它们不相互独立.
 
@@ -811,7 +811,7 @@ $$
 
 (1)
 $$
-P(\xi_1^* \le x) = 1 - P(\xi_1^*> x)=1-\prod_{i=1}^n P(\xi_i>x)=1-\mathrm{e}^{\lambda nx^\alpha}
+P(\xi_1^* \le x) = 1 - P(\xi_1^*> x)=1-\prod_{i=1}^n P(\xi_i>x)=1-\mathrm{e}^{-\lambda nx^\alpha}
 $$
 即 $\xi_1^*$ 服从参数为 $n\lambda$ 和 $\alpha$ 的韦布尔分布.
 
@@ -821,7 +821,7 @@ $$
 $$
 从而
 $$
-1-P(\xi_i\le x)=\mathrm{e}^{\frac{\lambda x^\alpha}{n}} \Rightarrow P(\xi_i\le x)=1-\mathrm{e}^{\frac{\lambda x^\alpha}{n}}
+1-P(\xi_i\le x)=\mathrm{e}^{-\frac{\lambda x^\alpha}{n}} \Rightarrow P(\xi_i\le x)=1-\mathrm{e}^{-\frac{\lambda x^\alpha}{n}}
 $$
 即 $\xi_1$ 服从参数为 $\dfrac{\lambda}{n}$ 和 $\alpha$ 的韦布尔分布.
 
@@ -885,7 +885,7 @@ $$
 $$
 1 = C_n\cdot\frac{1}{2}\int_0^{+\infty} t^{\frac{n}{2}-1}\mathrm{e}^{-\frac{t}{2}}\mathrm{d}t=C_n\cdot\frac{1}{2}\cdot \frac{\Gamma(n/2)}{(1/2)^\frac{n}{2}}
 $$
-这就得到了 $C_n=\dfrac{1}{\displaystyle 2^{\frac{n}{2}-1}\Gamma(\frac{n}{2})}$. 因此
+这就得到了 $C_n=\dfrac{1}{\displaystyle 2^{\frac{n}{2}-1}\Gamma(n/2)}$. 因此
 $$
 F(x)=\dfrac{1}{\displaystyle 2^{\frac{n}{2}}\Gamma(n/2)} \int_0^x t^{\frac{n}{2}-1}\mathrm{e}^{-\frac{t}{2}}\mathrm{d}t, x>0
 $$
@@ -1102,16 +1102,16 @@ $$
 
 【解】
 
-（法一）记前六天甲和乙营业天数相同为事件A；前六天甲营业天数多于乙为事件B；前六天甲营业天数少于乙为事件C；前七天甲营业天数多于乙为事件M. 由于甲和乙在前六天的地位完全对称，从而
+（法一）记前六天甲和乙营业天数相同为事件 $A$；前六天甲营业天数多于乙为事件 $B$；前六天甲营业天数少于乙为事件 $C$；前七天甲营业天数多于乙为事件M. 由于甲和乙在前六天的地位完全对称，从而
 $$
-P(A)=P(C)=\frac{1}{2}(1-P(B))
+P(B)=P(C)=\frac{1}{2}(1-P(A))
 $$
 现考虑第七天，考虑对前六天的状态取条件，由全概率公式得
 $$
 \begin{align*}
     P(M) & = P(M\mid A)P(A)+P(M\mid B)P(B)+P(M\mid C)P(C) \\
-    & = 1\cdot P(A) + \frac{1}{2}\cdot P(B) + 0\cdot P(C) \\
-    & = \frac{1}{2}(1-P(B)) + \frac{1}{2}P(B) \\
+    & = \frac{1}{2}\cdot P(A) + 1\cdot P(B) + 0\cdot P(C) \\
+    & = \frac{1}{2}P(A) + \frac{1}{2}(1-P(A)) \\
     & = \frac{1}{2}
 \end{align*}
 $$
@@ -1208,7 +1208,7 @@ $$
 $$
 \begin{align*}
     q_S(s) & = s^{\alpha_1-1}(1-s)^{\alpha_2-1}\int_0^\infty \dfrac{\lambda^{\alpha_1+\alpha_2}}{\Gamma(\alpha_1)\Gamma(\alpha_2)} t^{\alpha_1+\alpha_2-1} \mathrm{e}^{-\lambda t} \mathrm{d}t \\
-    & = \dfrac{\Gamma(\alpha_1+\alpha_2)}{\Gamma(\alpha_1)\Gamma(\alpha_2)}s^{\alpha_1-1}(1-s)^{\alpha_2-1}
+    & = \dfrac{\Gamma(\alpha_1+\alpha_2)}{\Gamma(\alpha_1)\Gamma(\alpha_2)}s^{\alpha_1-1}(1-s)^{\alpha_2-1}, 0<s<1
 \end{align*}
 $$
 这便是 $\dfrac{\xi_1}{\xi_1+\xi_2}$ 的分布，事实上它正是 $\mathrm{Be}(\alpha_1,\alpha_2)$.

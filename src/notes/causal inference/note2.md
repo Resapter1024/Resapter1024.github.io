@@ -83,9 +83,9 @@ $$
 
 称一组数据中，处理组结果均值和对照组结果均值之差为<u>均值差异（Difference in Means）</u>
 $$
-\hat{\tau}=\hat{Y}(1)-\hat{Y}(0)
+\hat{\tau}=\hat{\bar{Y}}(1)-\hat{\bar{Y}}(0)
 $$
-其中 $\hat{Y}(1)=\displaystyle\frac{1}{n_1}\sum_{i=1}^{n}Z_iY_i,\hat{Y}(0)=\displaystyle\frac{1}{n_0}\sum_{i=1}^{n}(1-Z_i)Y_i$.
+其中 $\hat{\bar{Y}}(1)=\displaystyle\frac{1}{n_1}\sum_{i=1}^{n}Z_iY_i,\hat{\bar{Y}}(0)=\displaystyle\frac{1}{n_0}\sum_{i=1}^{n}(1-Z_i)Y_i$.
 
 :::
 
@@ -94,7 +94,7 @@ $$
 E(\hat{\tau})=0
 $$
 $$
-\mathrm{Var}(\tau)=\frac{n}{n_1n_0}s^2
+\mathrm{Var}(\hat{\tau})=\frac{n}{n_1n_0}s^2
 $$
 其中 $s^2=\displaystyle\frac{1}{n-1}\sum_{i=1}^n(Y_i-\bar{Y})^2,\bar{Y}=\frac{1}{n}\sum_{i=1}^nY_i$.
 进一步地，在一定条件下，当 $n\to\infty$ 时，均值差异服从中心极限定理，即
@@ -104,3 +104,62 @@ $$
 又因为在强原假设下 $s^2$ 是固定的，这就意味着当 $n$ 充分大时，我们可以用正态分布来计算 $p_\text{FRT}$.
 
 与此同时，由于我们可以依照是否接受处理将被试个体分为处理组和对照组，所以强原假设还可以被看成一个两总体检验均值差异的问题. 因此我们也有
+$$
+\frac{\hat{\tau}}{\sqrt{\displaystyle\frac{n}{n_1n_0(n-2)}\left[\sum_{Z_i=1}\{Y_i-\hat{\bar{Y}}(1)\}^2+\sum_{Z_i=0}\{Y_i-\hat{\bar{Y}}(0)\}^2\right]}}\sim t_{n-2}
+$$
+
+::: info 学生化统计量
+
+在考虑处理组和对照组的异方差性时，往往采用学生化统计量.
+$$
+t=\frac{\hat{\bar{Y}}(1)-\hat{\bar{Y}}(0)}{\sqrt{\displaystyle\frac{\hat{S}^2(1)}{n_1}+\frac{\hat{S}^2(0)}{n_0}}}
+$$
+其中 $\displaystyle\hat{S}^2(k)=(n_k-1)^{-1}\sum_{Z_i=k}\{Y_i-\hat{\bar{Y}}(k)\}^2, k=0,1$ 分别是处理组和对照组的样本方差.
+
+:::
+
+在强原假设下，学生化统计量同样是渐进正态的.
+$$
+t\to \mathrm{N}(0,1)
+$$
+
+::: info Wilcoxon 秩和统计量
+
+在非参数背景下，Wilcoxon 秩和检验同样也是一个很好的两总体 $t$ 检验的代替. 以 $R_i$ 记 $Y_i$ 在所有样本中的秩，定义
+$$
+W = \sum_{i=1}^n Z_i R_i
+$$
+为 Wilcoxon 秩和统计量.
+
+:::
+
+不妨设所有 $Y_i$ 均不相等，我们可以计算 $W$ 的期望和方差如下.
+$$
+E(W)=\frac{n_1(n+1)}{2}
+$$
+$$
+\mathrm{Var}(W)=\frac{n_1n_0(n+1)}{12}
+$$
+根据中心极限定理，我们也可以得到 Wilcoxon 统计量的渐进性质，即
+$$
+\frac{W-E(W)}{\sqrt{\mathrm{Var}(W)}}\to \mathrm{N}(0,1)
+$$
+
+::: info Kolmogorov–Smirnov 统计量
+
+基于用经验分布函数拟合分布函数的思路，可以使用 Kolmogorov–Smirnov 统计量来检验分布的形状. 先定义
+$$
+\hat{F}_1(y)=n_1^{-1}\sum_{i=1}^n Z_i\mathbb{I}(Y_i\le y), \hat{F}_0(y)=n_0^{-1}\sum_{i=1}^n (1-Z_i)\mathbb{I}(Y_i\le y)
+$$
+分别为处理组和对照组的经验分布函数. 从而
+$$
+D=\max_y|\hat{F}_1(y)-\hat{F}_0(y)|
+$$
+为 Kolmogorov-Smirnov 统计量.
+
+:::
+
+当 $n_1\to\infty$ 且 $n_0\to \infty$ 时，上述统计量渐进地服从 Kolmogorov 分布
+$$
+P\left(\frac{n_1n_0}{n}D\le x\right)\to \frac{\sqrt{2\pi}}{x}\sum_{j=1}^\infty\exp\left(-\frac{(2j-1)^2\pi^2}{8x^2}\right)
+$$
