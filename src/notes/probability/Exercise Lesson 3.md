@@ -359,7 +359,7 @@ $$
 
 设 $X_1, X_2, \ldots, X_n$ 独立同分布，都服从指数分布 $\mathrm{Exp}(\lambda)$，证明随机变量
 $$
-Y_1=X_{(1)}, Y_k=X_{(k)}-X{(k-1)},\quad k=2,3,\ldots,n
+Y_1=X_{(1)}, Y_k=X_{(k)}-X_{(k-1)},\quad k=2,3,\ldots,n
 $$
 相互独立，且 $Y_i\sim \mathrm{Exp}((n+1-i)\lambda)$
 
@@ -731,7 +731,7 @@ $$
 
 :::
 
-可以计算得到，双指数分布（密度为 $q(x)=\frac{1}{2}\mathrm{e}^{-|t|}$）的特征函数正是 $g(t)=\frac{1}{1+x^2}$（证明略去），因此反过来，当我们对 Cauchy 分布 $p(x)=\frac{1}{\pi(1+x^2)}$ 计算其特征函数时，结果就应为
+可以计算得到，双指数分布（密度为 $q(x)=\dfrac{1}{2}\mathrm{e}^{-|t|}$）的特征函数正是 $g(t)=\dfrac{1}{1+x^2}$（证明略去），因此反过来，当我们对 Cauchy 分布 $p(x)=\dfrac{1}{\pi(1+x^2)}$ 计算其特征函数时，结果就应为
 $$
 f(t)=2\pi\cdot \frac{1}{\pi}\cdot \frac{1}{2}\mathrm{e}^{-|-t|}=\mathrm{e}^{-|t|}
 $$
