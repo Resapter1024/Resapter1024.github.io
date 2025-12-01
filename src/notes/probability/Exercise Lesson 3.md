@@ -1,10 +1,6 @@
 ---
 title: 概率论第六次习题课
-category:
-  - 概率论
-tag:
-  - 学习
-  - 数学
+author: false
 date: 2025-12-07
 # 禁止显示页脚
 footer: false
@@ -66,7 +62,7 @@ $$
 
 1. 直接使用公式计算得到
     $$
-    H(Y)=-\sum_{i=1}^6 P(Y=i)\log P(Y=i)=-\frac{1}{6}\log\frac{1}{6}\cdot \frac{1}{6}=-\log\frac{1}{6}
+    H(Y)=-\sum_{i=1}^6 P(Y=i)\log P(Y=i)=-\frac{1}{6}\log\frac{1}{6}\cdot 6=-\log\frac{1}{6}
     $$
 2. 条件熵的计算公式为 $H_Y(X)=\displaystyle\sum_{y=1}^6P(Y=y)H(X\mid Y=y)$，因此下面先计算 $H(X\mid Y=y)$.
     有分别给定 $Y=y\in\{1,2,3,4,5\}$ 时，$P(X=1\mid Y=y)=P(Z=6-k)=\frac{1}{6}$，进而
@@ -294,7 +290,7 @@ $$
     D\eta & = E\eta^2 - (E\eta)^2 \\
     & = H''(1)+H'(1) - (H'(1))^2 \\
     & = G''(F(1))[F'(1)]^2+G'(F(1))F''(1)+G'(F(1))F'(1) - [G'(F(1))F'(1)]^2 \\
-    & = G'(1)\left[F''(1)+F(1)-(F'(1))^2\right] + (F'(1))^2\left[G''(1)+G'(1)-(G'(1))^2\right] \\
+    & = G'(1)\left[F''(1)+F'(1)-(F'(1))^2\right] + (F'(1))^2\left[G''(1)+G'(1)-(G'(1))^2\right] \\
     & = E\nu\cdot D\xi_k + D_\nu\cdot (E\xi_k)^2
 \end{align*}
 $$
@@ -307,7 +303,7 @@ $$
 $$
 E\eta=E[E(\eta|\nu=n)]=E(\nu\cdot E\xi_k)=E\nu\cdot E\xi_k
 $$
-关于方差，我们需要引入条件方差公式 $\mathrm{Var}(Y) = E[\mathrm{Var}(Y|X)] + \mathrm{Var}(E[Y|X])$，该公式的证明将在拓展部分提及. 因此我们有
+关于方差，由全方差公式 $\mathrm{Var}(Y) = E[\mathrm{Var}(Y|X)] + \mathrm{Var}(E[Y|X])$，有
 $$
 \mathrm{Var}(\eta) = E(\mathrm{Var}(\eta|\nu))+\mathrm{Var}(E(\eta|\nu))
 $$
@@ -520,75 +516,511 @@ E(\xi-\mu)^k = \dfrac{f^{(k)}(0)}{\mathrm{i}^k}=\left\{\begin{matrix}
 \end{matrix}\right. \quad (n\in\mathbb{N}^*)
 $$
 
+### 11.24
+
+::: info （李贤平 4.56）
+
+若随机向量 $(\xi,\eta)$ 服从二元正态分布 $N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$，试写出：
+
+(1) $(\xi,\eta)$ 的特征函数；(2) $a\xi+b\eta$ 的密度函数；(3) 当 $\xi=x$ 时的条件密度函数，并讨论 $\rho=-1,\rho=1$ 及 $\rho=0$ 等特殊情况下结果的概率含意.
+
+:::
+
+【解】
+
+引入向量记号，令随机向量 $\boldsymbol{X} = \begin{pmatrix} \xi \\ \eta \end{pmatrix}$. 由题意知 $\boldsymbol{X}$ 服从二维正态分布 $N_2(\boldsymbol{\mu}, \boldsymbol{\Sigma})$，其中均值向量 $\boldsymbol{\mu} = \begin{pmatrix} \mu_1 \\ \mu_2 \end{pmatrix}$，协方差矩阵 $\boldsymbol{\Sigma} = \begin{pmatrix} \sigma_1^2 & \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 & \sigma_2^2 \end{pmatrix}$.
+
+(1) 根据多元正态分布特征函数的矩阵表达式 $\varphi_{\boldsymbol{X}}(\boldsymbol{t}) = \exp\left( i\boldsymbol{t}^T\boldsymbol{\mu} - \dfrac{1}{2}\boldsymbol{t}^T\boldsymbol{\Sigma}\boldsymbol{t} \right)$，令参数向量 $\boldsymbol{t} = (t_1, t_2)^T$，直接展开指数部分的二次型可得 $(\xi, \eta)$ 的特征函数为：
+$$ \varphi(t_1, t_2) = \exp\left\{ i(\mu_1 t_1 + \mu_2 t_2) - \frac{1}{2}(\sigma_1^2 t_1^2 + 2\rho\sigma_1\sigma_2 t_1 t_2 + \sigma_2^2 t_2^2) \right\} $$
+
+(2) 令 $Y = a\xi + b\eta$. 这可以看作是向量 $\boldsymbol{X}$ 的线性变换 $Y = \boldsymbol{C}^T \boldsymbol{X}$，其中 $\boldsymbol{C} = (a, b)^T$. 由正态分布的线性性质知 $Y$ 服从一元正态分布. 其均值为
+$$
+E(Y) = \boldsymbol{C}^T\boldsymbol{\mu} = a\mu_1 + b\mu_2
+$$
+其方差为
+$$
+D(Y) = \boldsymbol{C}^T\boldsymbol{\Sigma}\boldsymbol{C}
+$$
+计算方差二次型：
+$$
+D(Y) = \begin{pmatrix} a & b \end{pmatrix} \begin{pmatrix} \sigma_1^2 & \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 & \sigma_2^2 \end{pmatrix} \begin{pmatrix} a \\ b \end{pmatrix} = a^2\sigma_1^2 + 2ab\rho\sigma_1\sigma_2 + b^2\sigma_2^2
+$$
+记 $\mu_Y = a\mu_1 + b\mu_2$，$\sigma_Y^2 = a^2\sigma_1^2 + b^2\sigma_2^2 + 2ab\rho\sigma_1\sigma_2$，则 $a\xi + b\eta$ 的密度函数为：
+$$ f(y) = \frac{1}{\sqrt{2\pi}\sigma_Y} e^{-\frac{(y-\mu_Y)^2}{2\sigma_Y^2}} $$
+
+(3) 根据二元正态分布的条件分布公式，当 $\xi=x$ 给定时，$\eta$ 服从正态分布 $N(\mu_{\eta|\xi}, \sigma^2_{\eta|\xi})$.
+条件均值为 $\mu_{\eta|\xi} = \mu_2 + \rho\dfrac{\sigma_2}{\sigma_1}(x-\mu_1)$，条件方差为 $\sigma^2_{\eta|\xi} = \sigma_2^2(1-\rho^2)$.
+故条件密度函数为：
+$$ f_{\eta|\xi}(y|x) = \frac{1}{\sqrt{2\pi}\sigma_2\sqrt{1-\rho^2}} \exp\left\{ -\frac{[y - (\mu_2 + \rho\dfrac{\sigma_2}{\sigma_1}(x - \mu_1))]^2}{2\sigma_2^2(1-\rho^2)} \right\} $$
+
+从上面可以看出，若 $\rho=0$，则条件方差为 $\sigma_2^2$，条件均值为 $\mu_2$，此时条件密度等于边缘密度 $f_\eta(y)$，说明 $\xi$ 与 $\eta$ 相互独立；若 $\rho=\pm 1$，则条件方差 $\sigma_2^2(1-\rho^2) = 0$，此时分布退化. $\eta$ 关于 $\xi$ 的条件分布不再是通常意义下的密度函数，而是以概率 1 取值于直线 $y = \mu_2 \pm \dfrac{\sigma_2}{\sigma_1}(x-\mu_1)$ 上，表明 $\xi$ 与 $\eta$ 存在严格的线性函数关系.
+
+::: info （李贤平 4.57）
+
+若 $\xi_1,\xi_2,\ldots,\xi_n$ 相互独立，均服从 $N(0,1)$，而
+$$
+\eta_1=\sum_{k=1}^n a_k\xi_k,\quad \eta_2=\sum_{k=1}^n b_k\xi_k
+$$
+试证 $\eta_1$ 与 $\eta_2$ 独立的充要条件为 $\displaystyle\sum_{k=1}^n a_kb_k=0$.
+
+:::
+
+【解】
+
+考虑矩阵 $\mathbf{A}=\left(\begin{matrix}
+    a_1 & a_2 & \ldots & a_n \\
+    b_1 & b_2 & \ldots & b_n
+\end{matrix}\right)$，进一步记 $\boldsymbol{\xi}=(\xi_1,\xi_2,\ldots,\xi_n)^\top$，显然有 $\mathbf{A}\boldsymbol{\xi}=(\eta_1,\eta_2)^\top$，因此 $(\eta_1,\eta_2)^\top$ 服从多元正态分布. 这表明它们独立等价于它们不相关，即协方差为 $0$.
+
+由于 $E(\eta_1)=E(\eta_2)=0$，计算得到
+$$
+\mathrm{Cov}(\eta_1,\eta_2) = E(\eta_1\eta_2)=E\left[ \left(\sum_{i=1}^n a_i \xi_i\right) \left(\sum_{j=1}^n b_j \xi_j\right) \right]= \sum_{i=1}^n \sum_{j=1}^n a_i b_j E[\xi_i \xi_j]
+$$
+若 $i\neq j$，则由于 $\xi_i,\xi_j$ 独立，它们一定不相关，从而 $E[\xi_i \xi_j]=0$. 从而上式化简得到
+$$
+\mathrm{Cov}(\eta_1,\eta_2)=\sum_{i=1}^n a_i b_i E[\xi_i^2]=\sum_{i=1}^n a_i b_i
+$$
+因此
+$$
+\mathrm{Cov}(\eta_1,\eta_2)=0\Leftrightarrow \displaystyle\sum_{k=1}^n a_kb_k=0
+$$
+即证.
+
+::: info （李贤平 4.58）
+
+设 $\xi_1,\xi_2,\ldots,\xi_n$ 相互独立，具有相同分布 $N(\mu,\sigma^2)$，试求 $\boldsymbol{\xi}=\left(\begin{matrix}
+    \xi_1 \\
+    \xi_2 \\
+    \vdots \\
+    \xi_n
+\end{matrix}\right)$ 的分布，并写出它的数学期望及协方差矩阵，再求 $\bar{\xi}=\displaystyle\frac{1}{n}\sum_{i=1}^{n}\xi_i$ 的分布密度.
+
+:::
+
+【解】
+
+由于 $\boldsymbol{\xi}$ 的各分量独立同分布，显然有其自身服从多元正态分布，且 $E(\boldsymbol{\xi})=(\mu,\mu,\ldots,\mu)^\top=\mu\mathbf{1}_n$，$\mathrm{Var}(\boldsymbol{\xi})=\sigma^2I_n$，因此
+$$
+\boldsymbol{\xi}\sim N(\mu\mathbf{1}_n, \sigma^2I_n)
+$$
+
+进一步，这实际上是求 $\dfrac{1}{n}\mathbf{1}_n^\top \boldsymbol{\xi}$ 的密度. 我们知道多元正态分布的线性组合仍服从正态分布，因此只需求出其期望和方差. 知
+$$
+E(\bar{\xi})=\frac{1}{n}\cdot n\mu=\mu
+$$
+$$
+\mathrm{Var}(\bar{\xi})=\frac{1}{n^2}\cdot n\sigma^2=\frac{\sigma^2}{n}
+$$
+因此 $\bar{\xi}\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$. 进而其密度为
+$$
+f_{\bar{\xi}}(x) = \frac{1}{\sqrt{2\pi (\sigma^2/n)}} \exp\left\{ -\frac{(x - \mu)^2}{2(\sigma^2/n)} \right\} = \frac{\sqrt{n}}{\sqrt{2\pi}\sigma} \exp\left\{ -\frac{n(x - \mu)^2}{2\sigma^2} \right\}
+$$
+
+::: info （李贤平 4.59）
+
+若 $(\xi,\eta)$ 服从 $N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$，而
+$$
+U=a\xi+b\eta,\quad V=c\xi+d\eta
+$$
+
+(1) 试求 $U$ 与 $V$ 的数学期望、方差及相关系数；
+
+(2) 写出 $(U,V)$ 的分布；
+
+(3) 讨论：何种情况下，$(U,V)$ 退化为一维分布；何种情况下，$U$ 与 $V$ 独立.
+
+:::
+
+【解】
+
+令随机向量 $\boldsymbol{X} = \begin{pmatrix} \xi \\ \eta \end{pmatrix}$，其服从二元正态分布 $N_2(\boldsymbol{\mu}, \boldsymbol{\Sigma})$，其中均值向量为
+$$
+\boldsymbol{\mu} = \begin{pmatrix} \mu_1 \\ \mu_2 \end{pmatrix}
+$$
+协方差矩阵为
+$$
+\boldsymbol{\Sigma} = \begin{pmatrix} \sigma_1^2 & \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 & \sigma_2^2 \end{pmatrix}
+$$
+
+定义新的随机向量 $\boldsymbol{Y} = \begin{pmatrix} U \\ V \end{pmatrix} = \begin{pmatrix} a\xi + b\eta \\ c\xi + d\eta \end{pmatrix}$.
+这可以写成线性变换形式 $\boldsymbol{Y} = \boldsymbol{A}\boldsymbol{X}$，其中变换矩阵 $\boldsymbol{A} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$.
+
+(1) 根据多元随机变量线性变换的性质，$\boldsymbol{Y}$ 的数学期望向量为 $E(\boldsymbol{Y}) = \boldsymbol{A}E(\boldsymbol{X}) = \boldsymbol{A}\boldsymbol{\mu}$，即：
+$$
+\begin{pmatrix} E(U) \\ E(V) \end{pmatrix} = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} \mu_1 \\ \mu_2 \end{pmatrix} = \begin{pmatrix} a\mu_1 + b\mu_2 \\ c\mu_1 + d\mu_2 \end{pmatrix}
+$$
+$\boldsymbol{Y}$ 的协方差矩阵为 $\boldsymbol{\Sigma}_{\boldsymbol{Y}} = \boldsymbol{A}\boldsymbol{\Sigma}\boldsymbol{A}^T$. 直接展开矩阵乘法：
+$$
+\boldsymbol{\Sigma}_{\boldsymbol{Y}} = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} \sigma_1^2 & \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 & \sigma_2^2 \end{pmatrix} \begin{pmatrix} a & c \\ b & d \end{pmatrix}
+$$
+
+计算结果矩阵的主对角线元素即为方差，非对角线元素为协方差：
+$$
+D(U) = a^2\sigma_1^2 + 2ab\rho\sigma_1\sigma_2 + b^2\sigma_2^2
+$$
+$$
+D(V) = c^2\sigma_1^2 + 2cd\rho\sigma_1\sigma_2 + d^2\sigma_2^2
+$$
+$$
+\text{Cov}(U, V) = ac\sigma_1^2 + (ad+bc)\rho\sigma_1\sigma_2 + bd\sigma_2^2
+$$
+进而相关系数 $\rho_{UV} = \dfrac{\text{Cov}(U, V)}{\sqrt{D(U)D(V)}}$.
+
+(2) 由于正态向量的线性变换仍为正态向量，故 $(U, V)$ 服从二元正态分布，其参数即为上面求得的均值和协方差矩阵，记为 $N_2(\boldsymbol{A}\boldsymbol{\mu}, \boldsymbol{\Sigma}_{\boldsymbol{Y}})$.
+
+(3) $(U, V)$ 退化为一维分布意味着其协方差矩阵奇异，即行列式 $|\boldsymbol{\Sigma}_{\boldsymbol{Y}}| = 0$. 计算得到
+$$
+|\boldsymbol{\Sigma}_{\boldsymbol{Y}}| = |\boldsymbol{A}\boldsymbol{\Sigma}\boldsymbol{A}^T| = |\boldsymbol{A}|^2 |\boldsymbol{\Sigma}| = (ad-bc)^2 \cdot \sigma_1^2\sigma_2^2(1-\rho^2)
+$$
+因此，当变换矩阵不可逆 ($ad=bc$) 或原分布本身完全相关 ($\rho=\pm 1$) 时，$(U, V)$ 退化.
+
+另外，$U$ 与 $V$ 独立等价于其协方差为 0，即满足 $ac\sigma_1^2 + (ad+bc)\rho\sigma_1\sigma_2 + bd\sigma_2^2 = 0$ 时独立.
+
+::: info （李贤平 4.60）Fisher 引理
+
+若 $X_1,X_2,\ldots,X_n$ 相互独立，均服从 $N(\mu,\sigma^2)$，记
+$$
+\bar{X}=\frac{1}{n}\sum_{i=1}^n X_i, S_n^2=\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2
+$$
+试证：(1) $\bar{X}$ 与 $S_n^2$ 相互独立；(2) $\bar{X}\sim N\left(\mu, \dfrac{\sigma^2}{n}\right)$；(3) $\dfrac{nS_n^2}{\sigma^2}\sim\chi^2_{n-1}$.
+
+:::
+
+【解】
+
+(1) 记向量 $\boldsymbol{X} = (X_1, \dots, X_n)^T$. $\bar{X}$ 是 $\boldsymbol{X}$ 的线性组合，$\boldsymbol{Y} = (X_1-\bar{X}, \dots, X_n-\bar{X})^T$ 也是 $\boldsymbol{X}$ 的线性变换，故它们均服从正态分布.
+
+考察 $\bar{X}$ 与 $X_i - \bar{X}$ 的协方差：
+$$
+\text{Cov}(\bar{X}, X_i - \bar{X}) = E[\bar{X}(X_i - \bar{X})] - E\bar{X}E(X_i-\bar{X}) = E(\bar{X}X_i) - E(\bar{X}^2) - \mu \cdot 0
+$$
+代入 $\bar{X} = \frac{1}{n}\sum X_j$：
+$$
+E(\bar{X}X_i) = \frac{1}{n} \sum_{j=1}^n E(X_j X_i) = \frac{1}{n} [ (n-1)\mu^2 + (\mu^2+\sigma^2) ] = \mu^2 + \frac{\sigma^2}{n}
+$$
+又 $E(\bar{X}^2) = D(\bar{X}) + (E\bar{X})^2 = \frac{\sigma^2}{n} + \mu^2$. 两式相减得协方差为 $0$. 对于多元正态分布，不相关与独立等价. 因此 $\bar{X}$ 与所有的 $X_i - \bar{X}$ 独立，进而与 $S_n^2 = \frac{1}{n}\sum (X_i-\bar{X})^2$ 独立.
+
+(2) 由 $X_i \sim N(\mu, \sigma^2)$ 且相互独立，利用期望与方差的线性性质：
+$$
+E(\bar{X}) = \frac{1}{n}\sum_{i=1}^n E(X_i) = \mu
+$$
+$$
+\mathrm{Var}(\bar{X}) = \frac{1}{n^2}\sum_{i=1}^n \mathrm{Var}(X_i) = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}
+$$
+故 $\bar{X} \sim N(\mu, \frac{\sigma^2}{n})$.
+
+(3) 需证
+$$
+\frac{nS_n^2}{\sigma^2} = \sum_{i=1}^n \left(\frac{X_i-\bar{X}}{\sigma}\right)^2 \sim \chi_{n-1}^2
+$$
+令 $Z_i = \dfrac{X_i-\mu}{\sigma} \sim N(0,1)$，则原式转化为证明
+$$
+\sum (Z_i-\bar{Z})^2 \sim \chi_{n-1}^2
+$$
+下面给出两种方法来证明这个结论.
+
+（法一）令随机向量 $\boldsymbol{Z} = (Z_1, \dots, Z_n)^T \sim N(\boldsymbol{0}, \boldsymbol{I})$. 考虑一个 $n$ 阶正交矩阵 $\boldsymbol{C}$，使其**第一行**为
+$$
+\left(\frac{1}{\sqrt{n}}, \dots, \frac{1}{\sqrt{n}}\right)
+$$
+
+作正交变换 $\boldsymbol{Y} = \boldsymbol{C}\boldsymbol{Z}$. 由正态分布性质，$\boldsymbol{Y} \sim N(\boldsymbol{0}, \boldsymbol{C}\boldsymbol{I}\boldsymbol{C}^T) = N(\boldsymbol{0}, \boldsymbol{I})$，即 $Y_i$ 相互独立且服从标准正态分布.
+
+计算
+$$
+Y_1 = \displaystyle\sum_{j=1}^n c_{1j} Z_j = \sqrt{n}\bar{Z}
+$$
+故 $Y_1^2 = n\bar{Z}^2$. 同时由于正交变换保持向量模长不变，有
+$$
+\displaystyle\sum_{i=1}^n Z_i^2 = \sum_{i=1}^n Y_i^2
+$$
+将平方和分解：
+$$
+\sum_{i=1}^n (Z_i-\bar{Z})^2 = \sum Z_i^2 - n\bar{Z}^2 = \sum_{i=1}^n Y_i^2 - Y_1^2 = \sum_{i=2}^n Y_i^2
+$$
+因为 $Y_2, \dots, Y_n$ 相互独立且服从 $N(0,1)$，其平方和服从 $\chi_{n-1}^2$.
+
+（法二）记 $Q_n = \displaystyle\sum_{i=1}^n (X_i - \bar{X}_n)^2$. 我们采用数学归纳法证明
+$$
+\frac{Q_n}{\sigma^2} \sim \chi_{n-1}^2
+$$
+
+当 $n=2$ 时，$Q_2 = \dfrac{1}{2}(X_1-X_2)^2$. 因 $X_1-X_2 \sim N(0, 2\sigma^2)$，故 $\dfrac{X_1-X_2}{\sqrt{2}\sigma} \sim N(0,1)$，从而
+$$
+\frac{Q_2}{\sigma^2} = (\frac{X_1-X_2}{\sqrt{2}\sigma})^2 \sim \chi_1^2
+$$
+命题成立.
+
+假设当 $n=k$ 时命题成立. 当 $n=k+1$ 时，对 $Q_{k+1}$ 作如下分解：
+$$
+Q_{k+1} = \sum_{i=1}^{k+1} (X_i - \bar{X}_{k+1})^2 = \sum_{i=1}^k (X_i - \bar{X}_k)^2 + \frac{k}{k+1}(X_{k+1} - \bar{X}_k)^2
+$$
+即 $Q_{k+1} = Q_k + \dfrac{k}{k+1}(X_{k+1} - \bar{X}_k)^2$.
+
+考察第二项，有 $X_{k+1} \sim N(\mu, \sigma^2)$，$\bar{X}_k \sim N\left(\mu, \dfrac{\sigma^2}{k}\right)$ 且两者独立. 从而差值
+$$
+X_{k+1} - \bar{X}_k \sim N(0, \sigma^2(1+\frac{1}{k})) = N(0, \frac{k+1}{k}\sigma^2)
+$$
+标准化后平方得到
+$$
+\frac{(X_{k+1} - \bar{X}_k)^2}{\frac{k+1}{k}\sigma^2} \sim \chi_1^2 \implies \frac{1}{\sigma^2} \cdot \frac{k}{k+1}(X_{k+1} - \bar{X}_k)^2 \sim \chi_1^2
+$$
+由第 (1) 问结论知 $Q_k$ 与 $\bar{X}_k$ 独立，而 $X_{k+1}$ 天然与 $Q_k$ 独立，故式中前后两项相互独立. 根据独立卡方分布的可加性，
+$$
+\frac{Q_{k+1}}{\sigma^2} \sim \chi_{k-1}^2 + \chi_1^2 = \chi_k^2
+$$
+由归纳法原理，原结论对任意 $n$ 成立.
+
+### 11.28
+
+::: info （课本 5.1）
+
+定义随机变量 $X$ 的信噪比，$|\mu|/\sigma$，其中 $\mu=E(X), \sigma^2=\mathrm{Var}(X)$，计算下列概率分布的信噪比：
+
+(1) 均值为 $\lambda$ 的泊松分布；
+
+(2) 二项分布 $\mathrm{Bin}(n,p)$；
+
+(3) 均值为 $1/p$ 的几何分布；
+
+(4) $(a,b)$ 区间上的均匀分布；
+
+(5) 均值为 $1/\lambda$ 的指数分布；
+
+(6) 正态分布 $N(\mu,\sigma^2)$.
+
+:::
+
+【解】
+
+记 $r=\dfrac{|\mu|}{\sigma}$ 为信噪比.
+
+(1) 泊松分布 $P(\lambda)$ 的期望 $\mu = \lambda$，方差 $\sigma^2 = \lambda$（其中 $\lambda > 0$），进而标准差 $\sigma = \sqrt{\lambda}$.
+$$ r = \frac{\lambda}{\sqrt{\lambda}} = \sqrt{\lambda} $$
+
+(2) 二项分布 $\mathrm{Bin}(n, p)$ 的期望 $\mu = np$，方差 $\sigma^2 = np(1-p)$，进而标准差 $\sigma = \sqrt{np(1-p)}$.
+$$ r = \frac{np}{\sqrt{np(1-p)}} = \sqrt{\frac{np}{1-p}} $$
+
+(3) 几何分布 $\mathrm{Geo}(p)$ 的期望 $\mu = \dfrac{1}{p}$，方差 $\sigma^2 = \dfrac{1-p}{p^2}$，进而标准差 $\sigma = \dfrac{\sqrt{1-p}}{p}$.
+$$ r = \frac{1/p}{\sqrt{1-p}/p} = \frac{1}{\sqrt{1-p}} $$
+
+(4) 均匀分布 $U(a, b)$ 的期望 $\mu = \dfrac{a+b}{2}$，方差 $\sigma^2 = \dfrac{(b-a)^2}{12}$，进而标准差 $\sigma = \dfrac{b-a}{2\sqrt{3}}$.
+$$ r = \frac{|(a+b)/2|}{(b-a)/(2\sqrt{3})} = \sqrt{3} \left| \frac{a+b}{b-a} \right| $$
+
+(5) 指数分布 $\mathrm{Exp}(\lambda)$ 的期望 $\mu = \dfrac{1}{\lambda}$，方差 $\sigma^2 = \dfrac{1}{\lambda^2}$ 进而标准差 $\sigma = \dfrac{1}{\lambda}$.
+$$ r = \frac{1/\lambda}{1/\lambda} = 1 $$
+
+(6) 正态分布 $N(\mu, \sigma^2)$ 的期望为 $\mu$，标准差为 $\sigma$.
+$$ r = \frac{|\mu|}{\sigma} $$
+
+::: info （课本 5.5）
+
+(1) 假设 $X$ 为离散取值随机变量，可能取值为 $1,2,3,\dots$，如果 $P(X=k)$ 关于 $k$ 非增，证明：
+$$
+P(X=k)\le 2\frac{E(X)}{k^2},\quad k=1,2,3,\dots
+$$
+
+(2) 假设 $X$ 为连续取值随机变量，有非增的密度函数 $f(x)$，证明
+$$
+f(x)\le 2\frac{E(X)}{x^2},\quad \forall x>0
+$$
+
+:::
+
+【解】
+
+(1) 根据数学期望的定义：
+$$
+E(X) = \sum_{j=1}^{\infty} j \cdot P(X=j) = \sum_{j=1}^{\infty} j p_j
+$$
+由于每一项均为非负，我们只取前 $k$ 项进行放缩，依然有
+$$
+E(X) \ge \sum_{j=1}^{k} j p_j
+$$
+因为序列非增，对于任意 $j \le k$，都有 $p_j \ge p_k$. 故
+$$
+E(X) \ge \sum_{j=1}^{k} j p_k = p_k \sum_{j=1}^{k} j = p_k \frac{k(k+1)}{2}
+$$
+移项整理得
+$$
+p_k \le \frac{2E(X)}{k(k+1)}
+$$
+又因为 $k \ge 1$，显然 $k(k+1) > k^2$，故
+$$
+P(X=k) \le \frac{2E(X)}{k^2}
+$$
+
+(2) 根据连续型随机变量期望的定义：
+$$
+E(X) = \int_{0}^{\infty} t f(t) \, dt
+$$
+由于被积函数非负（密度函数 $f(t) \ge 0$ 且 $t>0$），缩小积分区间到 $(0, x]$，不等式依然成立：
+$$
+E(X) \ge \int_{0}^{x} t f(t) \, dt
+$$
+在区间 $(0, x]$ 上，由于 $f$ 非增，对于任意 $t \in (0, x]$ 都有 $f(t) \ge f(x)$.
+$$
+E(X) \ge \int_{0}^{x} t f(x) \, dt = f(x) \int_{0}^{x} t \, dt = f(x) \cdot \frac{x^2}{2}
+$$
+整理即得
+$$
+f(x) \le \frac{2E(X)}{x^2}
+$$
+
+::: info （李贤平 5.1）
+
+$\xi$ 为非负随机变量，若 $E\mathrm{e}^{a\xi}<\infty,(a>0)$，则对任意 $x>0$，
+$$
+P\{\xi\ge x\}\le e^{-ax}E\mathrm{e}^{a\xi}
+$$
+
+:::
+
+【解】
+
+由于 $a > 0$，指数函数 $y = e^{ax}$ 是单调递增函数. 因此，对于任意 $x$, 不等式 $\xi \ge x \Leftrightarrow e^{a\xi} \ge e^{ax}$. 从而
+$$
+P(\xi \ge x) = P(e^{a\xi} \ge e^{ax})
+$$
+此时，令随机变量 $Y = e^{a\xi}$，常数 $C = e^{ax} > 0$. 由于 $\xi$ 为非负随机变量，$Y$ 显然非负. 应用 Markov 不等式
+$$
+P(Y \ge C) \le \frac{E(Y)}{C}
+$$
+代入得到
+$$
+P(e^{a\xi} \ge e^{ax}) \le \frac{E(e^{a\xi})}{e^{ax}}
+$$
+即
+$$
+P(\xi \ge x) \le e^{-ax} E(e^{a\xi})
+$$
+
+::: info （李贤平 5.2）
+
+若 $h(x)\ge 0$，$\xi$ 为随机变量，且 $Eh(\xi)<\infty$，则关于任何 $C>0$，
+$$
+P(h(\xi)\ge C)\le C^{-1}Eh(\xi)
+$$
+
+:::
+
+【解】
+
+引入示性函数 $I_{\{h(\xi) \ge C\}}$. 考察随机变量 $h(\xi)$. 由于已知 $h(x) \ge 0$ 且 $C > 0$，当 $h(\xi) \ge C$ 时，显然有 $h(\xi) \ge C = C \cdot 1 = C \cdot I_{\{h(\xi) \ge C\}}$；当 $h(\xi) < C$ 时，由于 $h(\xi) \ge 0$，而右边 $C \cdot 0 = 0$，故不等式 $h(\xi) \ge C \cdot I_{\{h(\xi) \ge C\}}$ 依然成立.
+
+综上
+$$
+h(\xi) \ge C \cdot I_{\{h(\xi) \ge C\}}
+$$
+总是成立. 对不等式两边同时取数学期望. 由于期望具有单调性：
+$$
+E[h(\xi)] \ge E[C \cdot I_{\{h(\xi) \ge C\}}]
+$$
+由于示性的期望即是概率，得到
+$$
+E[h(\xi)] \ge C \cdot E[I_{\{h(\xi) \ge C\}}] = C \cdot P(h(\xi) \ge C)
+$$
+因为 $C > 0$，移项整理得
+$$
+P(h(\xi) \ge C) \le \frac{E[h(\xi)]}{C} = C^{-1}Eh(\xi)
+$$
+
+::: info （李贤平 5.3）单边 Chebyshev 不等式
+
+设 $\xi$ 为随机变量，$E\xi=0, D\xi=\sigma^2<\infty$，则对任何一个 $a>0$，试证
+$$
+P\{\xi\ge a\}\le \frac{\sigma^2}{\sigma^2+a^2}
+$$
+
+:::
+
+【解】
+
+引入任意常数 $b > 0$. 事件 $\{ \xi \ge a \}$ 等价于 $\{ \xi + b \ge a + b \}$. 因为 $a > 0, b > 0$，不等式两边均为正数，平方后不等号方向不变，故上述事件**包含于**事件 $\{ (\xi + b)^2 \ge (a + b)^2 \}$ 中. 所以
+$$
+P(\xi \ge a) \le P((\xi + b)^2 \ge (a + b)^2)
+$$
+对随机变量 $Y = (\xi + b)^2$ 应用 Markov 不等式
+$$
+P((\xi + b)^2 \ge (a + b)^2) \le \frac{E[(\xi + b)^2]}{(a + b)^2}
+$$
+已知 $E\xi = 0$，$E\xi^2 = D\xi + (E\xi)^2 = \sigma^2$，从而
+$$
+E[(\xi + b)^2] = E[\xi^2 + 2b\xi + b^2] = E\xi^2 + 2bE\xi + b^2 = \sigma^2 + b^2
+$$
+代入不等式得到
+$$
+P(\xi \ge a) \le \frac{\sigma^2 + b^2}{(a + b)^2}
+$$
+上式对任意 $b > 0$ 均成立. 记 $f(b) = \dfrac{\sigma^2 + b^2}{(a + b)^2}$. 对 $b$ 求一阶导数
+$$
+\begin{aligned} f'(b) &= \frac{2b(a+b)^2 - (\sigma^2+b^2) \cdot 2(a+b)}{(a+b)^4} \\ &= \frac{2(a+b) [b(a+b) - (\sigma^2+b^2)]}{(a+b)^4} \\ &= \frac{2(ab + b^2 - \sigma^2 - b^2)}{(a+b)^3} \\ &= \frac{2(ab - \sigma^2)}{(a+b)^3} \end{aligned}
+$$
+令 $f'(b) = 0$，由于 $a+b \neq 0$，得 $ab - \sigma^2 = 0$，解得驻点 $b_0 = \dfrac{\sigma^2}{a}$.
+
+对 $f'(b) = 2(ab - \sigma^2)(a+b)^{-3}$ 进一步求导
+$$
+\begin{aligned} f''(b) &= 2a(a+b)^{-3} + 2(ab - \sigma^2) \cdot [-3(a+b)^{-4}] \\ &= \frac{2a}{(a+b)^3} - \frac{6(ab - \sigma^2)}{(a+b)^4} \end{aligned}
+$$
+将驻点 $b_0 = \dfrac{\sigma^2}{a}$ 代入上式. 注意第二项分子中含有因子 $(ab_0 - \sigma^2)$，代入后该项为 $0$.
+故
+$$
+f''(b_0) = \frac{2a}{\left(a + \dfrac{\sigma^2}{a}\right)^3}
+$$
+因为 $a > 0$ 且 $\sigma^2 > 0$，显然 $a + \dfrac{\sigma^2}{a} > 0$，所以 $f''(b_0) > 0$. 进而 $b_0 = \dfrac{\sigma^2}{a}$ 是函数 $f(b)$ 的极小值点.
+
+将 $b_0$ 代回原不等式右端：
+$$
+\frac{\sigma^2 + \left(\dfrac{\sigma^2}{a}\right)^2}{\left(a + \dfrac{\sigma^2}{a}\right)^2} = \frac{\sigma^2 \left(1 + \dfrac{\sigma^2}{a^2}\right)}{a^2 \left(1 + \dfrac{\sigma^2}{a^2}\right)^2} = \frac{\sigma^2}{a^2 \left(1 + \dfrac{\sigma^2}{a^2}\right)} = \frac{\sigma^2}{a^2 + \sigma^2}
+$$
+综上所述
+$$
+P(\xi \ge a) \le \frac{\sigma^2}{\sigma^2 + a^2}
+$$
+
+### 12.1
+
+::: info 小测
+
+1. 求超几何分布的期望；
+2. 求 $E[N(0,4)]^4$；
+3. 求几何分布的矩母函数 $M_X(t)$.
+
+:::
+
+【解】
+
+1. 对超几何分布 $\mathrm{HGeom}(N,M,n)$，考虑第 $k$ 次抽中次品的示性 $I_k(k=1,2,\ldots,n)$. 由开锁模型可知，不论考虑第几次抽取，抽中次品的概率一定为
+    $$
+    P_k = \frac{M}{N},\quad k=1,2,\ldots,n
+    $$
+    因此对 $X=\displaystyle\sum_{i=1}^n I_k$，其期望为
+    $$
+    E(X)=\sum_{i=1}^n E(I_k)=\sum_{i=1}^n P_k=\frac{nM}{N}
+    $$
+2. 对 $X\sim N(0,4)$，知其特征函数为 $\varphi(t)=\exp\left(-\dfrac{1}{2}\sigma^2 t^2\right)=\exp(-2t^2)$. 将其在原点处展开为幂级数，得到
+    $$
+    \varphi(t)=\sum_{n=0}^\infty \frac{1}{n!}(-2t^2)^n=\sum_{n=1}^\infty \frac{(-2)^n)}{n!}t^{2n}
+    $$
+    现考虑四次项对应的系数 $a_2=\dfrac{4}{2!}=2$. 另一方面，特征函数本身可以写成
+    $$
+    \varphi(t)=E(\mathrm{e}^{\mathrm{i}tX})=\sum_{n=0}^\infty \frac{(it)^n}{n!}E(X^n)
+    $$
+    其四次项对应的系数为 $c_4=\dfrac{1}{24}E(X^4)$. 比较系数立刻解得
+    $$
+    E(X^4)=24\cdot 2=48
+    $$
+3. 先求其概率母函数，即
+    $$
+    G_X(z)=\sum_{n=1}^\infty q^{n-1}p\cdot z^n=\frac{p}{q}\sum_{n=1}^\infty (qz)^n=\frac{p}{q}\cdot\frac{qz}{1-qz}=\frac{pz}{1-qz}
+    $$
+    这个级数仅在 $|qz|<1$ 时收敛. 代入 $z=\mathrm{e}^t$ 立刻得到矩母函数
+    $$
+    M_X(t)=G_X(\mathrm{e}^t)=\frac{p\mathrm{e}^t}{1-q\mathrm{e}^t}
+    $$
+    此时有 $|q\mathrm{e}^t|<1$，即 $t<-\ln q$ 时该矩母函数有意义.
+
 ## 拓展内容
-
-### 条件方差
-
-::: info 条件方差
-
-类似于条件期望，定义随机变量 $Y$ 给定 $X$ 下的条件方差为
-$$
-\mathrm{Var}(Y|X)=E[(Y-E(Y|X))^2|X]
-$$
-
-:::
-
-下面给出条件方差的几条性质
-
-::: tip 线性变换的条件方差
-
-$$
-\mathrm{Var}(a(X)Y + b(X)|X) = [a(X)]^2 \mathrm{Var}(Y|X)
-$$
-
-:::
-
-【证明】
-
-$$
-\begin{align*}
-\mathrm{Var}(a(X)Y + b(X)|X) &= \mathrm{Var}(a(X)Y|X) \\
-&= E[(a(X)Y)^2|X] - E^2[a(X)Y|X] \\
-&= [a(X)]^2 E[Y^2|X] - E^2[a(X)Y|X] \\
-&= [a(X)]^2 \mathrm{Var}(Y|X)
-\end{align*}
-$$
-
-::: tip 方差分解公式
-
-$$
-\mathrm{Var}(Y) = E[\mathrm{Var}(Y|X)] + \mathrm{Var}[E(Y|X)] = E[\sigma^2(X)] + \mathrm{Var}[\mu(X)]
-$$
-
-:::
-
-【证明】
-
-$$
-\begin{align*}
-\mathrm{Var}(Y) &= E(Y^2) - E^2(Y) \\
-&= E[E(Y^2|X)] - E^2(E(Y|X)) \\
-&= E[E(Y^2|X)] - E[E^2(Y|X)] + E[E^2(Y|X)] - E^2(E(Y|X)) \\
-&= E[E(Y^2|X) - E^2(Y|X)] + E[E^2(Y|X)] - E^2(E(Y|X)) \\
-&= E[\mathrm{Var}(Y|X)] + \mathrm{Var}[E(Y|X)]
-\end{align*}
-$$
-
-::: tip 方差分解公式的推广
-
-$$
-\mathrm{Var}(Y|X) = E[\mathrm{Var}(Y|X, Z)|X] + \mathrm{Var}[E(Y|X, Z)|X]
-$$
-
-:::
-
-::: tip 增加信息将减小方差
-
-$$
-E[\mathrm{Var}(Y|X)] \geqslant E[\mathrm{Var}(Y|X, Z)]
-$$
-
-:::
 
 ### Laplace 积分
 
