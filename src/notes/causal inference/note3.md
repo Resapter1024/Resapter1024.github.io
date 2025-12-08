@@ -123,11 +123,11 @@ $$
 $$
 \hat{\tau}\pm z_{1-\alpha/2}\sqrt{\hat{V}}
 $$
-由于区间估计和假设检验的对偶性，该估计天然蕴含一个假设检验，其原假设为
+由区间估计和假设检验的对偶性，该估计天然蕴含一个假设检验，其原假设为
 $$
 \mathrm{H_{0N}}: \tau = 0
 $$
-这被称为弱原假设（Weak Null Hypothesis. 它要求**平均**的处理效应为 $0$，即允许个体处理效应的存在，但它们最后应相互抵消，这与强原假设要求个体的处理效应也均为 $0$ 相对.
+这被称为弱原假设（Weak Null Hypothesis）. 它要求**平均**的处理效应为 $0$，即允许个体处理效应的存在，但它们最后应相互抵消，这与强原假设要求个体的处理效应也均为 $0$ 相对.
 
 此外，该定理还给出了观测结果的方差的相合性，即 $\hat{S}^2(1),\hat{S}^2(0)$ 都是真实的结果方差 $S^2(1),S^2(0)$ 的相合估计.
 
@@ -204,7 +204,7 @@ $$
 
 实践中我们使用 Eicker–Huber–White 稳健方差，它与 $\hat{V}$ 基本一致. EHW 的矩阵形式如下所示
 $$
-\hat{V}_{\mathrm{EHW}}=\frac{1}{n}\left(\frac{1}{n}\sum_{i=1}^n x_ix_i^\top\right)^{-1} \left(\frac{1}{n}\sum_{i=1}^n \hat{\varepsilon}_i^2 x_ix_i^\top\right) \left(\frac{1}{n}\sum_{i=1}^n x_ix_i^\top\right)^{-1}
+\hat{V}_{\mathrm{EHW}}=\frac{1}{n}\left(\frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\mathbf{x}_i^\top\right)^{-1} \left(\frac{1}{n}\sum_{i=1}^n \hat{\varepsilon}_i^2 \mathbf{x}_i\mathbf{x}_i^\top\right) \left(\frac{1}{n}\sum_{i=1}^n \mathbf{x}_i\mathbf{x}_i^\top\right)^{-1}
 $$
 其中
 $$
@@ -220,6 +220,8 @@ X=\left(\begin{matrix}
     y_n
 \end{matrix}\right)
 $$
+$\hat{\varepsilon}_i=y_i-\hat{y}_i$ 是残差.
+
 CRE 中结果和处理都是一元的，因此可以进行简化，即
 $$
 \hat{V}_{\mathrm{EHW}}=\frac{\displaystyle\sum_{i=1}^n \hat{\varepsilon}^2_i(Z_i-\bar{Z})^2}{\left(\displaystyle\sum_{i=1}^n (Z_i-\bar{Z})^2\right)^2}

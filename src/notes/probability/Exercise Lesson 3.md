@@ -1,6 +1,6 @@
 ---
 title: 概率论第六次习题课
-author: false
+author: 林尚仪
 date: 2025-12-07
 # 禁止显示页脚
 footer: false
@@ -68,7 +68,7 @@ $$
     有分别给定 $Y=y\in\{1,2,3,4,5\}$ 时，$P(X=1\mid Y=y)=P(Z=6-k)=\frac{1}{6}$，进而
     $$
     \begin{align*}
-        H(X\mid Y=y) & =-\sum_{x=0}^1 P(X=1\mid Y=y)\log P(X=1\mid Y=y) \\
+        H(X\mid Y=y) & =-\sum_{x=0}^1 P(X=x\mid Y=y)\log P(X=x\mid Y=y) \\
         & = -\left(\frac{1}{6}\log\frac{1}{6}+\frac{5}{6}\log\frac{5}{6}\right) \\
         & = \frac{1}{6}\log 6 + \frac{5}{6}\log\frac{6}{5}
     \end{align*}
@@ -76,7 +76,7 @@ $$
     而 $Y=6$ 时，$P(X=1\mid Y=6)=0$，因此可以计算
     $$
     \begin{align*}
-        H(X\mid Y=6) & = -\sum_{x=0}^1 P(X=1\mid Y=6)\log P(X=1\mid Y=6) \\
+        H(X\mid Y=6) & = -\sum_{x=0}^1 P(X=x\mid Y=6)\log P(X=x\mid Y=6) \\
         & = -\left(0\cdot\log 0+1\cdot \log 1\right)=0
     \end{align*}
     $$
@@ -160,7 +160,8 @@ $$
 \begin{align*}
     H(X) & = -\sum_{k=0}^n P(X=k)\log P(X=k) \\
     & = -\sum_{k=0}^{n} \left( \binom{n}{k} p^k q^{n-k} \right) \log \left( \binom{n}{k} p^k q^{n-k} \right) \\
-    & = -\left[ \sum_{k=0}^{n} P(X=k)\log\binom{n}{k} + \sum_{k=0}^{n} P(X=k)k\log p + \sum_{k=0}^{n} P(X=k)(n-k)\log q \right] \\
+    & = -\left[ \sum_{k=0}^{n} P(X=k)\log\binom{n}{k} + \sum_{k=0}^{n} P(X=k)k\log p \right. \\
+    & \qquad\left. + \sum_{k=0}^{n} P(X=k)(n-k)\log q \right] \\
     & = -\left[E\left(\log\binom{n}{X}\right) + np\log p + nq\log q\right]
 \end{align*}
 $$
@@ -190,7 +191,8 @@ $$
 $$
 \begin{align*}
     H(\beta|\alpha) & = P(\alpha=0) H(\beta|\alpha=0) + P(\alpha=1) H(\beta|\alpha=1) \\
-    & = (1-p) \big[-r\log_2(r) - (1-r)\log_2(1-r)\big] + p \big[-q\log_2(q) - (1-q)\log_2(1-q)\big]
+    & = (1-p) \big[-r\log r - (1-r)\log(1-r)\big] \\
+    & \quad + p \big[-q\log q - (1-q)\log(1-q)\big]
 \end{align*}
 $$
 
@@ -268,7 +270,7 @@ $$
 
 【解】
 
-（法一）设 $\xi_k$ 的母函数为 $F(s$，$\nu$ 的母函数为 $G(s)$，可知 $\eta$ 的母函数为 $H(s)=G(F(s))$. 欲计算一阶矩，需要对母函数求异界导，即
+（法一）设 $\xi_k$ 的母函数为 $F(s$，$\nu$ 的母函数为 $G(s)$，可知 $\eta$ 的母函数为 $H(s)=G(F(s))$. 欲计算一阶矩，需要对母函数求一阶导，即
 $$
 H'(s)=G'(F(s))F'(s)
 $$
@@ -280,7 +282,7 @@ $$
 $$
 H''(s)=G''(F(s))[F'(s)]^2+G'(F(s))F''(s)
 $$
-我们有 $ E(\eta(\eta-1))=H''(1) $，从而
+我们有 $E(\eta(\eta-1))=H''(1)$，从而
 $$
 E\eta^2=H''(1)+H'(1)
 $$
@@ -301,7 +303,7 @@ E(\eta|\nu=n)=nE\xi_k
 $$
 因此
 $$
-E\eta=E[E(\eta|\nu=n)]=E(\nu\cdot E\xi_k)=E\nu\cdot E\xi_k
+E\eta=E[E(\eta|\nu)]=E(\nu\cdot E\xi_k)=E\nu\cdot E\xi_k
 $$
 关于方差，由全方差公式 $\mathrm{Var}(Y) = E[\mathrm{Var}(Y|X)] + \mathrm{Var}(E[Y|X])$，有
 $$
@@ -365,7 +367,7 @@ $$
 
 我们知道次序统计量 $X_{(1)},\ldots,X_{(n)}$ 的联合分布为
 $$
-p(x_1,\ldots,x_n)=n!\prod_{i=1}^n (\lambda\mathrm{e}^{-\lambda x_i})=\frac{\lambda^n}{n!}\exp\left(-\lambda\sum_{i=1}^n x_i\right)
+p(x_1,\ldots,x_n)=n!\prod_{i=1}^n (\lambda\mathrm{e}^{-\lambda x_i})=n!\lambda^n\exp\left(-\lambda\sum_{i=1}^n x_i\right)
 $$
 
 有该变换的逆变换为
@@ -405,7 +407,7 @@ $$
 $$
 E(Y)=E\left(\sum_{i=1}^N X_i\right)=\sum_{i=1}^N E(X_i)
 $$
-下面分析 $X_i$. 容易知道，$X_i\sim\mathrm{Geo}\left(\frac{N-i+1}{N}\right)$，因此有 $E(X_i)=\frac{N}{N-i+1}$，从而
+下面分析 $X_i$. 容易知道，$X_i\sim\mathrm{Geo}\left(\dfrac{N-i+1}{N}\right)$，因此有 $E(X_i)=\dfrac{N}{N-i+1}$，从而
 $$
 E(Y)=N\sum_{i=1}^N \frac{1}{N-i+1}=N\sum_{i=1}^N\frac{1}{i}=NH_n
 $$
@@ -435,7 +437,7 @@ $$
 \begin{align*}
     \varphi(t) & = E(\mathrm{e}^{\mathrm{i}tX}) \\
     & = E(\cos(tX)) + \mathrm{i}E(\sin(tX)) \\
-    & = \int_0^1 \cos(tx)\mathrm{d}x + \mathrm{i}\int_0^1 \cos(tx)\mathrm{d}x \\
+    & = \int_0^1 \cos(tx)\mathrm{d}x + \mathrm{i}\int_0^1 \sin(tx)\mathrm{d}x \\
     & = \left. \frac{\sin(tx)}{t}\right|_0^1 + \mathrm{i}\left. \frac{-\cos(tx)}{t}\right|_0^1 \\
     & = \frac{\sin t - \mathrm{i}\cos t +  \mathrm{i}}{t} \\
     & = \frac{\cos t + \mathrm{i}\sin t - 1}{\mathrm{i}t} \\
@@ -1000,11 +1002,11 @@ $$
     $$
 2. 对 $X\sim N(0,4)$，知其特征函数为 $\varphi(t)=\exp\left(-\dfrac{1}{2}\sigma^2 t^2\right)=\exp(-2t^2)$. 将其在原点处展开为幂级数，得到
     $$
-    \varphi(t)=\sum_{n=0}^\infty \frac{1}{n!}(-2t^2)^n=\sum_{n=1}^\infty \frac{(-2)^n)}{n!}t^{2n}
+    \varphi(t)=\sum_{n=0}^\infty \frac{1}{n!}(-2t^2)^n=\sum_{n=1}^\infty \frac{(-2)^n}{n!}t^{2n}
     $$
     现考虑四次项对应的系数 $a_2=\dfrac{4}{2!}=2$. 另一方面，特征函数本身可以写成
     $$
-    \varphi(t)=E(\mathrm{e}^{\mathrm{i}tX})=\sum_{n=0}^\infty \frac{(it)^n}{n!}E(X^n)
+    \varphi(t)=E(\mathrm{e}^{\mathrm{i}tX})=\sum_{n=0}^\infty \frac{(\mathrm{i}t)^n}{n!}E(X^n)
     $$
     其四次项对应的系数为 $c_4=\dfrac{1}{24}E(X^4)$. 比较系数立刻解得
     $$
@@ -1087,7 +1089,7 @@ I=\int_{0}^{+\infty}\int_{0}^{+\infty}\mathrm{e}^{-st}\sin t\mathrm{d}s\mathrm{d
 $$
 先积分 $s$ 得到
 $$
-I = \int_{0}^{+\infty} \sin t\cdot\left. \left(-\frac{1}{t}\mathrm{e}^{-st}\right)\right|_0^\infty \mathrm{d}t=\int_{0}^{+\infty}\frac{sin t}{t}\mathrm{d}t = \mathrm{LHS}
+I = \int_{0}^{+\infty} \sin t\cdot\left. \left(-\frac{1}{t}\mathrm{e}^{-st}\right)\right|_0^\infty \mathrm{d}t=\int_{0}^{+\infty}\frac{\sin t}{t}\mathrm{d}t = \mathrm{LHS}
 $$
 另一方面，先积分 $t$，此时由分部积分，内层积分的结果为
 $$
@@ -1108,7 +1110,7 @@ I = \int_{0}^{+\infty}\frac{1}{s^2+1}\mathrm{d}s = \dfrac{\pi}{2}
 $$
 两种积分顺序得到的结果应该是相同的，因此
 $$
-\int_{0}^{+\infty}\frac{sin x}{x}\mathrm{d}x=\frac{\pi}{2}
+\int_{0}^{+\infty}\frac{\sin x}{x}\mathrm{d}x=\frac{\pi}{2}
 $$
 
 :::
