@@ -1,6 +1,10 @@
 ---
 title: 概率论第六次习题课
-author: 林尚仪
+category:
+  - 概率论
+tag:
+  - 学习
+  - 数学
 date: 2025-12-07
 # 禁止显示页脚
 footer: false
