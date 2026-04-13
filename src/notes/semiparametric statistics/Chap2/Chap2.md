@@ -101,4 +101,150 @@ $$
 
 现在我们知道 $q$ 维具有零均值和有限方差的随机函数构成的空间 $\mathcal{H}$ 上可以定义内积和范数。此外，我们还可以证明其作为赋范线性空间是完备的，即每一个 Cauchy 列都收敛（参见 Lo`eve 1963, p. 161 的 $L_2$ 完备性定理）。如此，$\mathcal{H}$ 是一个 Hillbert 空间。
 
-## Hillbert 空间的线性子空间以及投影定理
+## Hillbert 空间的线性子空间 & 投影定理
+
+我们有时不会关注整个 Hillbert 空间，而是会关注它的一个线性子空间。$\mathcal{U}\subset\mathcal{H}$ 满足 $u_1,u_2\in\mathcal{U}$ 时 $au_1+bu_2\in\mathcal{U}$，那么它是一个线性子空间。显然，线性子空间一定过原 Hillbert 空间的原点。
+
+对一组 Hillbert 空间中的向量 $h_1,\ldots, h_n$（不妨假设它们线性无关），包含它们的最小线性子空间就是它们张成的空间，其包含了这些向量的所有线性组合，即
+$$
+\mathrm{span}(h_1,\ldots,h_n)=\left\{\sum_{i=1}^n a_ih_i:a_i\in\mathbb{R},i=1,2,\ldots,n\right\}
+$$
+
+::: info 投影定理
+
+设 $\mathcal{H}$ 是 Hillbert 空间，$\mathcal{U}$ 是 $\mathcal{H}$ 的一个闭的线性子空间。对任意的 $h\in\mathcal{H}$，存在唯一的 $u_0\in\mathcal{U}$ 使得其与 $h$ 的距离最近，即
+$$
+\langle h, u_0\rangle \le \langle h, u\rangle, \forall u\in \mathcal{U}
+$$
+更进一步地，它们的差 $h-u_0$ 与 $\mathcal{U}$ 正交，即
+$$
+\langle h-u_0, u\rangle = 0, \forall u\in\mathcal{U}
+$$
+我们称 $u_0$ 是 $h$ 在 $\mathcal{U}$ 上的投影，记作 $\Pi(h\mid \mathcal{U})$。同时，$u_0$ 也是唯一一个使得 $\langle h-u, u\rangle = 0$ 的向量。
+
+![投影的几何直观](./image/Chap2/projection.svg#center)
+
+:::
+
+上图展示了投影定理的几何直观。实际上这就是 Euclid 空间上从平面外向平面作垂线在一般 Hillbert 空间上的推广。
+
+同时，在 Hillbert 空间上我们也有勾股定理的推广。
+
+::: info 勾股定理
+
+如果 $h_1,h_2$ 是 Hillbert 空间 $\mathcal{H}$ 的正交元素（即 $\langle h_1, h_2 \rangle=0$），则
+$$
+\|h_1+h_2\|^2=\|h_1\|^2+\|h_2\|^2.
+$$
+
+:::
+
+## 投影定理的简单应用
+
+### 一维随机函数
+
+考虑由均值为零、方差有限的一维随机函数 $h(Z)$ 构成的 Hillbert 空间 $\mathcal{H}$，从而内积表达退化为一维形式：
+$$
+\langle h_1, h_2 \rangle = E(h_1 h_2)
+$$
+其中 $h_1(Z), h_2(Z) \in \mathcal{H}$。设 $u_1(Z), \dots, u_k(Z)$ 为该空间中的任意元素，并令 $\mathcal{U}$ 为由 $\{u_1, \dots, u_k\}$ 张成的线性子空间。也就是说，
+$$
+\mathcal{U} = \{a^T u; \text{ 对于 } a \in \mathbb{R}^k\}
+$$
+其中，
+$$
+u^{k \times 1} = (u_1,\ldots,u_k)^\top$$
+
+下面不妨设 $u_1,\ldots,u_k$ 线性无关，从而 $\mathcal{U}$ 是无穷维 Hillbert 空间 $\mathcal{H}$ 的一个 $k$ 维子空间。现在我们任取 $h\in\mathcal{H}$，其在 $\mathcal{U}$ 上的投影可以表示为 $u_1,\ldots,u_k$ 的线性组合 $a_0^\top u=\Pi(h\mid\mathcal{U})$。由投影定理，$h$ 与其投影之差正交于线性子空间 $\mathcal{U}$，即
+$$
+\left\langle h-a_0^\top u, a^\top u\right\rangle=\sum_{i=1}^k a_i \left\langle h-a_0^\top u,u_j\right\rangle=0,\forall a_j, j=1,\ldots,k.
+$$
+由内积的定义，我们得到 $E((h-a_0^\top u)u_j)=0$，或者说
+$$
+E((h-a_0^\top u)u^\top)=0^{(1\times k)}
+$$
+打开括号得到
+$$
+E(hu^\top)=a_0^\top E(uu^\top)
+$$
+如果 $E(uu^\top)$ 可逆，两侧右乘其逆矩阵得到
+$$
+a_0^\top=E(hu^\top)(E(uu^\top))^{-1}
+$$
+进而解得投影 $u_0$ 的表达为
+$$
+u_0 = a_0^\top u = E(hu^\top)(E(uu^\top))^{-1}u
+$$
+其范数的平方为
+$$
+\begin{align*}
+  E(u_0u_0^\top) & = E(hu^\top)(E(uu^\top))^{-1} E(uu^\top)(E(uu^\top))^{-1}E(uh^\top) \\
+  & = E(hu^\top)(E(uu^\top))^{-1}E(uh^\top)
+\end{align*}
+$$
+进而由勾股定理，得到
+$$
+\|h-a_0^\top u\|=E(h^2)-E(hu^\top)(E(uu^\top))^{-1}E(uh^\top)
+$$
+
+这个例子的背景来自多元线性回归。此时 $h$ 是响应变量 $Y$，$u=(u_1,\ldots,u_k)^\top$ 是特征。此时多元回归的最小二乘法正是找到一个线性组合系数 $a_0^\top$ 使得 $Y$ 与 $a_0^\top X$ 的距离最小。从而
+$$
+a_0^\top = \mathrm{Cov}(X,Y)(\mathrm{Var}(X))^{-1}
+$$
+这和我们上面推导的结果一致。最后的勾股定理体现的正是残差平方和 $\mathrm{SSE}$ 与回归平方和 $\mathrm{SSR}$ 之和为总平方和 $\mathrm{SST}$。
+
+### q 维随机函数
+
+我们进一步把上面的例子拓展到多响应的多元回归场合。设 $\mathcal{H}$ 是 $q$ 维具有零均值和有限方差的随机函数构成的空间，定义有内积
+$$
+\langle h_1,h_2 \rangle = E(h_1^\top h_2)
+$$
+再考虑 $v(Z)$ 是一个 $r$ 维的具有零均值和有限方差的随机函数构成的空间，$\mathcal{U}\subset\mathrm{span}(v(Z))$ 是线性子空间，表示为
+$$
+\mathcal{U}=\{B^{q\times r}v: B\in\mathbb{R}^{q\times r}\}
+$$
+不妨设 $v(Z)=(v_1(Z),\ldots,v_r(Z))$ 的所有分量线性无关，则 $\mathcal{U}$ 是一个 $q\times r$ 维的线性子空间，它的基是 $u_{ij}(Z), i=1,\ldots,q; j=1,\ldots,r$ 这 $q\times r$ 个 $q$ 维向量，其中的第 $i$ 个分量为 $v_j(Z)$，而其余分量为 $0$。
+
+现在考虑寻找 $h$ 在 $\mathcal{U}$ 上的投影 $B_0 v$，由于投影的残差和 $\mathcal{U}$ 上的任何向量正交，得到
+$$
+E((h-B_0v)^\top (Bv))=0,\forall B\in\mathbb{R}^{q\times r}
+$$
+上面的左式可以逐元素拆分，得到
+$$
+E((h-B_0v)^\top (Bv))=\sum_i\sum_j B_{ij}E((h-B_0v)_i v_j)=0
+$$
+我们令 $B$ 是一个特殊的矩阵，它仅在 $(i_0,j_0)$ 处取值为 $1$，其余为 $0$，从而令 $B$ 取遍这样的矩阵，得到
+$$
+E((h-B_0v)_{i_0} v_{j_0})=0, \forall i_0,j_0
+$$
+把这样的左式按 $(i_0,j_0)$ 组合成矩阵，直接得到
+$$
+E((h-B_0v) v^\top)=0^{q\times r}
+$$
+打开括号，得到
+$$
+E(hv^\top)=B_0E(vv^\top)
+$$
+假设 $E(vv^\top)$ 可逆，等式两端右乘其逆矩阵
+$$
+B_0=E(hv^\top)(E(vv^\top))^{-1}
+$$
+因此投影 $B_0v$ 的表达为
+$$
+B_0v = E(hv^\top)(E(vv^\top))^{-1}v
+$$
+同样，这个结果也和最小化残差平方和的最小二乘法完全等价。
+
+### Cauchy-Schwarz 不等式
+
+Hillbert 空间中成立有 Cauchy-Schwarz 不等式，它也是 Euclid 空间中 Cauchy-Schwarz 不等式的推广，几何直观上度量了向量内积因投影的损失，结果必然小于两者范数的积。
+
+::: info Cauchy-Schwarz 不等式
+
+对任意的 $h_1,h_2\in\mathcal{H}$，有
+$$
+| \langle h_1,h_2 \rangle |^2 \le \|h_1\|^2\|h_2\|^2
+$$
+等号成立当且仅当 $h_1$ 和 $h_2$ 线性相关，即 $\exists c\neq 0$ 使得 $h_1=ch_2$
+
+:::

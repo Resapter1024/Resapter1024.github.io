@@ -201,7 +201,7 @@ $$
 
 (1) 需要 $x+y< 1.2$，即求单位正方形在直线 $x+y=1.2$ 下方的面积.
 
-![两数之和小于 $1.2$](/assets/images/exercise%20lesson/geo-prob1.svg#center)
+![两数之和小于 $1.2$](./image/ExerciseLesson/geo-prob1.svg#center)
 
 计算得到 $x+y=1.2$ 与单位正方形的边相交于 $(0.2,1)$ 和 $(1,0.2)$，因此所求面积为
 $$
@@ -214,7 +214,7 @@ $$
 
 (2) 需要 $xy<\dfrac{1}{4}$，即求单位正方形在双曲线 $xy=\dfrac{1}{4}(x>0)$ 下方的面积. 联立 $xy=\dfrac{1}{4}$ 和 $y=1$ 得到 $(x,y)=\left(\dfrac{1}{4},1\right)$.
 
-![两数之积小于 $\dfrac{1}{4}$](/assets/images/exercise%20lesson/geo-prob2.svg#center)
+![两数之积小于 $\dfrac{1}{4}$](./image/ExerciseLesson/geo-prob2.svg#center)
 
 因此所求面积为
 $$
@@ -227,7 +227,7 @@ $$
 
 (3) 在以上两个条件同时满足时，我们必须确定图形的画法. 联立 $xy=\dfrac{1}{4}$ 和 $x+y=1.2$，解得 $x=\dfrac{6\pm\sqrt{11}}{10}$. 因此，目标图形可以看作 (1) 中求解的多边形中挖去 $xy=\dfrac{1}{4}$ 和 $x+y=1.2$ 围成的图形.
 
-![两个条件同时满足](/assets/images/exercise%20lesson/geo-prob3.svg#center)
+![两个条件同时满足](./image/ExerciseLesson/geo-prob3.svg)
 
 先求 $xy=\dfrac{1}{4}$ 和 $x+y=1.2$ 围成图形的面积. 记 $x_1=\dfrac{6-\sqrt{11}}{10}, x_2=\dfrac{6+\sqrt{11}}{10}$, 则该面积为
 $$
