@@ -122,7 +122,7 @@ $$
 $$
 我们称 $u_0$ 是 $h$ 在 $\mathcal{U}$ 上的投影，记作 $\Pi(h\mid \mathcal{U})$。同时，$u_0$ 也是唯一一个使得 $\langle h-u, u\rangle = 0$ 的向量。
 
-![投影的几何直观](./image/Chap2/projection.svg#center)
+![投影的几何直观](./image/Chap2/projection.svg)
 
 :::
 
