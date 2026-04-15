@@ -207,4 +207,4 @@ $$
 
 在后面的章节中，我们主要通过引入**影响函数**这一工具来着手解决这两个问题。
 
-在讨论影响函数时，我们总是在 Hillbert 空间中考虑其几何性质和构造。在下一章中，将介绍[随机向量的 Hillbert 空间](/notes/semiparametric%20statistics/Chap2.md).
+在讨论影响函数时，我们总是在 Hillbert 空间中考虑其几何性质和构造。在下一章中，将介绍[随机向量的 Hillbert 空间](/notes/semiparametric%20statistics/Chap2/Chap2.md).

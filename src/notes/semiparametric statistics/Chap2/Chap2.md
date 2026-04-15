@@ -6,7 +6,7 @@ tag:
   - 学习
   - 统计学
 date: 2026-04-13
-order: 2
+order: 1
 # 禁止显示页脚
 footer: false
 ---
@@ -68,7 +68,7 @@ Hillbert 空间是一个定义了内积的 Banach 空间（即完备的赋范线
 
 ::: info 内积的定义
 
-对线性向量空间 $\mathcal{H}$，设 $h_1,h_2,h_3\in\mathcal{H}$，定义 $\mathcal{H}$ 上的内积为 $\left \langle \cdot,\cdot \right \rangle: \mathcal{H}^2\to \mathbb{R}^+ $，且满足
+对线性向量空间 $\mathcal{H}$，设 $h_1,h_2,h_3\in\mathcal{H}$，定义 $\mathcal{H}$ 上的内积为 $\left \langle \cdot,\cdot \right \rangle: \mathcal{H}^2\to \mathbb{R}^+$，且满足
 
 1. 正定性：$\left\langle h_1, h_1\right\rangle\ge 0$ 且 $\left\langle h_1, h_1\right\rangle= 0 \Leftrightarrow h_1=0$；
 2. 对称性：$\left\langle h_1, h_2\right\rangle=\left\langle h_2, h_1\right\rangle$；
