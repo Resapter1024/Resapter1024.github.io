@@ -6,6 +6,7 @@ tag:
   - 学习
   - 统计学
 date: 2026-04-14
+order: 4
 # 禁止显示页脚
 footer: false
 ---

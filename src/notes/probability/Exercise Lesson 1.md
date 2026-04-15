@@ -7,6 +7,7 @@ tag:
   - 数学
 date: 2025-10-12
 # 禁止显示页脚
+order: 5
 footer: false
 ---
 

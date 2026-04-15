@@ -6,6 +6,7 @@ tag:
   - 学习
   - 数学
 date: 2025-12-07
+order: 7
 # 禁止显示页脚
 footer: false
 ---

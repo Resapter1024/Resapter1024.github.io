@@ -2,6 +2,7 @@
 title: 概率论第八次习题课
 author: 林尚仪
 date: 2025-12-26
+order: 8
 # 禁止显示页脚
 footer: false
 ---
