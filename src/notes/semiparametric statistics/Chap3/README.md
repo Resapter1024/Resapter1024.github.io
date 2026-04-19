@@ -1,5 +1,5 @@
 ---
-title: 影响函数几何
+title: 影响函数的几何学
 index: false
 article: false
 dir:

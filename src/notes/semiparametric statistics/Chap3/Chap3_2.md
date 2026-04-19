@@ -5,7 +5,7 @@ category:
 tag:
   - 学习
   - 统计学
-date: 2026-04-14
+date: 2026-04-15
 order: 2
 # 禁止显示页脚
 footer: false
@@ -138,6 +138,8 @@ $$
 
 若 $\theta$ 可被显式地分成 $\theta=(\beta^\top,\eta^\top)^\top$，则该定理有以下推论
 
+<div id="corollary1">
+
 ::: info 更常见的形式
 
 1. $E(\varphi(Z)S^\top_\beta(z;\theta_0))=I^{q\times q}$；
@@ -145,4 +147,10 @@ $$
 
 :::
 
+</div>
+
 一方面，这个定理可以用来判定 RAL 的正则性：如果这个式子不被满足，则 RAL 就不正则。另一方面，RAL 的正则就说明其**影响函数和得分函数正交**，这为描述得分函数在 Hillbert 空间中的几何关系提供了一个基础。
+
+### 定理证明
+
+占位，之后补充。
