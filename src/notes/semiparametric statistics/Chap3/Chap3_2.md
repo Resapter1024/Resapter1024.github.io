@@ -125,6 +125,8 @@ $$
 S_\beta(z;\theta_0)=\left.\frac{\partial \ln p_Z(z;\theta)}{\partial \beta}\right|_{\theta=\theta_0}^{q\times 1}, \quad S_\eta(z;\theta_0)=\left.\frac{\partial \ln p_Z(z;\theta)}{\partial \eta}\right|_{\theta=\theta_0}^{r\times 1},
 $$
 
+<div id="theorem">
+
 ::: info 正则估计量的必要条件
 
 设感兴趣参数 $\beta(\theta)$ 是 $p$ 维参数 $\theta$ 的 $q$ 维函数，其 $q\times p$ 维偏导数矩阵 $\Gamma(\theta)=\dfrac{\partial \beta(\theta)}{\partial\theta^\top}$ 存在，秩为 $q$ 且在 $\theta_0$ 的某个邻域内关于 $\theta$ 连续。设 $\hat{\beta}_n$ 是一个 RAL，其影响函数 $\varphi(Z)$ 满足 $E_\theta(\varphi\varphi^\top)$ 存在且在 $\theta_0$ 的某个邻域内关于 $\theta$ 连续。
@@ -136,11 +138,15 @@ $$
 
 :::
 
+</div>
+
 若 $\theta$ 可被显式地分成 $\theta=(\beta^\top,\eta^\top)^\top$，则该定理有以下推论
 
 <div id="corollary1">
 
-::: info 更常见的形式
+::: info 推论 3.1
+
+若 $\theta$ 可被显式地分成 $\theta=(\beta^\top,\eta^\top)^\top$，则正则估计量 $\hat{\beta}_n$ 满足
 
 1. $E(\varphi(Z)S^\top_\beta(z;\theta_0))=I^{q\times q}$；
 2. $E(\varphi(Z)S^\top_\eta(z;\theta_0))=0^{q\times r}$；
