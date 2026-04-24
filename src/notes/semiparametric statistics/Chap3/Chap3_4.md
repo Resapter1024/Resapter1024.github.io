@@ -20,7 +20,7 @@ $$
 \mathscr{T} = \{B^{q \times p} S_\theta(Z, \theta_0): B^{q \times p}\in\mathbb{R}^{q\times p} \} $$
 该线性子空间称为**切空间**（Tangent Space）。
 
-在 $\theta=(\beta^\top,\eta^\top)^\top$ 的场合下，定义 $S_\eta(Z,\theta_0)$ 张成的线性子空间为**干扰切空间**（Nuisance Tangent Space），记作 $\Lambda$。事实上，[推论 3.1](/src/notes/semiparametric%20statistics/Chap3/Chap3_2.md#corollary1)所述等价于影响函数 $\varphi_{\hat{\beta}_n}$ 与 $\Lambda$ 正交。
+在 $\theta=(\beta^\top,\eta^\top)^\top$ 的场合下，定义 $S_\eta(Z,\theta_0)$ 张成的线性子空间为**干扰切空间**（Nuisance Tangent Space），记作 $\Lambda$。事实上，[推论 3.1](/notes/semiparametric%20statistics/Chap3/Chap3_2.md#corollary1)所述等价于影响函数 $\varphi_{\hat{\beta}_n}$ 与 $\Lambda$ 正交。
 
 尽管 $\beta$ 的 RAL 估计量的影响函数必须满足推论 3.1，但我们自然会想到反过来，对于 Hillbert 空间中任何一个满足推论 3.1 的元素，是否必定存在一个 $\beta$ 的 RAL 估计量，以该元素作为其影响函数？
 

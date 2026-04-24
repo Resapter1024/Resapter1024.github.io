@@ -23,7 +23,7 @@ $$
 
 :::
 
-事实上 [推论 3.1](/src/notes/semiparametric%20statistics/Chap3/Chap3_2.md#corollary1) 的 (2) 等价于 $\mathcal{H}$ 中的元素 $h(Z)$ 与干扰切空间正交。如果我们想要识别所有与干扰切空间正交的元素，我们可以考虑对所有 $h \in \mathcal{H}$ 构造元素集合 $h - \Pi(h|\Lambda)$，由章节 2 给出的[示例](/src/notes/semiparametric%20statistics/Chap2/Chap2.md#q-维随机函数)，投影算子为：
+事实上 [推论 3.1](/notes/semiparametric%20statistics/Chap3/Chap3_2.md#corollary1) 的 (2) 等价于 $\mathcal{H}$ 中的元素 $h(Z)$ 与干扰切空间正交。如果我们想要识别所有与干扰切空间正交的元素，我们可以考虑对所有 $h \in \mathcal{H}$ 构造元素集合 $h - \Pi(h|\Lambda)$，由章节 2 给出的[示例](/notes/semiparametric%20statistics/Chap2/Chap2.md#q-维随机函数)，投影算子为：
 $$
 \Pi(h|\Lambda) = E(h S_\eta^T)\{E(S_\eta S_\eta^T)\}^{-1} S_\eta(Z, \theta_0)
 $$
@@ -115,12 +115,12 @@ $$
 
 ::: info 影响函数构成的空间位置
 
-所有影响函数的集合（即满足[定理](/src/notes/semiparametric%20statistics/Chap3/Chap3_2.md#theorem)中 $E(\varphi(Z)S^\top_\theta(z;\theta_0))=\Gamma(\theta_0)$ 的 $\mathcal{H}$ 中的元素）是一个线性簇 $\varphi^*(Z) + \mathscr{T}^\perp$，其中 $\varphi^*(Z)$ 是任意一个影响函数，而 $\mathscr{T}^\perp$ 是垂直于切空间的空间。
+所有影响函数的集合（即满足[定理](/notes/semiparametric%20statistics/Chap3/Chap3_2.md#theorem)中所述条件 $E(\varphi(Z)S^\top_\theta(z;\theta_0))=\Gamma(\theta_0)$ 的 $\mathcal{H}$ 中的元素）是一个线性簇 $\varphi^*(Z) + \mathscr{T}^\perp$，其中 $\varphi^*(Z)$ 是任意一个影响函数，而 $\mathscr{T}^\perp$ 是垂直于切空间的空间。
 
 ::: details 证明
 
 任何元素 $l(Z) \in \mathscr{T}^\perp$ 必须满足：
-$$E\{l(Z)S_\theta^T(Z, \theta_0)\} = \mathbf{0}^{q \times p}. \quad (3.33)$$
+$$E\{l(Z)S_\theta^T(Z, \theta_0)\} = \mathbf{0}^{q \times p}.$$
 因此，如果我们取
 $$
 \varphi(Z) = \varphi^*(Z) + l(Z),
@@ -133,9 +133,18 @@ E\{\varphi(Z)S_\theta^T(Z, \theta_0)\} &= E[\{\varphi^*(Z) + l(Z)\} S_\theta^T(Z
 &= \Gamma(\theta_0) + \mathbf{0}^{q \times p} = \Gamma(\theta_0).
 \end{align*}
 $$
-因此，$\varphi(Z)$ 是一个满足定理 3.2 条件 (3.4) 的影响函数。
-反之，如果 $\varphi(Z)$ 是一个满足定理 3.2 条件 (3.4) 的影响函数，那么我们可以将其改写为：
-$$\varphi(Z) = \varphi^*(Z) + \{\varphi(Z) - \varphi^*(Z)\}.$$
-验证 $\{\varphi(Z) - \varphi^*(Z)\} \in \mathscr{T}^\perp$ 是一个简单的练习。
+因此，$\varphi(Z)$ 是一个满足条件的影响函数。
+
+反之，如果 $\varphi(Z)$ 是一个这样的影响函数，那么我们可以将其改写为：
+$$
+\varphi(Z) = \varphi^*(Z) + \{\varphi(Z) - \varphi^*(Z)\}.
+$$
+括号内的部分显然垂直于整个切空间，这是由于
+$$
+E(\varphi(Z) S_\theta^top(z;\theta_0))=E(\varphi^*(Z) S_\theta^top(z;\theta_0))=\Gamma(\theta_0)
+$$
+两式相减立刻得到 $E((\varphi^*(Z)-\varphi(Z)) S_\theta^top(z;\theta_0))=0$，从而 $(\varphi^*(Z)-\varphi(Z)) \perp \mathscr{T}$
 
 :::
+
+## 推导有效影响函数
